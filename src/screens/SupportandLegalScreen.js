@@ -137,16 +137,12 @@ export default function SupportandLegalScreen({ navigation, data }) {
             style={styles.itemContainer}
           >
             <View style={styles.listLeft}>
-              <Image
-                style={{ width: RFValue(30), height: RFValue(30) }}
-                source={require("../assets/icons/faq.png")}
-              />
-
               <Text
                 style={{
                   ...styles.addSubscription,
-                  fontSize: RFValue(17),
-                  marginLeft: RFValue(25),
+                  fontSize: RFValue(12),
+                  marginLeft: RFValue(15),
+                  color: "#000000",
                 }}
               >
                 FAQS
@@ -154,29 +150,53 @@ export default function SupportandLegalScreen({ navigation, data }) {
             </View>
 
             <Entypo
-              style={{ marginLeft: RFValue(10) }}
+              style={{ marginLeft: RFValue(50) }}
               name="chevron-right"
               size={28}
               color="#C3C5D2"
             />
           </TouchableOpacity>
+          <TouchableOpacity
+            onPress={() => navigation.navigate("TermsScreen")}
+            activeOpacity={0.2}
+            style={styles.itemContainer}
+          >
+            <View style={styles.listLeft}>
+              
 
+              <Text
+                style={{
+                  ...styles.addSubscription,
+                  fontSize: RFValue(12),
+                  marginLeft: RFValue(15),
+                  color: "#000000",
+                }}
+              >
+                Terms & Pricacy Policy
+              </Text>
+            </View>
+
+            <Entypo
+              style={{ marginLeft: RFValue(50) }}
+              name="chevron-right"
+              size={28}
+              color="#C3C5D2"
+            />
+          </TouchableOpacity>
           <TouchableOpacity
             onPress={() => navigation.navigate("SupportTicketScreen")}
             activeOpacity={0.2}
             style={styles.itemContainer}
           >
             <View style={styles.listLeft}>
-              <Image
-                style={{ width: RFValue(30), height: RFValue(30) }}
-                source={require("../assets/icons/do.png")}
-              />
+             
 
               <Text
                 style={{
                   ...styles.addSubscription,
-                  fontSize: RFValue(17),
-                  marginLeft: RFValue(25),
+                  fontSize: RFValue(12),
+                  marginLeft: RFValue(15),
+                  color: "#000000",
                 }}
               >
                 Support Ticket
@@ -184,42 +204,14 @@ export default function SupportandLegalScreen({ navigation, data }) {
             </View>
 
             <Entypo
-              style={{ marginLeft: RFValue(10) }}
+              style={{ marginLeft: RFValue(50) }}
               name="chevron-right"
               size={28}
               color="#C3C5D2"
             />
           </TouchableOpacity>
 
-          <TouchableOpacity
-            onPress={() => navigation.navigate("TermsScreen")}
-            activeOpacity={0.2}
-            style={styles.itemContainer}
-          >
-            <View style={styles.listLeft}>
-              <Image
-                style={{ width: RFValue(30), height: RFValue(30) }}
-                source={require("../assets/icons/terms.png")}
-              />
-
-              <Text
-                style={{
-                  ...styles.addSubscription,
-                  fontSize: RFValue(17),
-                  marginLeft: RFValue(25),
-                }}
-              >
-                Terms of Use
-              </Text>
-            </View>
-
-            <Entypo
-              style={{ marginLeft: RFValue(10) }}
-              name="chevron-right"
-              size={28}
-              color="#C3C5D2"
-            />
-          </TouchableOpacity>
+          
 
           <TouchableOpacity
             onPress={() => navigation.navigate("PrivacyPolicyScreen")}
@@ -227,24 +219,22 @@ export default function SupportandLegalScreen({ navigation, data }) {
             style={styles.itemContainer}
           >
             <View style={styles.listLeft}>
-              <Image
-                style={{ width: RFValue(30), height: RFValue(30) }}
-                source={require("../assets/icons/privacy.png")}
-              />
+             
 
               <Text
                 style={{
                   ...styles.addSubscription,
-                  fontSize: RFValue(17),
-                  marginLeft: RFValue(25),
+                  fontSize: RFValue(12),
+                  marginLeft: RFValue(15),
+                  color: "#000000",
                 }}
               >
-                Privacy Policy
+                App Permission
               </Text>
             </View>
 
             <Entypo
-              style={{ marginLeft: RFValue(10) }}
+              style={{ marginLeft: RFValue(50) }}
               name="chevron-right"
               size={28}
               color="#C3C5D2"
@@ -257,16 +247,14 @@ export default function SupportandLegalScreen({ navigation, data }) {
             style={styles.itemContainer}
           >
             <View style={styles.listLeft}>
-              <Image
-                style={{ width: RFValue(30), height: RFValue(30) }}
-                source={require("../assets/icons/account.png")}
-              />
+             
 
               <Text
                 style={{
                   ...styles.addSubscription,
-                  fontSize: RFValue(17),
-                  marginLeft: RFValue(25),
+                  fontSize: RFValue(12),
+                  marginLeft: RFValue(15),
+                  color: "#000000",
                 }}
               >
                 Do Not Sell My Info
@@ -274,7 +262,7 @@ export default function SupportandLegalScreen({ navigation, data }) {
             </View>
 
             <Entypo
-              style={{ marginLeft: RFValue(10) }}
+              style={{ marginLeft: RFValue(50) }}
               name="chevron-right"
               size={28}
               color="#C3C5D2"
@@ -287,25 +275,23 @@ export default function SupportandLegalScreen({ navigation, data }) {
             style={styles.itemContainer}
           >
             <View style={styles.listLeft}>
-              <Image
-                style={{ width: RFValue(30), height: RFValue(30) }}
-                source={require("../assets/icons/danger.png")}
-              />
+             
 
               <Text
                 style={{
                   ...styles.addSubscription,
-                  fontSize: RFValue(17),
-                  marginLeft: RFValue(25),
+                  fontSize: RFValue(12),
+                  marginLeft: RFValue(15),
+                  
                   color: "#FF0203",
                 }}
               >
-                Delete Account
+                Delete My Account
               </Text>
             </View>
 
             <Entypo
-              style={{ marginLeft: RFValue(10) }}
+              style={{ marginLeft: RFValue(50) }}
               name="chevron-right"
               size={28}
               color="#C3C5D2"
@@ -332,7 +318,7 @@ const styles = StyleSheet.create({
   },
   homeHeader: {
     width: WIDTH,
-    height: RFValue(75),
+    height: RFValue(90),
     backgroundColor: "#305A9C",
     justifyContent: "space-between",
     alignItems: "center",
@@ -341,14 +327,14 @@ const styles = StyleSheet.create({
     // paddingTop: Device.STATUS_BAR_HEIGHT + 20,
     paddingTop:
       Platform.OS === "android"
-        ? Device.STATUS_BAR_HEIGHT - 15
+        ? Device.STATUS_BAR_HEIGHT 
         : Device.STATUS_BAR_HEIGHT + 20,
 
     // paddingTop:Platform.OS==='android'?0:RFValue(12),
   },
 
   headerTitle: {
-    fontSize: RFValue(22),
+    fontSize: RFValue(18),
     color: "#fff",
     fontFamily: "Medium",
     // textAlign:"center",
@@ -370,9 +356,8 @@ const styles = StyleSheet.create({
     fontSize: RFValue(18),
   },
   addSubscription: {
-    color: "#8C919F",
-    fontFamily: "Medium",
-    fontSize: RFValue(17),
+    color: "#373737",
+    fontSize: RFValue(13),
   },
   footerText: {
     color: "#8C919F",
@@ -412,10 +397,14 @@ const styles = StyleSheet.create({
   itemContainer: {
     flexDirection: "row",
     alignItems: "center",
-    width: WIDTH - RFValue(50),
+    width: WIDTH - RFValue(20),
+    height:RFValue(40),
     justifyContent: "space-around",
-    marginBottom: RFValue(50),
-    alignSelf: "center",
+    marginBottom: RFValue(10),
+    alignSelf: 'flex-start',
+    backgroundColor:'#F7F9FB',
+    borderTopRightRadius: 10,
+    borderBottomRightRadius: 10,
   },
   listContainer: {
     marginTop: RFValue(35),

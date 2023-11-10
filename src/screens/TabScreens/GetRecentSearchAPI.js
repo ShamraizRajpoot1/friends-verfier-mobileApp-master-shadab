@@ -37,12 +37,20 @@ const GetRecentSearcheAPI = ({ navigation, data }) => {
     <ScrollView>
       <View style={styles.recentSearchUpperContainer}>
         <View style={styles.recentSearchesContainer}>
-          <Feather name="filter" size={20} color="#fff" />
+          <Feather name="filter" size={25} color="rgba(255, 255, 255, 0.7)" />
           <Text style={styles.recentSearchesText}>RECENT SEARCHES</Text>
           <View />
         </View>
 
-        <View style={{ marginTop: RFValue(12) }}>
+        <View
+          style={{
+            marginTop: -1,
+            paddingTop: RFValue(12),
+            borderWidth: 0.5,
+            borderTopWidth: 0,
+            borderColor: "rgba(0, 0, 0, 0.8)",
+          }}
+        >
           {recentSearchesData?.map((item, index) => (
             <RecentSearches
               title={item?.search?.requestObj?.searchType}
@@ -167,7 +175,7 @@ const styles = StyleSheet.create({
   },
   recentSearchesContainer: {
     width: WIDTH - RFValue(30),
-    height: RFValue(40),
+    height: RFValue(30),
     backgroundColor: "#44CE91",
     borderRadius: 2,
     flexDirection: "row",
@@ -178,7 +186,7 @@ const styles = StyleSheet.create({
   },
 
   recentSearchesText: {
-    fontSize: RFValue(20),
+    fontSize: RFValue(16),
     color: "#fff",
     fontFamily: "Medium",
   },
@@ -193,8 +201,7 @@ const styles = StyleSheet.create({
   recentSearchUpperContainer: {
     width: WIDTH - RFValue(30),
     backgroundColor: "#fff",
-
-    marginTop: RFValue(30),
+    marginTop: RFValue(25),
     alignSelf: "center",
     marginBottom: RFValue(100),
   },

@@ -46,7 +46,7 @@ export default function SettingScreen({ navigation }) {
         <Entypo
           onPress={() => navigation.goBack()}
           name="chevron-thin-left"
-          size={24}
+          size={22}
           color="#fff"
         />
 
@@ -67,75 +67,24 @@ export default function SettingScreen({ navigation }) {
           style={styles.itemContainer}
         >
           <View style={styles.listLeft}>
-            <Zocial name="email" size={20} color="#000000" />
+           
 
             <View>
               <Text
                 style={{
                   ...styles.addSubscription,
-                  fontSize: RFValue(14),
-                  marginLeft: RFValue(25),
-                  color: "#000000",
+                  fontSize: RFValue(12),
+                  marginLeft: RFValue(15),
                 }}
               >
                 Email Address
               </Text>
-              <Text
-                style={{
-                  ...styles.addSubscription,
-                  fontSize: RFValue(12),
-                  marginLeft: RFValue(25),
-                  color: "#56606E",
-                  width: "100%",
-                }}
-              >
-                Update your email address
-              </Text>
+             
             </View>
           </View>
 
           <Entypo
-            style={{ marginLeft: RFValue(10) }}
-            name="chevron-right"
-            size={28}
-            color="#C3C5D2"
-          />
-        </TouchableOpacity>
-        <TouchableOpacity
-          onPress={() => navigation.navigate("SettingScreen", { screen: 2 })}
-          activeOpacity={0.2}
-          style={styles.itemContainer}
-        >
-          <View style={styles.listLeft}>
-            <Entypo name="lock" size={20} color="#000000" />
-
-            <View>
-              <Text
-                style={{
-                  ...styles.addSubscription,
-                  fontSize: RFValue(14),
-                  marginLeft: RFValue(25),
-                  color: "#000000",
-                }}
-              >
-                Password
-              </Text>
-              <Text
-                style={{
-                  ...styles.addSubscription,
-                  fontSize: RFValue(12),
-                  marginLeft: RFValue(25),
-                  color: "#56606E",
-                  width: "100%",
-                }}
-              >
-                Update your password
-              </Text>
-            </View>
-          </View>
-
-          <Entypo
-            style={{ marginLeft: RFValue(10) }}
+            style={{ marginLeft: RFValue(50) }}
             name="chevron-right"
             size={28}
             color="#C3C5D2"
@@ -147,40 +96,58 @@ export default function SettingScreen({ navigation }) {
           style={styles.itemContainer}
         >
           <View style={styles.listLeft}>
-            <MaterialIcons name="local-phone" size={20} color="#000000" />
 
             <View>
               <Text
                 style={{
                   ...styles.addSubscription,
-                  fontSize: RFValue(14),
-                  marginLeft: RFValue(25),
-                  color: "#000000",
+                  fontSize: RFValue(12),
+                  marginLeft: RFValue(15),
                 }}
               >
                 Mobile Number
               </Text>
-              <Text
-                style={{
-                  ...styles.addSubscription,
-                  fontSize: RFValue(12),
-                  marginLeft: RFValue(25),
-                  color: "#56606E",
-                  width: "100%",
-                }}
-              >
-                Update your mobile number
-              </Text>
+              
             </View>
           </View>
 
           <Entypo
-            style={{ marginLeft: RFValue(10) }}
+            style={{ marginLeft: RFValue(50) }}
             name="chevron-right"
             size={28}
             color="#C3C5D2"
           />
         </TouchableOpacity>
+        <TouchableOpacity
+          onPress={() => navigation.navigate("SettingScreen", { screen: 2 })}
+          activeOpacity={0.2}
+          style={styles.itemContainer}
+        >
+          <View style={styles.listLeft}>
+
+            <View>
+              <Text
+                style={{
+                  ...styles.addSubscription,
+                  fontSize: RFValue(12),
+                  marginLeft: RFValue(15),
+                  color: "#000000",
+                }}
+              >
+                Password
+              </Text>
+              
+            </View>
+          </View>
+
+          <Entypo
+            style={{ marginLeft: RFValue(50) }}
+            name="chevron-right"
+            size={28}
+            color="#C3C5D2"
+          />
+        </TouchableOpacity>
+        
       </View>
 
       {/* <ScrollView
@@ -295,19 +262,22 @@ const styles = StyleSheet.create({
   itemContainer: {
     flexDirection: "row",
     alignItems: "center",
-    width: WIDTH,
+    width: WIDTH - RFValue(20),
+    height:RFValue(40),
     justifyContent: "space-around",
-    marginBottom: RFValue(50),
-    alignSelf: "center",
+    marginBottom: RFValue(10),
+    alignSelf: 'flex-start',
+    backgroundColor:'#F7F9F9',
+    borderTopRightRadius: 10,
+    borderBottomRightRadius: 10,
   },
   addSubscription: {
-    color: "#8C919F",
-    fontFamily: "Medium",
+    color: "#373737",
     fontSize: RFValue(13),
   },
   homeHeader: {
     width: WIDTH,
-    height: RFValue(75),
+    height: RFValue(90),
     backgroundColor: "#305A9C",
     justifyContent: "space-between",
     alignItems: "center",
@@ -316,14 +286,14 @@ const styles = StyleSheet.create({
     // paddingTop: Device.STATUS_BAR_HEIGHT + 20,
     paddingTop:
       Platform.OS === "android"
-        ? Device.STATUS_BAR_HEIGHT - 15
+        ? Device.STATUS_BAR_HEIGHT 
         : Device.STATUS_BAR_HEIGHT + 20,
 
     // paddingTop:Platform.OS==='android'?0:RFValue(12),
   },
 
   headerTitle: {
-    fontSize: RFValue(22),
+    fontSize: RFValue(18),
     color: "#fff",
     fontFamily: "RegularText",
     // textAlign:"center",

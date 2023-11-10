@@ -181,7 +181,7 @@ function MyTabs() {
         tabStyle: {},
 
         iconStyle: {
-          top: Platform.OS === "android" ? RFValue(10) : RFValue(10),
+          top: Platform.OS === "android" ? RFValue(5) : RFValue(10),
         },
 
         style: {
@@ -189,7 +189,7 @@ function MyTabs() {
           position: "absolute",
           borderTopColor: "#f5f5f5",
           borderTopWidth: 1.5,
-          height: RFValue(78),
+          height: RFValue(65),
           zIndex: 9999,
         },
       }}
@@ -254,9 +254,9 @@ function MyTabs() {
               return (
                 <Image
                   style={{
-                    width: RFValue(60),
-                    height: RFValue(60),
-                    top: 0,
+                    width: RFValue(50),
+                    height: RFValue(50),
+                    top: 5,
                     borderWidth: 4,
                     borderColor: "#C3EED9",
                     borderRadius: 40,
@@ -267,7 +267,7 @@ function MyTabs() {
             else
               return (
                 <Image
-                  style={{ width: RFValue(60), height: RFValue(60), top: 0 }}
+                  style={{ width: RFValue(50), height: RFValue(50), top: 5 }}
                   source={require("../assets/icons/tabicons/middle.png")}
                 />
               );
@@ -311,8 +311,8 @@ function MyTabs() {
             if (focused)
               return (
                 <Image
-                  style={{ width: RFValue(28), height: RFValue(28) }}
-                  source={require("../assets/icons/tabicons/lastactive.png")}
+                  style={{ width: RFValue(25), height: RFValue(25) }}
+                  source={require("../assets/icons/sexoffendertabiconBlue.png")}
                 />
               );
             else
@@ -320,7 +320,7 @@ function MyTabs() {
                 <>
                   <Image
                     style={{ width: RFValue(25), height: RFValue(25) }}
-                    source={require("../assets/icons/logout.png")}
+                    source={require("../assets/icons/sexoffendertabiconGrey.png")}
                   />
                 </>
               );

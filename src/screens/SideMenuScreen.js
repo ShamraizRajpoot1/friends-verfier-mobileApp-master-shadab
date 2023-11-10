@@ -17,6 +17,7 @@ import { Feather, Entypo } from "@expo/vector-icons";
 import { RFValue } from "react-native-responsive-fontsize";
 import { GetStorageItems } from "../utils/AsyncStorage";
 const WIDTH = Dimensions.get("window").width;
+const HIEGHT = Dimensions.get("window").height;
 import { useSelector, useDispatch } from "react-redux";
 import { logOut } from "../redux/action"; // Action function
 import { axiosGETCall } from "../utils/axios.js";
@@ -24,6 +25,7 @@ import { useIsFocused } from "@react-navigation/native";
 import { PermissionsAndroid, Platform } from "react-native";
 import Device from "../../src/constants/device";
 import DeviceInfo from "react-native-device-info";
+import Header from "../components/Header.js";
 
 export default function SideMenuScreen({ navigation }) {
   const userData = useSelector((state) => state?.loginDetails);
@@ -92,6 +94,9 @@ export default function SideMenuScreen({ navigation }) {
       navigation.navigate("InviteDisplayScreen");
     }
   };
+  const back =() =>{
+    navigation.goBack()
+  }
 
   return (
     <View style={styles.container}>
@@ -100,7 +105,9 @@ export default function SideMenuScreen({ navigation }) {
         hidden={false}
         backgroundColor="#305A9C"
       />
-      <View style={styles.homeHeader}>
+      <Header Image={true} Text1={"friend"} Text2={"verifier"} onPress={back}/>
+
+      {/* <View style={styles.homeHeader}>
         <Entypo
           onPress={() => navigation.goBack()}
           name="chevron-thin-left"
@@ -117,12 +124,13 @@ export default function SideMenuScreen({ navigation }) {
         <Pressable>
           <Feather name="menu" size={24} color="#305A9C" />
         </Pressable>
-      </View>
+      </View> */}
 
       <ScrollView
         showsVerticalScrollIndicator={false}
-        contentContainerStyle={{ paddingBottom: RFValue(50) }}
       >
+        <View  style={{justifyContent:'space-between',}}>
+        <View>
         <View style={styles.underHeaderContainer}>
           <View style={styles.monthlyPlan}>
             {!userData?.hasOwnProperty("Authorization") ? (
@@ -138,7 +146,7 @@ export default function SideMenuScreen({ navigation }) {
               </View>
             ) : (
               <>
-                <View style={{ width: "70%" }}>
+                <View style={{ width: "70%", }}>
                   <Text style={styles.freeSearch}>
                     {userData?.data?.isSuperUser
                       ? "Super User"
@@ -221,35 +229,7 @@ export default function SideMenuScreen({ navigation }) {
         </View>
 
         <View style={styles.listContainer}>
-          <TouchableOpacity
-            onPress={() => PermissionAccessFunc()}
-            activeOpacity={0.2}
-            style={styles.itemContainer}
-          >
-            <View style={styles.listLeft}>
-              <Image
-                style={{ width: RFValue(30), height: RFValue(30) }}
-                source={require("../assets/icons/invite.png")}
-              />
-
-              <Text
-                style={{
-                  ...styles.addSubscription,
-                  fontSize: RFValue(17),
-                  marginLeft: RFValue(25),
-                }}
-              >
-                Invite Friends
-              </Text>
-            </View>
-
-            <Entypo
-              style={{ marginLeft: RFValue(10) }}
-              name="chevron-right"
-              size={28}
-              color="#C3C5D2"
-            />
-          </TouchableOpacity>
+          
 
           <TouchableOpacity
             onPress={() => {
@@ -261,14 +241,14 @@ export default function SideMenuScreen({ navigation }) {
             style={styles.itemContainer}
           >
             <View style={styles.listLeft}>
-              <Image
+              {/* <Image
                 style={{ width: RFValue(30), height: RFValue(30) }}
                 source={require("../assets/icons/account.png")}
-              />
+              /> */}
               <Text
                 style={{
                   ...styles.addSubscription,
-                  fontSize: RFValue(17),
+                  fontSize: RFValue(12),
                   marginLeft: RFValue(25),
                 }}
               >
@@ -276,7 +256,7 @@ export default function SideMenuScreen({ navigation }) {
               </Text>
             </View>
             <Entypo
-              style={{ marginLeft: RFValue(10) }}
+              style={{ marginLeft: RFValue(50) }}
               name="chevron-right"
               size={28}
               color="#C3C5D2"
@@ -288,22 +268,22 @@ export default function SideMenuScreen({ navigation }) {
             style={styles.itemContainer}
           >
             <View style={styles.listLeft}>
-              <Image
+              {/* <Image
                 style={{ width: RFValue(30), height: RFValue(30) }}
                 source={require("../assets/icons/notifi.png")}
-              />
+              /> */}
               <Text
                 style={{
                   ...styles.addSubscription,
-                  fontSize: RFValue(17),
+                  fontSize: RFValue(12),
                   marginLeft: RFValue(25),
                 }}
               >
-                Notification
+                Notifications
               </Text>
             </View>
             <Entypo
-              style={{ marginLeft: RFValue(10) }}
+              style={{ marginLeft: RFValue(50) }}
               name="chevron-right"
               size={28}
               color="#C3C5D2"
@@ -315,14 +295,14 @@ export default function SideMenuScreen({ navigation }) {
             style={styles.itemContainer}
           >
             <View style={styles.listLeft}>
-              <Image
+              {/* <Image
                 style={{ width: RFValue(30), height: RFValue(30) }}
                 source={require("../assets/icons/do.png")}
-              />
+              /> */}
               <Text
                 style={{
                   ...styles.addSubscription,
-                  fontSize: RFValue(17),
+                  fontSize: RFValue(12),
                   marginLeft: RFValue(25),
                 }}
               >
@@ -330,7 +310,36 @@ export default function SideMenuScreen({ navigation }) {
               </Text>
             </View>
             <Entypo
-              style={{ marginLeft: RFValue(10) }}
+              style={{ marginLeft: RFValue(50) }}
+              name="chevron-right"
+              size={28}
+              color="#C3C5D2"
+            />
+          </TouchableOpacity>
+          <TouchableOpacity
+            onPress={() => PermissionAccessFunc()}
+            activeOpacity={0.2}
+            style={styles.itemContainer}
+          >
+            <View style={styles.listLeft}>
+              {/* <Image
+                style={{ width: RFValue(30), height: RFValue(30) }}
+                source={require("../assets/icons/invite.png")}
+              /> */}
+
+              <Text
+                style={{
+                  ...styles.addSubscription,
+                  fontSize: RFValue(12),
+                  marginLeft: RFValue(25),
+                }}
+              >
+                Safety Tips
+              </Text>
+            </View>
+
+            <Entypo
+              style={{ marginLeft: RFValue(50) }}
               name="chevron-right"
               size={28}
               color="#C3C5D2"
@@ -342,14 +351,14 @@ export default function SideMenuScreen({ navigation }) {
             style={styles.itemContainer}
           >
             <View style={styles.listLeft}>
-              <Image
+              {/* <Image
                 style={{ width: RFValue(30), height: RFValue(30) }}
                 source={require("../assets/icons/support.png")}
-              />
+              /> */}
               <Text
                 style={{
                   ...styles.addSubscription,
-                  fontSize: RFValue(17),
+                  fontSize: RFValue(12),
                   marginLeft: RFValue(25),
                 }}
               >
@@ -357,7 +366,7 @@ export default function SideMenuScreen({ navigation }) {
               </Text>
             </View>
             <Entypo
-              style={{ marginLeft: RFValue(10) }}
+              style={{ marginLeft: RFValue(50) }}
               name="chevron-right"
               size={28}
               color="#C3C5D2"
@@ -370,14 +379,14 @@ export default function SideMenuScreen({ navigation }) {
               style={styles.itemContainer}
             >
               <View style={styles.listLeft}>
-                <Image
+                {/* <Image
                   style={{ width: RFValue(30), height: RFValue(30) }}
                   source={require("../assets/icons/logout.png")}
-                />
+                /> */}
                 <Text
                   style={{
                     ...styles.addSubscription,
-                    fontSize: RFValue(17),
+                    fontSize: RFValue(12),
                     marginLeft: RFValue(25),
                   }}
                 >
@@ -386,7 +395,7 @@ export default function SideMenuScreen({ navigation }) {
               </View>
 
               <Entypo
-                style={{ marginLeft: RFValue(10) }}
+                style={{ marginLeft: RFValue(50) }}
                 name="chevron-right"
                 size={28}
                 color="#C3C5D2"
@@ -394,13 +403,13 @@ export default function SideMenuScreen({ navigation }) {
             </TouchableOpacity>
           )}
         </View>
-
+        </View>
+                <View style={{marginTop: RFValue(100)}}>
         <Text style={styles.footerText}>
           Friend Verifier Version {DeviceInfo.getVersion()}
         </Text>
-        <Text style={styles.footerText}>
-          Build Version: {DeviceInfo.getBuildNumber()}
-        </Text>
+        </View>
+        </View>
       </ScrollView>
 
       <Modal
@@ -460,7 +469,7 @@ const styles = StyleSheet.create({
   },
   homeHeader: {
     width: WIDTH,
-    height: RFValue(75),
+    height: RFValue(100),
     backgroundColor: "#305A9C",
     justifyContent: "space-between",
     alignItems: "center",
@@ -479,8 +488,8 @@ const styles = StyleSheet.create({
   },
 
   underHeaderContainer: {
-    width: WIDTH - RFValue(30),
-    borderRadius: 2,
+    width: WIDTH - RFValue(50),
+    borderRadius: 6,
     paddingVertical: RFValue(5),
     paddingHorizontal: RFValue(12),
     backgroundColor: "#F7F9FB",
@@ -514,8 +523,7 @@ const styles = StyleSheet.create({
     fontSize: RFValue(18),
   },
   addSubscription: {
-    color: "#8C919F",
-    fontFamily: "Medium",
+    color: "#373737",
     fontSize: RFValue(13),
   },
   footerText: {
@@ -523,17 +531,18 @@ const styles = StyleSheet.create({
     fontFamily: "Medium",
     fontSize: RFValue(12),
     textAlign: "center",
-    marginTop: RFValue(0),
+    
+    alignSelf:'center',
   },
   blueBar: {
-    width: WIDTH - RFValue(55),
+    width: WIDTH - RFValue(75),
     height: RFValue(8),
     backgroundColor: "#315A9C",
     alignSelf: "center",
     marginTop: RFValue(10),
   },
   earnCheckButton: {
-    width: WIDTH - RFValue(55),
+    width: WIDTH - RFValue(75),
     height: RFValue(50),
     backgroundColor: "transparent",
     justifyContent: "center",
@@ -556,13 +565,17 @@ const styles = StyleSheet.create({
   itemContainer: {
     flexDirection: "row",
     alignItems: "center",
-    width: WIDTH - RFValue(50),
+    width: WIDTH - RFValue(30),
+    height:RFValue(40),
     justifyContent: "space-around",
-    marginBottom: RFValue(50),
-    alignSelf: "center",
+    marginBottom: RFValue(10),
+    alignSelf: 'flex-start',
+    backgroundColor:'#F7F9F9',
+    borderTopRightRadius: 10,
+    borderBottomRightRadius: 10,
   },
   listContainer: {
-    marginTop: RFValue(35),
+    marginTop: RFValue(25),
   },
   modalContainer: {
     width: WIDTH,

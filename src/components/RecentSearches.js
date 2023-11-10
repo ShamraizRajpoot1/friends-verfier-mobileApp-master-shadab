@@ -70,11 +70,12 @@ export default function RecentSearches(props) {
           </Text>
         )}
       </View>
-
+        <View  style={styles.searchBigIcons}>
       <Image
         style={styles.searchBigIcon}
-        source={require("../assets/icons/searchbig.png")}
+        source={require("../assets/icons/eye2.png")}
       />
+      </View>
     </TouchableOpacity>
   );
 }
@@ -82,7 +83,6 @@ export default function RecentSearches(props) {
 const styles = StyleSheet.create({
   recentSearchContainer: {
     width: WIDTH - RFValue(52),
-
     alignSelf: "center",
     backgroundColor: "#fff",
     borderWidth: 1,
@@ -91,15 +91,15 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     alignItems: "center",
     paddingHorizontal: RFValue(10),
-    marginBottom: RFValue(10),
+    marginBottom: RFValue(8),
     justifyContent: "space-between",
     paddingTop: RFValue(12),
     paddingBottom: RFValue(12),
   },
 
   title: {
-    fontSize: RFValue(13),
-    color: "#000",
+    fontSize: RFValue(11),
+    color: "rgba(0, 0, 0, 0.8)",
     fontFamily: "SemiBold",
     marginBottom: RFValue(5),
   },
@@ -109,9 +109,17 @@ const styles = StyleSheet.create({
     fontSize: RFValue(11),
     fontFamily: "RegularText",
   },
+  searchBigIcons: {
+    backgroundColor:'#DEDEDE',
+    alignItems:'center',
+    justifyContent:'center',
+    width: RFValue(35),
+    height: RFValue(35),
+    borderRadius: 12,
+  },
   searchBigIcon: {
-    width: RFValue(40),
-    height: RFValue(40),
+    width: RFValue(23),
+    height: RFValue(20),
   },
 });
 

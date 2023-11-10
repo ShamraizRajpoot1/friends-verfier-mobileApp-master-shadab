@@ -25,7 +25,7 @@ import PhoneInput from "react-native-phone-number-input";
 const WIDTH = Dimensions.get("window").width;
 export default function SettingScreen({ navigation, route }) {
   const phoneInput = React.useRef(null);
-  const [County, setCounty] = React.useState("+1");
+  const [County, setCounty] = React.useState("");
 
   const { screen } = route?.params;
   const [emailState, onChangeEmail] = useState("");
@@ -231,18 +231,18 @@ export default function SettingScreen({ navigation, route }) {
         <Entypo
           onPress={() => navigation.goBack()}
           name="chevron-thin-left"
-          size={24}
+          size={22}
           color="#fff"
         />
 
         <Text style={styles.headerTitle}>
           <Text style={{ ...styles.headerTitle, fontFamily: "SemiBold" }}>
             {screen == 1
-              ? "Email"
+              ? "Change Email"
               : screen == 2
-              ? "Password"
+              ? "Change Password"
               : screen == 3
-              ? "Mobile Number"
+              ? "Change Phone"
               : null}
           </Text>
         </Text>
@@ -256,20 +256,29 @@ export default function SettingScreen({ navigation, route }) {
         contentContainerStyle={{ paddingBottom: RFValue(50) }}
       >
         <View style={{ alignSelf: "center" }}>
-          <Text style={styles.updateText}>
-            {screen == 1
-              ? "Update Email Address"
-              : screen == 2
-              ? "Update Password"
-              : screen == 3
-              ? "Update Mobile Number"
-              : null}
-          </Text>
+          
 
           {screen == 1 && (
-            <>
+            <View style={{marginTop: RFValue(30),}}>
+            <Text style={styles.updateText}>
+            Current Email Address
+          </Text>
+             <View style={styles.textinputCOntainer}>
+               
+                <TextInput
+                  style={[styles.input,{marginLeft: RFValue(0)}]}
+                  onChangeText={onChangeEmail}
+                  value={emailState}
+                  placeholder="name@domain.com"
+                  autoCapitalize={false}
+                />
+                <Image source={require('../assets/icons/password.png')} style={{width:RFValue(10),height:RFValue(12)}} />
+              </View>
+              <Text style={styles.updateText}>
+            New Email Address
+          </Text>
               <View style={styles.textinputCOntainer}>
-                <Zocial name="email" size={20} color="#000000" />
+                <Image source={require('../assets/icons/emails.png')} style={styles.email}/>
 
                 {/* <Image
                   style={styles.icon}
@@ -279,30 +288,36 @@ export default function SettingScreen({ navigation, route }) {
                   style={styles.input}
                   onChangeText={onChangeEmail}
                   value={emailState}
-                  placeholder="Current Email"
+                  placeholder="New Email Address"
                   autoCapitalize={false}
                 />
               </View>
-              <View style={styles.textinputCOntainer}>
+              <Text style={styles.updateText}>
+            Confirm New Email Address
+          </Text>
+              <View style={[styles.textinputCOntainer,{marginBottom: RFValue(67),}]}>
                 {/* <Image
                   style={styles.icon}
                   source={require("../assets/icons/password.png")}
                 /> */}
-                <Zocial name="email" size={20} color="#000000" />
+               <Image source={require('../assets/icons/emails.png')} style={styles.email}/>
 
                 <TextInput
                   style={styles.input}
                   onChangeText={onChangeNewEmail}
                   value={newemail}
-                  placeholder="New Email"
+                  placeholder="Confirm New Email Address"
                   autoCapitalize={false}
                 />
               </View>
-            </>
+              </View>
           )}
 
           {screen == 2 && (
-            <>
+            <View style={{marginTop: RFValue(30)}}>
+            <Text style={styles.updateText}>
+            Current Password
+          </Text>
               <View style={styles.textinputCOntainer}>
                 <Image
                   style={styles.icon}
@@ -315,7 +330,7 @@ export default function SettingScreen({ navigation, route }) {
                   placeholder="Old Password"
                   secureTextEntry={eyeOldPassword}
                 />
-                <TouchableOpacity
+                {/* <TouchableOpacity
                   onPress={() => setEyeOldPassword(!eyeOldPassword)}
                 >
                   <Image
@@ -326,9 +341,11 @@ export default function SettingScreen({ navigation, route }) {
                         : require("../assets/icons/eye.png")
                     }
                   />
-                </TouchableOpacity>
+                </TouchableOpacity> */}
               </View>
-
+              <Text style={styles.updateText}>
+          New Password
+          </Text>
               <View style={styles.textinputCOntainer}>
                 <Image
                   style={styles.icon}
@@ -341,7 +358,7 @@ export default function SettingScreen({ navigation, route }) {
                   placeholder="New Password"
                   secureTextEntry={eyeNewPassword}
                 />
-                <TouchableOpacity
+                {/* <TouchableOpacity
                   onPress={() => setEyeNewPassword(!eyeNewPassword)}
                 >
                   <Image
@@ -352,10 +369,12 @@ export default function SettingScreen({ navigation, route }) {
                         : require("../assets/icons/eye.png")
                     }
                   />
-                </TouchableOpacity>
+                </TouchableOpacity> */}
               </View>
-
-              <View style={styles.textinputCOntainer}>
+              <Text style={styles.updateText}>
+         Confirm New Password
+          </Text>
+              <View style={[styles.textinputCOntainer,{marginBottom: RFValue(57),}]}>
                 <Image
                   style={styles.icon}
                   source={require("../assets/icons/password.png")}
@@ -367,7 +386,7 @@ export default function SettingScreen({ navigation, route }) {
                   placeholder="Confirm New Password"
                   secureTextEntry={eyeConfirmPassword}
                 />
-                <TouchableOpacity
+                {/* <TouchableOpacity
                   onPress={() => setEyeConfirmPassword(!eyeConfirmPassword)}
                 >
                   <Image
@@ -378,50 +397,66 @@ export default function SettingScreen({ navigation, route }) {
                         : require("../assets/icons/eye.png")
                     }
                   />
-                </TouchableOpacity>
+                </TouchableOpacity> */}
               </View>
-            </>
+              </View>
           )}
 
           {screen == 3 && (
-            <>
+           <View style={{marginTop: RFValue(30)}}>
+            <Text style={styles.updateText}>
+            Current Phone Number
+          </Text>
+             <View style={styles.textinputCOntainer}>
+               
+                <TextInput
+                  style={[styles.input,{marginLeft: RFValue(0)}]}
+                  onChangeText={onChangeEmail}
+                  value={emailState}
+                  placeholder="(000) 000 - 0000"
+                  autoCapitalize={false}
+                />
+                <Image source={require('../assets/icons/password.png')} style={{width:RFValue(10),height:RFValue(12)}} />
+              </View>
               <View style={{ marginBottom: 40 }}>
-                <PhoneInput
-                  keyboardType="numeric"
-                  ref={phoneInput}
-                  // defaultValue={phone}
-                  // value={phone}
-                  defaultCode="US"
-                  layout="first"
-                  textInputProps={{ placeholderTextColor: "#000" }}
-                  placeholder="  (000)   000   000"
-                  codeTextStyle={{ color: "#092058", fontFamily: "SemiBold" }}
-                  containerStyle={{
-                    borderRadius: 12,
-                    height: RFValue(59),
-                    marginTop: RFValue(70),
-                    backgroundColor: "#FBFBFB",
-                    borderWidth: 1,
-                    borderColor: "#BBB9CB",
-                    alignSelf: "center",
-                    width: WIDTH - RFValue(50),
-                  }}
-                  disableArrowIcon
-                  autoFocus
-                  textContainerStyle={{
-                    backgroundColor: "#FBFBFB",
-                    marginLeft: -10,
-                    borderLeftWidth: 1,
-                    borderTopRightRadius: 10,
-                    borderBottomRightRadius: 10,
-                    borderLeftColor: "#BBB9CB",
-                  }}
-                  textInputStyle={{
-                    color: "#000",
-                    height: RFValue(59),
-                    fontSize: RFValue(16),
-                    fontFamily: "SemiBold",
-                  }}
+              <Text style={styles.Text}>
+            Please confirm your mobile{"\n"}number. We ask you to do so, to{"\n"}prevent bots.
+          </Text>
+              <PhoneInput
+            keyboardType="numeric"
+            ref={phoneInput}
+            defaultCode="US"
+            layout="first"
+            textInputProps={{ placeholderTextColor: "#000" }}
+            placeholder="  (000)   000   000"
+            codeTextStyle={{ color: "#092058", fontFamily: "SemiBold" }}
+            containerStyle={{
+              borderRadius: 12,
+              height: RFValue(59),
+              marginTop: RFValue(20),
+              marginBottom: RFValue(20),
+              backgroundColor: "#FBFBFB",
+             
+              alignSelf: "center",
+              width: WIDTH - RFValue(50),
+              paddingVertical: RFValue(5),
+            }}
+            disableArrowIcon
+            autoFocus
+            textContainerStyle={{
+              backgroundColor: "#FBFBFB",
+              marginLeft: -10,
+              borderLeftWidth: 1,
+              borderTopRightRadius: 15,
+              borderBottomRightRadius: 15,
+              borderLeftColor: "#BBB9CB",
+            }}
+            textInputStyle={{
+              color: "#000",
+              height: RFValue(59),
+              fontSize: RFValue(16),
+              fontFamily: "SemiBold",
+            }}
                   onChangeText={(verificationCode) => {
                     setMobileNumberState(verificationCode);
                   }}
@@ -430,7 +465,7 @@ export default function SettingScreen({ navigation, route }) {
                   }}
                 />
               </View>
-            </>
+              </View>
           )}
 
           <TouchableOpacity
@@ -447,11 +482,11 @@ export default function SettingScreen({ navigation, route }) {
           >
             <Text style={styles.loginButtonText}>
               {screen == 1
-                ? "Update New Email"
+                ? "Send Code"
                 : screen == 2
-                ? "Update New Password"
+                ? "Save"
                 : screen == 3
-                ? "Update New Mobile"
+                ? "Send SMS"
                 : null}
             </Text>
           </TouchableOpacity>
@@ -466,10 +501,13 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: "#fff",
   },
-
+  email:{
+    height: RFValue(16),
+    width:RFValue(16)
+  },
   homeHeader: {
     width: WIDTH,
-    height: RFValue(75),
+    height: RFValue(90),
     backgroundColor: "#305A9C",
     justifyContent: "space-between",
     alignItems: "center",
@@ -478,14 +516,14 @@ const styles = StyleSheet.create({
     // paddingTop: Device.STATUS_BAR_HEIGHT + 20,
     paddingTop:
       Platform.OS === "android"
-        ? Device.STATUS_BAR_HEIGHT - 15
+        ? Device.STATUS_BAR_HEIGHT 
         : Device.STATUS_BAR_HEIGHT + 20,
 
     // paddingTop:Platform.OS==='android'?0:RFValue(12),
   },
 
   headerTitle: {
-    fontSize: RFValue(22),
+    fontSize: RFValue(16),
     color: "#fff",
     fontFamily: "RegularText",
     // textAlign:"center",
@@ -501,14 +539,14 @@ const styles = StyleSheet.create({
 
   textinputCOntainer: {
     width: WIDTH - RFValue(40),
-    height: RFValue(50),
+    height: RFValue(40),
     alignSelf: "center",
     backgroundColor: "#EEEEEE",
     borderRadius: 16,
     flexDirection: "row",
     alignItems: "center",
     paddingHorizontal: RFValue(25),
-    marginBottom: RFValue(25),
+    marginBottom: RFValue(17),
     shadowColor: "#000",
     shadowOffset: {
       width: 0,
@@ -527,7 +565,7 @@ const styles = StyleSheet.create({
     height: RFValue(13),
   },
   input: {
-    width: WIDTH - RFValue(120),
+    width: WIDTH - RFValue(90),
     height: RFValue(50),
     marginLeft: RFValue(12),
     fontSize: RFValue(14),
@@ -567,16 +605,23 @@ const styles = StyleSheet.create({
     marginTop: RFValue(15),
   },
   updateText: {
-    fontSize: RFValue(15),
-    fontFamily: "SemiBold",
-    color: "#757575",
-    marginLeft: RFValue(8),
-    marginTop: RFValue(30),
-    marginBottom: 30,
+    fontSize: RFValue(12),
+    color: "rgba(0,0,0,0.7)",
+    marginLeft: RFValue(0),
+    marginBottom: RFValue(8),
+    fontFamily: "RegularText",
+  },
+  Text: {
+    marginTop: RFValue(35),
+    fontSize: RFValue(16),
+    color: "rgba(0,0,0,1)",
+    marginLeft: RFValue(0),
+    marginBottom: RFValue(8),
+    fontFamily: "RegularText",
   },
   loginButtonContainer: {
     width: WIDTH - RFValue(40),
-    height: RFValue(50),
+    height: RFValue(42),
     alignSelf: "center",
     backgroundColor: "#305A9C",
     justifyContent: "center",
@@ -594,7 +639,7 @@ const styles = StyleSheet.create({
   },
   loginButtonText: {
     color: "#fff",
-    fontSize: RFValue(16),
+    fontSize: RFValue(14),
     fontFamily: "RegularText",
   },
 

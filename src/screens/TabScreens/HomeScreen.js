@@ -416,7 +416,6 @@ export default function HomeScreen({ navigation, route }) {
         </Pressable>
       </View>
       <ScrollView
-        contentContainerStyle={{ paddingBottom: 50 }}
         showsVerticalScrollIndicator={false}
       >
         {!userData?.hasOwnProperty("Authorization") && (
@@ -512,7 +511,7 @@ export default function HomeScreen({ navigation, route }) {
                       style={styles.stateInput}
                       placeholder="All States"
                       onSelectedStyle={{
-                        fontSize: RFValue(14),
+                        fontSize: RFValue(12),
                         color: "#000",
                         fontFamily: "RegularText",
                       }}
@@ -633,7 +632,6 @@ export default function HomeScreen({ navigation, route }) {
 
 const styles = StyleSheet.create({
   inputAndSeachBtnContainer: {
-    minHeight: 350,
   },
   container: {
     flex: 1,
@@ -651,9 +649,8 @@ const styles = StyleSheet.create({
 
   homeHeader: {
     width: WIDTH,
-    height: RFValue(100),
+    height: RFValue(90),
     backgroundColor: "#305A9C",
-    // alignItems: "center",
     paddingHorizontal: RFValue(20),
     flexDirection: "row",
     justifyContent: "space-between",
@@ -685,7 +682,7 @@ const styles = StyleSheet.create({
   },
   textinputCOntainer: {
     width: WIDTH - RFValue(24),
-    height: RFValue(50),
+    height: RFValue(38),
     alignSelf: "center",
     backgroundColor: "#fff",
     borderWidth: 1,
@@ -693,8 +690,8 @@ const styles = StyleSheet.create({
     borderRadius: 2,
     flexDirection: "row",
     alignItems: "center",
-    paddingHorizontal: RFValue(10),
-    marginBottom: RFValue(10),
+   paddingHorizontal: RFValue(5),
+    marginBottom: RFValue(7),
     shadowColor: "#000",
     shadowOffset: {
       width: 0,
@@ -709,26 +706,27 @@ const styles = StyleSheet.create({
     marginTop: RFValue(30),
   },
   input: {
-    width: WIDTH - RFValue(80),
-    height: RFValue(50),
+    width: WIDTH - RFValue(65),
+    height: RFValue(40),
     marginLeft: RFValue(5),
-    fontSize: RFValue(14),
+    fontSize: RFValue(12),
     fontFamily: "RegularText",
     color: "#000",
   },
 
   stateInput: {
-    width: WIDTH - RFValue(80),
+    width: WIDTH - RFValue(62),
 
-    fontSize: RFValue(14),
+    fontSize: RFValue(12),
     fontFamily: "RegularText",
     color: "#000",
   },
 
   crossButton: {
-    width: RFValue(28),
-    height: RFValue(28),
+    width: RFValue(23),
+    height: RFValue(23),
     borderRadius: 20,
+    
     justifyContent: "center",
     alignItems: "center",
     backgroundColor: "#DEDEDE",
@@ -737,12 +735,12 @@ const styles = StyleSheet.create({
     marginTop: RFValue(15),
   },
   icon:{
-    height: RFValue(25),
+    height: RFValue(20),
     width: RFValue(20),
   },
   searchButton: {
-    width: WIDTH - RFValue(85),
-    height: RFValue(50),
+    width: WIDTH - RFValue(75),
+    height: RFValue(40),
     backgroundColor: "#305A9C",
     justifyContent: "center",
     alignItems: "center",
@@ -767,8 +765,8 @@ const styles = StyleSheet.create({
     height: RFValue(20),
   },
   filterButtonContainer: {
-    width: RFValue(50),
-    height: RFValue(50),
+    width: RFValue(40),
+    height: RFValue(40),
     borderRadius: 2,
     justifyContent: "center",
     alignItems: "center",

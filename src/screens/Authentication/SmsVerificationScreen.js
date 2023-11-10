@@ -178,7 +178,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
     paddingTop:
       Platform.OS === "android"
-        ? Device.STATUS_BAR_HEIGHT - 15
+        ? Device.STATUS_BAR_HEIGHT 
         : Device.STATUS_BAR_HEIGHT + 20,
   },
   emailVerificationText: {

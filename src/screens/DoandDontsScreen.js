@@ -7,6 +7,7 @@ import {
   ScrollView,
   Pressable,
   Platform,
+  Image,
 } from "react-native";
 import React, { useState } from "react";
 import { Entypo, Feather } from "@expo/vector-icons";
@@ -105,7 +106,7 @@ export default function DoandDOntsScreen({ navigation }) {
 
         <Text style={styles.headerTitle}>
           <Text style={{ ...styles.headerTitle, fontFamily: "SemiBold" }}>
-            DO's & Don'ts
+            Do's & Don'ts
           </Text>
         </Text>
         <Pressable>
@@ -119,51 +120,145 @@ export default function DoandDOntsScreen({ navigation }) {
           paddingBottom: RFValue(50),
         }}
       >
-        <View style={{ paddingHorizontal: 20 }}>
+        <View style={{ marginHorizontal:RFValue(25),marginRight:RFValue(40) }}>
           <Text style={styles.topText}>Do's</Text>
-          <View style={{ marginTop: RFValue(40) }}>
+          <View style={{ marginTop: RFValue(20) }}>
+            <View style={styles.heading}>
+              <Image source={require('../assets/icons/Dos.png')} style={styles.do}/>
             <Text style={styles.title}>Look yourself up</Text>
-
+            </View>
+            <View style={styles.paragraph}>
             <Text style={styles.subtitle}>
-              You may think looking yourself up is{"\n"}laughable, but it is
-              not; it is crucial.{"\n"}You should know what information is in
-              {"\n"}your public record.
+              You may think looking yourself up is laughable, but it {"\n"}is
+              not; it is crucial. You should know what information {"\n"}is in your public record.
+            </Text>
+            </View>
+          </View>
+          <View style={{ marginTop: RFValue(20) }}>
+          <View style={styles.heading}>
+              <Image source={require('../assets/icons/Dos.png')} style={styles.do}/>
+              <Text style={styles.title}>
+              Who did you just matched with?
+            </Text>
+            </View>
+            
+            <View style={styles.paragraph}>
+            <Text style={styles.subtitle}>
+              Dating now starts nearly 90% of the time online. {"\n"}Looking up
+              that new match before meeting them in {"\n"}person would be
+              best. Your safety should always be {"\n"}your first priority; it's
+              even more important than Taco {"\n"}Tuesday.
             </Text>
           </View>
-          <View style={{ marginTop: RFValue(40) }}>
-            <Text style={styles.title}>
-              Who is that person you just matched{"\n"}with?
-            </Text>
-
+          </View>
+          <View style={{ marginTop: RFValue(20) }}>
+          <View style={styles.heading}>
+              <Image source={require('../assets/icons/Dos.png')} style={styles.do}/>
+              <Text style={styles.title}>Find out who's calling you</Text>
+            </View>
+            
+            <View style={styles.paragraph}>
             <Text style={styles.subtitle}>
-              Dating now starts nearly 90% of the{"\n"}time online. Looking up
-              that new{"\n"}match before meeting them in person{"\n"}would be
-              best. Your safety should{"\n"}always be your first priority; it's
-              even{"\n"}more important than Taco Tuesday.
+              Not sure who is behind that phone number that {"\n"}keeps calling
+              you? Run a reverse phone search and find out.
             </Text>
           </View>
-
-          <View style={{ marginTop: RFValue(40) }}>
-            <Text style={styles.title}>Find old friends and family</Text>
-
+          </View>
+          <View style={{ marginTop: RFValue(20) }}>
+          <View style={styles.heading}>
+              <Image source={require('../assets/icons/Dos.png')} style={styles.do}/>
+              <Text style={styles.title}>Find old friends and family</Text>
+            </View>
+           
+            <View style={styles.paragraph}>
             <Text style={styles.subtitle}>
-              Life takes us all in different directions;{"\n"}
-              searching through our billions of{"\n"}public records is a great
-              way to{"\n"}reconnect with people, whether it's{"\n"}friends from
-              ages ago, distant{"\n"}relatives, or a long-lost significant{"\n"}
+              Life takes us all in different directions;
+              searching {"\n"}through our billions of public records is a great
+              way {"\n"}to reconnect with people, whether it's friends from{"\n"}
+              ages ago, distant relatives, or a long-lost significant{"\n"}
               other!
             </Text>
           </View>
-
-          <View style={{ marginTop: RFValue(40) }}>
-            <Text style={styles.title}>Find out who's calling you</Text>
-
+          </View>
+          <View style={{ marginTop: RFValue(20) }}>
+          <View style={styles.heading}>
+              <Image source={require('../assets/icons/Dos.png')} style={styles.do}/>
+              <Text style={styles.title}>Find old friends and family</Text>
+            </View>
+           
+            <View style={styles.paragraph}>
             <Text style={styles.subtitle}>
-              Not sure who is behind that phone{"\n"}number that keeps calling
-              you? Run a{"\n"}
-              reverse phone search and find out.{"\n"}
-              Find out who's emailing you
+              Life takes us all in different directions;
+              searching {"\n"}through our billions of public records is a great
+              way {"\n"}to reconnect with people, whether it's friends from{"\n"}
+              ages ago, distant relatives, or a long-lost significant{"\n"}
+              other!
             </Text>
+          </View>
+          </View>
+          <View style={{ marginTop: RFValue(20) }}>
+          <View style={styles.heading}>
+              <Image source={require('../assets/icons/Dos.png')} style={styles.do}/>
+              <Text style={styles.title}>Find old friends and family</Text>
+            </View>
+           
+            <View style={styles.paragraph}>
+            <Text style={styles.subtitle}>
+              Life takes us all in different directions;
+              searching {"\n"}through our billions of public records is a great
+              way {"\n"}to reconnect with people, whether it's friends from{"\n"}
+              ages ago, distant relatives, or a long-lost significant{"\n"}
+              other!
+            </Text>
+          </View>
+          </View>
+          <View style={{ marginTop: RFValue(20) }}>
+          <View style={styles.heading}>
+              <Image source={require('../assets/icons/Dos.png')} style={styles.do}/>
+              <Text style={styles.title}>Find old friends and family</Text>
+            </View>
+           
+            <View style={styles.paragraph}>
+            <Text style={styles.subtitle}>
+              Life takes us all in different directions;
+              searching {"\n"}through our billions of public records is a great
+              way {"\n"}to reconnect with people, whether it's friends from{"\n"}
+              ages ago, distant relatives, or a long-lost significant{"\n"}
+              other!
+            </Text>
+          </View>
+          </View>
+          <View style={{ marginTop: RFValue(20) }}>
+          <View style={styles.heading}>
+              <Image source={require('../assets/icons/Dos.png')} style={styles.do}/>
+              <Text style={styles.title}>Find old friends and family</Text>
+            </View>
+           
+            <View style={styles.paragraph}>
+            <Text style={styles.subtitle}>
+              Life takes us all in different directions;
+              searching {"\n"}through our billions of public records is a great
+              way {"\n"}to reconnect with people, whether it's friends from{"\n"}
+              ages ago, distant relatives, or a long-lost significant{"\n"}
+              other!
+            </Text>
+          </View>
+          </View>
+          <View style={{ marginTop: RFValue(20) }}>
+          <View style={styles.heading}>
+              <Image source={require('../assets/icons/Dos.png')} style={styles.do}/>
+              <Text style={styles.title}>Find old friends and family</Text>
+            </View>
+           
+            <View style={styles.paragraph}>
+            <Text style={styles.subtitle}>
+              Life takes us all in different directions;
+              searching {"\n"}through our billions of public records is a great
+              way {"\n"}to reconnect with people, whether it's friends from{"\n"}
+              ages ago, distant relatives, or a long-lost significant{"\n"}
+              other!
+            </Text>
+          </View>
           </View>
         </View>
 
@@ -188,10 +283,32 @@ const styles = StyleSheet.create({
     backgroundColor: "#fff",
     alignItems: "center",
   },
+heading:{
+  backgroundColor:'#F5F5F5',
+  width: WIDTH-RFValue(50),
+  height: RFValue(28),
+  flexDirection:'row',
+  borderRadius: 10,
+  alignItems:'center',
+  paddingLeft:RFValue(12)
+},
+do:{
+  width:RFValue(12),
+  height:RFValue(12),
+  marginRight:RFValue(5)
+},
+paragraph:{
+  backgroundColor:"#FFFFFF",
+  elevation:9,
+  height: RFValue(90),
+  paddingHorizontal:RFValue(12),
+  marginTop: RFValue(10),
+  borderRadius: 10,
+},
 
   homeHeader: {
     width: WIDTH,
-    height: RFValue(75),
+    height: RFValue(90),
     backgroundColor: "#305A9C",
     justifyContent: "space-between",
     alignItems: "center",
@@ -200,14 +317,14 @@ const styles = StyleSheet.create({
     // paddingTop: Device.STATUS_BAR_HEIGHT + 20,
     paddingTop:
       Platform.OS === "android"
-        ? Device.STATUS_BAR_HEIGHT - 15
+        ? Device.STATUS_BAR_HEIGHT 
         : Device.STATUS_BAR_HEIGHT + 20,
 
     // paddingTop:Platform.OS==='android'?0:RFValue(12)
   },
 
   headerTitle: {
-    fontSize: RFValue(22),
+    fontSize: RFValue(18),
     color: "#fff",
     fontFamily: "RegularText",
     // textAlign:"center",
@@ -215,23 +332,22 @@ const styles = StyleSheet.create({
   },
   topText: {
     fontFamily: "Heavy",
-    fontSize: RFValue(36),
+    fontSize: RFValue(22),
     color: "#000",
     alignSelf: "center",
     marginTop: RFValue(22),
   },
 
   title: {
-    fontSize: RFValue(15),
+    fontSize: RFValue(14),
     color: "#000",
-    textDecorationLine: "underline",
-    fontFamily: "RegularText",
+    fontFamily: "SemiBold",
     // marginLeft: RFValue(40),
   },
   subtitle: {
-    fontSize: RFValue(15),
+    fontSize: RFValue(10),
     color: "#000",
-    fontFamily: "Medium",
+    fontFamily: "RegularText",
     textAlign: "left",
     // marginLeft: RFValue(40),
     marginTop: RFValue(10),
