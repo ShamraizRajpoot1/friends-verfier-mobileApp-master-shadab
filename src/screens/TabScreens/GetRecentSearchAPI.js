@@ -48,7 +48,7 @@ const GetRecentSearcheAPI = ({ navigation, data }) => {
             paddingTop: RFValue(12),
             borderWidth: 0.5,
             borderTopWidth: 0,
-            borderColor: "rgba(0, 0, 0, 0.8)",
+            borderColor: "rgba(0, 0, 0, 0.2)",
           }}
         >
           {recentSearchesData?.map((item, index) => (
@@ -174,7 +174,7 @@ const styles = StyleSheet.create({
     marginLeft: RFValue(15),
   },
   recentSearchesContainer: {
-    width: WIDTH - RFValue(30),
+    width: WIDTH - RFValue(25),
     height: RFValue(30),
     backgroundColor: "#44CE91",
     borderRadius: 2,
@@ -186,7 +186,7 @@ const styles = StyleSheet.create({
   },
 
   recentSearchesText: {
-    fontSize: RFValue(16),
+    fontSize: RFValue(15),
     color: "#fff",
     fontFamily: "Medium",
   },
@@ -199,7 +199,7 @@ const styles = StyleSheet.create({
     marginTop: 50,
   },
   recentSearchUpperContainer: {
-    width: WIDTH - RFValue(30),
+    width: WIDTH - RFValue(26),
     backgroundColor: "#fff",
     marginTop: RFValue(25),
     alignSelf: "center",

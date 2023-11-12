@@ -16,7 +16,7 @@ import React, { useState } from "react";
 import { Entypo, Feather } from "@expo/vector-icons";
 import { RFValue } from "react-native-responsive-fontsize";
 import Device from "../../src/constants/device";
-
+import Header from '../components/Header'
 const WIDTH = Dimensions.get("window").width;
 export default function NotificationScreen({ navigation }) {
   const [pasuseall, setPauseAll] = React.useState(false);
@@ -30,6 +30,10 @@ export default function NotificationScreen({ navigation }) {
   const [pasuseallEmail, setPauseAllEMail] = React.useState(false);
   const [pasuseallSms, setPauseAllSms] = React.useState(false);
 
+  const back = ()=>{
+    navigation.goBack();
+  }
+
   return (
     <View style={styles.container}>
       <StatusBar
@@ -37,7 +41,8 @@ export default function NotificationScreen({ navigation }) {
         hidden={false}
         backgroundColor="#305A9C"
       />
-      <View style={styles.homeHeader}>
+      <Header  Image={true} onPress={back} Text1={"friend"} Text2={"verifier"} />
+      {/* <View style={styles.homeHeader}>
         <Entypo
           onPress={() => navigation.goBack()}
           name="chevron-thin-left"
@@ -53,16 +58,16 @@ export default function NotificationScreen({ navigation }) {
         <Pressable>
           <Feather name="menu" size={24} color="#305A9C" />
         </Pressable>
-      </View>
+      </View> */}
 
       <ScrollView
         showsVerticalScrollIndicator={false}
         contentContainerStyle={{ paddingBottom: RFValue(50) }}
       >
-        <View style={styles.pushNotificationsontainer}>
+        <View style={[styles.pushNotificationsontainer,{marginTop: RFValue(10),}]}>
           <Text style={styles.pushNotificationText}>Push Notifications</Text>
 
-          <View style={{ marginTop: RFValue(20) }}>
+          {/* <View style={{ marginTop: RFValue(20) }}>
             <View style={styles.individualListIte}>
               <Text style={styles.listText}>Pause All</Text>
               <Switch
@@ -72,11 +77,11 @@ export default function NotificationScreen({ navigation }) {
               />
             </View>
             <View style={styles.seprator} />
-          </View>
+          </View> */}
 
-          <View style={{ marginTop: RFValue(20) }}>
+          <View style={{ marginTop: RFValue(10) }}>
             <View style={styles.individualListIte}>
-              <Text style={styles.listText}>Product</Text>
+              <Text style={styles.listText}>Account Notification</Text>
               <Switch
                 useNativeDriver={true}
                 value={product}
@@ -85,10 +90,10 @@ export default function NotificationScreen({ navigation }) {
               />
             </View>
 
-            <View style={{ ...styles.seprator, marginTop: RFValue(10) }} />
+            {/* <View style={{ ...styles.seprator, marginTop: RFValue(10) }} /> */}
           </View>
 
-          <View style={{ marginTop: RFValue(10) }}>
+          <View style={{ marginTop: RFValue(0) }}>
             <View style={styles.individualListIte}>
               <Text style={styles.listText}>Credits</Text>
               <Switch
@@ -99,10 +104,10 @@ export default function NotificationScreen({ navigation }) {
               />
             </View>
 
-            <View style={{ ...styles.seprator, marginTop: RFValue(10) }} />
+            {/* <View style={{ ...styles.seprator, marginTop: RFValue(10) }} /> */}
           </View>
 
-          <View style={{ marginTop: RFValue(10) }}>
+          {/* <View style={{ marginTop: RFValue(0) }}>
             <View style={styles.individualListIte}>
               <Text style={styles.listText}>Reminders</Text>
               <Switch
@@ -116,7 +121,7 @@ export default function NotificationScreen({ navigation }) {
             <View style={{ ...styles.seprator, marginTop: RFValue(10) }} />
           </View>
 
-          <View style={{ marginTop: RFValue(10) }}>
+          <View style={{ marginTop: RFValue(0) }}>
             <View style={styles.individualListIte}>
               <Text style={styles.listText}>Feedback</Text>
               <Switch
@@ -127,9 +132,9 @@ export default function NotificationScreen({ navigation }) {
               />
             </View>
             <View style={{ ...styles.seprator, marginTop: RFValue(10) }} />
-          </View>
+          </View> */}
 
-          <View style={{ marginTop: RFValue(10) }}>
+          <View style={{ marginTop: RFValue(0) }}>
             <View style={styles.individualListIte}>
               <Text style={styles.listText}>Subscriptions</Text>
               <Switch
@@ -139,10 +144,10 @@ export default function NotificationScreen({ navigation }) {
                 onValueChange={(value) => setSubscription(value)}
               />
             </View>
-            <View style={{ ...styles.seprator, marginTop: RFValue(10) }} />
+            {/* <View style={{ ...styles.seprator, marginTop: RFValue(10) }} /> */}
           </View>
 
-          <View style={{ marginTop: RFValue(10) }}>
+          <View style={{ marginTop: RFValue(0) }}>
             <View style={styles.individualListIte}>
               <Text style={styles.listText}>Contacts</Text>
               <Switch
@@ -152,28 +157,67 @@ export default function NotificationScreen({ navigation }) {
                 onValueChange={(value) => setConatacts(value)}
               />
             </View>
-            <View style={{ ...styles.seprator, marginTop: RFValue(10) }} />
+            {/* <View style={{ ...styles.seprator, marginTop: RFValue(10) }} /> */}
           </View>
 
           <View>
             <Text style={styles.pushNotificationText}>Email Notifications</Text>
 
-            <View style={{ marginTop: RFValue(20) }}>
-              <View style={styles.individualListIte}>
-                <Text style={styles.listText}>Pause All</Text>
-                <Switch
-                  useNativeDriver={true}
-                  value={pasuseallEmail}
-                  //   style={{width:RFValue(60),height:RFValue(30)}}
-                  onValueChange={(value) => setPauseAllEMail(value)}
-                />
-              </View>
-              <View style={styles.seprator} />
+            <View style={{ marginTop: RFValue(10) }}>
+            <View style={styles.individualListIte}>
+              <Text style={styles.listText}>Account Notification</Text>
+              <Switch
+                useNativeDriver={true}
+                value={product}
+                //   style={{width:RFValue(60),height:RFValue(30)}}
+                onValueChange={(value) => setProduct(value)}
+              />
             </View>
+
+            {/* <View style={{ ...styles.seprator, marginTop: RFValue(10) }} /> */}
           </View>
 
+          <View style={{ marginTop: RFValue(0) }}>
+            <View style={styles.individualListIte}>
+              <Text style={styles.listText}>Credits</Text>
+              <Switch
+                useNativeDriver={true}
+                value={credits}
+                //   style={{width:RFValue(60),height:RFValue(30)}}
+                onValueChange={(value) => setCredits(value)}
+              />
+            </View>
+
+            {/* <View style={{ ...styles.seprator, marginTop: RFValue(10) }} /> */}
+          </View>
+          <View style={{ marginTop: RFValue(0) }}>
+            <View style={styles.individualListIte}>
+              <Text style={styles.listText}>Subscriptions</Text>
+              <Switch
+                useNativeDriver={true}
+                value={subscription}
+                //   style={{width:RFValue(60),height:RFValue(30)}}
+                onValueChange={(value) => setSubscription(value)}
+              />
+            </View>
+            {/* <View style={{ ...styles.seprator, marginTop: RFValue(10) }} /> */}
+          </View>
+
+          <View style={{ marginTop: RFValue(0) }}>
+            <View style={styles.individualListIte}>
+              <Text style={styles.listText}>Contacts</Text>
+              <Switch
+                useNativeDriver={true}
+                value={conatacts}
+                //   style={{width:RFValue(60),height:RFValue(30)}}
+                onValueChange={(value) => setConatacts(value)}
+              />
+            </View>
+            {/* <View style={{ ...styles.seprator, marginTop: RFValue(10) }} /> */}
+          </View>
+          </View>
+           <View style={{ ...styles.seprator, marginTop: RFValue(10) }} />
           <View>
-            <Text style={styles.pushNotificationText}>SMS Notifications</Text>
 
             <View style={{ marginTop: RFValue(20) }}>
               <View style={styles.individualListIte}>
@@ -201,7 +245,7 @@ const styles = StyleSheet.create({
 
   homeHeader: {
     width: WIDTH,
-    height: RFValue(75),
+    height: RFValue(90),
     backgroundColor: "#305A9C",
     justifyContent: "space-between",
     alignItems: "center",
@@ -211,7 +255,7 @@ const styles = StyleSheet.create({
     // paddingTop: Device.STATUS_BAR_HEIGHT + 20,
     paddingTop:
       Platform.OS === "android"
-        ? Device.STATUS_BAR_HEIGHT - 15
+        ? Device.STATUS_BAR_HEIGHT 
         : Device.STATUS_BAR_HEIGHT + 20,
   },
 
@@ -223,27 +267,35 @@ const styles = StyleSheet.create({
     // marginRight:RFValue(20),
   },
   pushNotificationText: {
-    fontSize: RFValue(15),
+    fontSize: RFValue(14),
     color: "#000",
     fontFamily: "SemiBold",
     marginLeft: RFValue(20),
-    marginTop: RFValue(30),
+    marginTop: RFValue(20),
   },
   individualListIte: {
+    paddingHorizontal:RFValue(15),
     flexDirection: "row",
     alignItems: "center",
-    justifyContent: "space-between",
-    paddingHorizontal: RFValue(30),
+    width: WIDTH - RFValue(20),
+    height:RFValue(40),
+    justifyContent: 'space-between',
+    marginBottom: RFValue(10),
+    alignSelf: 'flex-start',
+    backgroundColor:'#F7F9F9',
+    borderTopRightRadius: 10,
+    borderBottomRightRadius: 10,
   },
   listText: {
-    fontSize: RFValue(14),
-    color: "#000",
+    marginLeft: RFValue(13),
+    fontSize: RFValue(12), 
+    color: "#373737",
     fontFamily: "Medium",
   },
   seprator: {
     height: 1,
     backgroundColor: "#D7D8DD",
-    width: WIDTH - RFValue(50),
+    width: WIDTH - RFValue(20),
     alignSelf: "center",
     marginTop: RFValue(24),
   },

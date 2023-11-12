@@ -327,7 +327,7 @@ export default function SettingScreen({ navigation, route }) {
                   style={styles.input}
                   onChangeText={onChangePassword}
                   value={password}
-                  placeholder="Old Password"
+                  placeholder="Password"
                   secureTextEntry={eyeOldPassword}
                 />
                 {/* <TouchableOpacity
@@ -523,7 +523,7 @@ const styles = StyleSheet.create({
   },
 
   headerTitle: {
-    fontSize: RFValue(16),
+    fontSize: RFValue(17),
     color: "#fff",
     fontFamily: "RegularText",
     // textAlign:"center",
@@ -570,7 +570,7 @@ const styles = StyleSheet.create({
     marginLeft: RFValue(12),
     fontSize: RFValue(14),
     fontFamily: "RegularText",
-    color: "#7A7A7A",
+    color: "#EEEEEE",
   },
   searchByContactContainer: {
     width: WIDTH - RFValue(60),
@@ -606,7 +606,7 @@ const styles = StyleSheet.create({
   },
   updateText: {
     fontSize: RFValue(12),
-    color: "rgba(0,0,0,0.7)",
+    color: "rgba(0,0,0,1)",
     marginLeft: RFValue(0),
     marginBottom: RFValue(8),
     fontFamily: "RegularText",

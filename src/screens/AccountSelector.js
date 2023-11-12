@@ -105,7 +105,7 @@ export default function SettingScreen({ navigation }) {
                   marginLeft: RFValue(15),
                 }}
               >
-                Mobile Number
+                Phone Number
               </Text>
               
             </View>

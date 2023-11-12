@@ -26,6 +26,7 @@ import { PermissionsAndroid, Platform } from "react-native";
 import Device from "../../src/constants/device";
 import DeviceInfo from "react-native-device-info";
 import Header from "../components/Header.js";
+import SafetyTips from "./SafetyTips.js";
 
 export default function SideMenuScreen({ navigation }) {
   const userData = useSelector((state) => state?.loginDetails);
@@ -79,21 +80,21 @@ export default function SideMenuScreen({ navigation }) {
     }
   }, [userData, isFocused]);
 
-  const PermissionAccessFunc = () => {
-    if (Platform.OS === "android") {
-      const granted = PermissionsAndroid.check(
-        PermissionsAndroid.PERMISSIONS.READ_CONTACTS
-      ).then((res) => {
-        if (res) {
-          navigation.navigate("InviteDisplayScreen");
-        } else {
-          navigation.navigate("InviteEmptyScreen");
-        }
-      });
-    } else {
-      navigation.navigate("InviteDisplayScreen");
-    }
-  };
+  // const PermissionAccessFunc = () => {
+  //   if (Platform.OS === "android") {
+  //     const granted = PermissionsAndroid.check(
+  //       PermissionsAndroid.PERMISSIONS.READ_CONTACTS
+  //     ).then((res) => {
+  //       if (res) {
+  //         navigation.navigate("InviteDisplayScreen");
+  //       } else {
+  //         navigation.navigate("InviteEmptyScreen");
+  //       }
+  //     });
+  //   } else {
+  //     navigation.navigate("InviteDisplayScreen");
+  //   }
+  // };
   const back =() =>{
     navigation.goBack()
   }
@@ -317,7 +318,7 @@ export default function SideMenuScreen({ navigation }) {
             />
           </TouchableOpacity>
           <TouchableOpacity
-            onPress={() => PermissionAccessFunc()}
+            onPress={()=>{navigation.navigate('SafetyTips')}}
             activeOpacity={0.2}
             style={styles.itemContainer}
           >

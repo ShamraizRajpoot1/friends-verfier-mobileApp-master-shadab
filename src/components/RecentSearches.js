@@ -82,7 +82,7 @@ export default function RecentSearches(props) {
 
 const styles = StyleSheet.create({
   recentSearchContainer: {
-    width: WIDTH - RFValue(52),
+    width: WIDTH - RFValue(45),
     alignSelf: "center",
     backgroundColor: "#fff",
     borderWidth: 1,
@@ -98,7 +98,7 @@ const styles = StyleSheet.create({
   },
 
   title: {
-    fontSize: RFValue(11),
+    fontSize: RFValue(10),
     color: "rgba(0, 0, 0, 0.8)",
     fontFamily: "SemiBold",
     marginBottom: RFValue(5),
@@ -106,7 +106,7 @@ const styles = StyleSheet.create({
 
   subtitle: {
     color: "#8C929B",
-    fontSize: RFValue(11),
+    fontSize: RFValue(10),
     fontFamily: "RegularText",
   },
   searchBigIcons: {

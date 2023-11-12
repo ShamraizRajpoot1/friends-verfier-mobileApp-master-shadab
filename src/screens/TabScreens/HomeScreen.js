@@ -739,7 +739,7 @@ const styles = StyleSheet.create({
     width: RFValue(20),
   },
   searchButton: {
-    width: WIDTH - RFValue(75),
+    width: WIDTH - RFValue(70),
     height: RFValue(40),
     backgroundColor: "#305A9C",
     justifyContent: "center",
@@ -776,7 +776,7 @@ const styles = StyleSheet.create({
   searchFilterContainer: {
     flexDirection: "row",
     alignItems: "center",
-    marginLeft: RFValue(15),
+    marginLeft: RFValue(11),
   },
   recentSearchesContainer: {
     width: WIDTH - RFValue(30),
