@@ -19,15 +19,15 @@ import Device from "../../src/constants/device";
 import Header from '../components/Header'
 const WIDTH = Dimensions.get("window").width;
 export default function NotificationScreen({ navigation }) {
-  const [pasuseall, setPauseAll] = React.useState(false);
+  const [emailAccount, setEmailAccount] = React.useState(false);
   const [product, setProduct] = React.useState(false);
   const [credits, setCredits] = React.useState(true);
-  const [reminders, setreminder] = React.useState(true);
-  const [feedback, setFeedback] = React.useState(false);
+  const [emailCredits, setEmailCredits] = React.useState(true);
+  const [emailSubscription, setEmailSubscription] = React.useState(false);
   const [subscription, setSubscription] = React.useState(true);
   const [conatacts, setConatacts] = React.useState(true);
 
-  const [pasuseallEmail, setPauseAllEMail] = React.useState(false);
+  const [emailNews, setEmailNews] = React.useState(false);
   const [pasuseallSms, setPauseAllSms] = React.useState(false);
 
   const back = ()=>{
@@ -149,7 +149,7 @@ export default function NotificationScreen({ navigation }) {
 
           <View style={{ marginTop: RFValue(0) }}>
             <View style={styles.individualListIte}>
-              <Text style={styles.listText}>Contacts</Text>
+              <Text style={styles.listText}>Friend Verifier News</Text>
               <Switch
                 useNativeDriver={true}
                 value={conatacts}
@@ -168,9 +168,9 @@ export default function NotificationScreen({ navigation }) {
               <Text style={styles.listText}>Account Notification</Text>
               <Switch
                 useNativeDriver={true}
-                value={product}
+                value={emailAccount}
                 //   style={{width:RFValue(60),height:RFValue(30)}}
-                onValueChange={(value) => setProduct(value)}
+                onValueChange={(value) => setEmailAccount(value)}
               />
             </View>
 
@@ -182,9 +182,9 @@ export default function NotificationScreen({ navigation }) {
               <Text style={styles.listText}>Credits</Text>
               <Switch
                 useNativeDriver={true}
-                value={credits}
+                value={emailCredits}
                 //   style={{width:RFValue(60),height:RFValue(30)}}
-                onValueChange={(value) => setCredits(value)}
+                onValueChange={(value) => setEmailCredits(value)}
               />
             </View>
 
@@ -195,9 +195,9 @@ export default function NotificationScreen({ navigation }) {
               <Text style={styles.listText}>Subscriptions</Text>
               <Switch
                 useNativeDriver={true}
-                value={subscription}
+                value={emailSubscription}
                 //   style={{width:RFValue(60),height:RFValue(30)}}
-                onValueChange={(value) => setSubscription(value)}
+                onValueChange={(value) => setEmailSubscription(value)}
               />
             </View>
             {/* <View style={{ ...styles.seprator, marginTop: RFValue(10) }} /> */}
@@ -205,12 +205,12 @@ export default function NotificationScreen({ navigation }) {
 
           <View style={{ marginTop: RFValue(0) }}>
             <View style={styles.individualListIte}>
-              <Text style={styles.listText}>Contacts</Text>
+              <Text style={styles.listText}>Friend Verifier News</Text>
               <Switch
                 useNativeDriver={true}
-                value={conatacts}
+                value={emailNews}
                 //   style={{width:RFValue(60),height:RFValue(30)}}
-                onValueChange={(value) => setConatacts(value)}
+                onValueChange={(value) => setEmailNews(value)}
               />
             </View>
             {/* <View style={{ ...styles.seprator, marginTop: RFValue(10) }} /> */}
@@ -282,7 +282,7 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     marginBottom: RFValue(10),
     alignSelf: 'flex-start',
-    backgroundColor:'#F7F9F9',
+    backgroundColor:'#F7F9FB',
     borderTopRightRadius: 10,
     borderBottomRightRadius: 10,
   },
@@ -294,7 +294,7 @@ const styles = StyleSheet.create({
   },
   seprator: {
     height: 1,
-    backgroundColor: "#D7D8DD",
+    backgroundColor: "#85B8FF",
     width: WIDTH - RFValue(20),
     alignSelf: "center",
     marginTop: RFValue(24),

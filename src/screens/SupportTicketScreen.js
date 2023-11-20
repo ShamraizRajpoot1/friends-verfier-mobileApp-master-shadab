@@ -13,6 +13,7 @@ import {
   ActivityIndicator,
   KeyboardAvoidingView,
   ScrollView,
+  Image,
 } from "react-native";
 import React, { useState, useEffect } from "react";
 import { Entypo, Feather } from "@expo/vector-icons";
@@ -107,18 +108,10 @@ export default function SupportTicketScreen({ navigation }) {
             {moment(item?.updated_at).format("DD/MM/YYYY")}
           </Text>
 
-          <Text numberOfLines={1} style={styles.subtitle}>
+          <Text numberOfLines={4} style={styles.subtitle}>
             {item.raw_subject}
           </Text>
 
-          <View
-            style={{
-              ...styles.openCloseButton,
-              backgroundColor: item.status === "new" ? "#4DFA6D" : "#CDCBCC",
-            }}
-          >
-            <Text style={styles.statusText}>{item?.status}</Text>
-          </View>
         </View>
 
         <TouchableOpacity
@@ -270,8 +263,21 @@ export default function SupportTicketScreen({ navigation }) {
       >
         <Text style={styles.createTicketText}>Create Ticket</Text>
       </TouchableOpacity>
-
-      <Text style={styles.supportTicketTexts}>Support Tickets</Text>
+      <View style={[styles.heading,{marginLeft: RFValue(20),marginTop:RFValue(60)}]}>
+              <Image
+                source={require("../assets/icons/openticket.png")}
+                style={styles.do}
+              />
+              <Text style={styles.title}>Open Tickets</Text>
+            </View>
+            <View style={[styles.heading,{marginLeft: RFValue(20),marginTop:RFValue(45), marginBottom: RFValue(15),}]}>
+              <Image
+                source={require("../assets/icons/supporticon1.png")}
+                style={styles.do}
+              />
+              <Text style={styles.title}>Ticket Topic</Text>
+            </View>
+                 
       <View>
         {/* <Text>{JSON.stringify(list)}</Text> */}
         <FlatList
@@ -597,7 +603,7 @@ const styles = StyleSheet.create({
   },
   homeHeader: {
     width: WIDTH,
-    height: RFValue(75),
+    height: RFValue(90),
     backgroundColor: "#305A9C",
     justifyContent: "space-between",
     alignItems: "center",
@@ -606,14 +612,27 @@ const styles = StyleSheet.create({
     // paddingTop: Device.STATUS_BAR_HEIGHT + 20,
     paddingTop:
       Platform.OS === "android"
-        ? Device.STATUS_BAR_HEIGHT - 15
+        ? Device.STATUS_BAR_HEIGHT 
         : Device.STATUS_BAR_HEIGHT + 20,
 
     // paddingTop:Platform.OS==='android'?0:RFValue(12),
   },
-
+  heading: {
+    backgroundColor: "#F5F5F5",
+    width: WIDTH - RFValue(55),
+    height: RFValue(28),
+    flexDirection: "row",
+    borderRadius: 10,
+    alignItems: "center",
+    paddingLeft: RFValue(12),
+  },
+  do: {
+    width: RFValue(12),
+    height: RFValue(12),
+    marginRight: RFValue(5),
+  },
   headerTitle: {
-    fontSize: RFValue(22),
+    fontSize: RFValue(18),
     color: "#fff",
     fontFamily: "RegularText",
     // textAlign:"center",
@@ -628,20 +647,19 @@ const styles = StyleSheet.create({
   },
 
   title: {
-    fontSize: RFValue(15),
+    fontSize: RFValue(14),
     color: "#000",
-    textDecorationLine: "underline",
-    fontFamily: "RegularText",
-    marginLeft: RFValue(40),
+    fontFamily: "SemiBold",
+    // marginLeft: RFValue(40),
   },
-  subtitle: {
-    fontSize: RFValue(15),
-    color: "#000",
-    fontFamily: "Medium",
-    textAlign: "left",
-    marginLeft: RFValue(40),
-    marginTop: RFValue(10),
-  },
+  // subtitle: {
+  //   fontSize: RFValue(15),
+  //   color: "#000",
+  //   fontFamily: "Medium",
+  //   textAlign: "left",
+  //   marginLeft: RFValue(40),
+  //   marginTop: RFValue(10),
+  // },
 
   faqsText: {
     fontSize: RFValue(16),
@@ -650,31 +668,35 @@ const styles = StyleSheet.create({
     textAlign: "center",
   },
   supportItemContainer: {
-    width: WIDTH - RFValue(30),
+    width: WIDTH - RFValue(58),
     padding: RFValue(10),
-    backgroundColor: "#F5F5F5",
-    alignSelf: "center",
+    paddingTop:RFValue(5),
+    paddingBottom:0,
+    elevation:4,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: -2 },
+    shadowOpacity: 0.5,
+    shadowRadius: 2,
+    marginLeft:RFValue(23),
+    backgroundColor: "#FFFFFF",
     borderRadius: 5,
     marginBottom: RFValue(20),
-    flexDirection: "row",
-    justifyContent: "space-between",
-    paddingBottom: RFValue(15),
   },
   createTicketButton: {
-    width: WIDTH - RFValue(50),
-    height: RFValue(35),
+    width: WIDTH - RFValue(40),
+    height: RFValue(30),
     justifyContent: "center",
     alignItems: "center",
-    borderRadius: 5,
-    backgroundColor: "#4079D4",
+    borderRadius: RFValue(10),
+    backgroundColor: "#315A9C",
     alignSelf: "center",
     marginTop: RFValue(24),
   },
 
   createTicketText: {
-    fontSize: RFValue(14),
+    fontSize: RFValue(12),
     color: "#fff",
-    fontFamily: "BoldText",
+    fontFamily: "SemiBold",
   },
   supportTicketTexts: {
     fontSize: RFValue(16),
@@ -686,13 +708,13 @@ const styles = StyleSheet.create({
   },
 
   date: {
-    fontSize: RFValue(14),
-    fontFamily: "RegularText",
+    fontSize: RFValue(12),
+    fontFamily: "SemiBold",
     color: "#363535",
   },
   subtitle: {
-    color: "#858585",
-    fontSize: RFValue(14),
+    color: "rgba(0,0,0,0.7)",
+    fontSize: RFValue(10),
     fontFamily: "RegularText",
     marginTop: RFValue(3),
   },
@@ -705,19 +727,25 @@ const styles = StyleSheet.create({
     marginTop: RFValue(10),
   },
   statusText: {
-    color: "#7C7C7C",
+    fontSize:RFValue(10),
+    color: "#FFFFFF",
     fontFamily: "SemiBold",
   },
   viewButtonContainer: {
-    width: RFValue(80),
-    height: RFValue(30),
+    width: '108%',
+    marginLeft:'-4%',
+    height: RFValue(20),
     justifyContent: "center",
     alignItems: "center",
+    borderBottomRightRadius: RFValue(3),
+    borderBottomLeftRadius: RFValue(3),
     borderWidth: 1,
-    borderColor: "#7C7B7C",
+    backgroundColor:'#32589B',
+    borderColor: "#33599C",
     marginTop: RFValue(10),
   },
   itemLeftContainer: {
-    width: "70%",
+    width: "100%",
+    height:RFValue(40)
   },
 });

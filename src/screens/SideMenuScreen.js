@@ -249,7 +249,7 @@ export default function SideMenuScreen({ navigation }) {
               <Text
                 style={{
                   ...styles.addSubscription,
-                  fontSize: RFValue(12),
+                  fontSize: RFValue(14),
                   marginLeft: RFValue(25),
                 }}
               >
@@ -276,7 +276,7 @@ export default function SideMenuScreen({ navigation }) {
               <Text
                 style={{
                   ...styles.addSubscription,
-                  fontSize: RFValue(12),
+                  fontSize: RFValue(14),
                   marginLeft: RFValue(25),
                 }}
               >
@@ -303,7 +303,7 @@ export default function SideMenuScreen({ navigation }) {
               <Text
                 style={{
                   ...styles.addSubscription,
-                  fontSize: RFValue(12),
+                  fontSize: RFValue(14),
                   marginLeft: RFValue(25),
                 }}
               >
@@ -331,7 +331,7 @@ export default function SideMenuScreen({ navigation }) {
               <Text
                 style={{
                   ...styles.addSubscription,
-                  fontSize: RFValue(12),
+                  fontSize: RFValue(14),
                   marginLeft: RFValue(25),
                 }}
               >
@@ -359,7 +359,7 @@ export default function SideMenuScreen({ navigation }) {
               <Text
                 style={{
                   ...styles.addSubscription,
-                  fontSize: RFValue(12),
+                  fontSize: RFValue(14),
                   marginLeft: RFValue(25),
                 }}
               >
@@ -387,7 +387,7 @@ export default function SideMenuScreen({ navigation }) {
                 <Text
                   style={{
                     ...styles.addSubscription,
-                    fontSize: RFValue(12),
+                    fontSize: RFValue(14),
                     marginLeft: RFValue(25),
                   }}
                 >
@@ -530,7 +530,7 @@ const styles = StyleSheet.create({
   footerText: {
     color: "#8C919F",
     fontFamily: "Medium",
-    fontSize: RFValue(12),
+    fontSize: RFValue(10),
     textAlign: "center",
     
     alignSelf:'center',

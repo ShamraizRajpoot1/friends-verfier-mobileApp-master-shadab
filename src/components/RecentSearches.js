@@ -98,7 +98,7 @@ const styles = StyleSheet.create({
   },
 
   title: {
-    fontSize: RFValue(10),
+    fontSize: RFValue(12),
     color: "rgba(0, 0, 0, 0.8)",
     fontFamily: "SemiBold",
     marginBottom: RFValue(5),
@@ -106,7 +106,7 @@ const styles = StyleSheet.create({
 
   subtitle: {
     color: "#8C929B",
-    fontSize: RFValue(10),
+    fontSize: RFValue(12),
     fontFamily: "RegularText",
   },
   searchBigIcons: {

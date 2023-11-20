@@ -84,16 +84,21 @@ export default function ResetPassword({ navigation, route }) {
         backgroundColor="#305A9C"
       />
       <View style={styles.homeHeader}>
-        <Entypo
+        {/* <Entypo
           onPress={() => navigation.goBack()}
           name="chevron-thin-left"
           size={24}
           color="#fff"
-        />
-
+        /> */}
+        <TouchableOpacity onPress={() => navigation.goBack()}>
+          <Image
+            source={require("../../assets/icons/back.png")}
+            style={{ width: RFValue(10), height: RFValue(20) }}
+          />
+        </TouchableOpacity>
         <Text style={styles.headerTitle}>
           <Text style={{ ...styles.headerTitle, fontFamily: "SemiBold" }}>
-            Reset Password
+            Change Password
           </Text>
         </Text>
         <Pressable>
@@ -108,17 +113,16 @@ export default function ResetPassword({ navigation, route }) {
         <View style={{ alignSelf: "center" }}>
           <Text style={styles.updateText}>Update your password</Text>
           <View style={styles.textinputCOntainer}>
-            <Image
-              style={styles.icon}
-              source={require("../../assets/icons/password.png")}
-            />
-            <TextInput
-              style={styles.input}
-              onChangeText={onChangenewPassword}
-              value={newpassword}
-              placeholder="New Password"
-              secureTextEntry={newPassword}
-            />
+          <View style={{height:'100%'}}>
+              <Text style={styles.lebal}>Password</Text>
+              <TextInput
+                style={styles.input}
+                onChangeText={onChangenewPassword}
+                value={newpassword}
+               // placeholder="New Password"
+                secureTextEntry={newPassword}
+              />
+            </View>
             <TouchableOpacity onPress={() => setNewPassword(!newPassword)}>
               <Image
                 style={styles.icon}
@@ -132,17 +136,16 @@ export default function ResetPassword({ navigation, route }) {
           </View>
 
           <View style={styles.textinputCOntainer}>
-            <Image
-              style={styles.icon}
-              source={require("../../assets/icons/password.png")}
-            />
-            <TextInput
-              style={styles.input}
-              onChangeText={onChangeconfirmnewPassword}
-              value={confirmnewpassword}
-              placeholder="Confirm New Password"
-              secureTextEntry={confirmPassword}
-            />
+            <View style={{height:'100%'}}>
+              <Text style={styles.lebal}>Password</Text>
+              <TextInput
+                style={styles.input}
+                onChangeText={onChangeconfirmnewPassword}
+                value={confirmnewpassword}
+               // placeholder="Confirm New Password"
+                secureTextEntry={confirmPassword}
+              />
+            </View>
             <TouchableOpacity
               onPress={() => setConfirmPassword(!confirmPassword)}
             >
@@ -164,7 +167,7 @@ export default function ResetPassword({ navigation, route }) {
             {loading ? (
               <ActivityIndicator size="small" color="#fff" />
             ) : (
-              <Text style={styles.loginButtonText}>Update Password</Text>
+              <Text style={styles.loginButtonText}>Confirm</Text>
             )}
           </TouchableOpacity>
         </View>
@@ -181,7 +184,7 @@ const styles = StyleSheet.create({
 
   homeHeader: {
     width: WIDTH,
-    height: RFValue(75),
+    height: RFValue(90),
     backgroundColor: "#305A9C",
     justifyContent: "space-between",
     alignItems: "center",
@@ -189,12 +192,12 @@ const styles = StyleSheet.create({
     paddingHorizontal: RFValue(20),
     paddingTop:
       Platform.OS === "android"
-        ? Device.STATUS_BAR_HEIGHT - 15
+        ? Device.STATUS_BAR_HEIGHT
         : Device.STATUS_BAR_HEIGHT + 20,
   },
 
   headerTitle: {
-    fontSize: RFValue(22),
+    fontSize: RFValue(16),
     color: "#fff",
     fontFamily: "RegularText",
   },
@@ -205,38 +208,35 @@ const styles = StyleSheet.create({
     marginTop: RFValue(30),
     textAlign: "center",
   },
-
   textinputCOntainer: {
     width: WIDTH - RFValue(40),
     height: RFValue(50),
     alignSelf: "center",
-    backgroundColor: "#EEEEEE",
-    borderRadius: 16,
+    borderRadius: 4,
     flexDirection: "row",
     alignItems: "center",
-    paddingHorizontal: RFValue(25),
+    paddingLeft: RFValue(15),
     marginBottom: RFValue(25),
-    shadowColor: "#000",
-    shadowOffset: {
-      width: 0,
-      height: 1,
-    },
-    shadowOpacity: 0.18,
-    shadowRadius: 1.0,
-
-    elevation: 1,
+    borderWidth: 0.5,
+    borderColor: "rgba(0,0,0,0.3)",
   },
-  inputContainer: {
-    marginTop: RFValue(30),
+  
+  lebal: {
+    color:'rgba(0,0,0,0.5)',
+    fontFamily:'BoldText',
+    fontSize:RFValue(10),
+    marginTop:RFValue(5),
+    marginBottom: RFValue(-25),
   },
   icon: {
+    opacity:0.5,
     width: RFValue(13),
     height: RFValue(13),
   },
   input: {
-    width: WIDTH - RFValue(120),
+    marginTop:RFValue(10),
+    width: WIDTH - RFValue(80),
     height: RFValue(50),
-    marginLeft: RFValue(12),
     fontSize: RFValue(14),
     fontFamily: "RegularText",
     color: "#7A7A7A",

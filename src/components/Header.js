@@ -50,7 +50,7 @@ const styles = StyleSheet.create({
     width: RFValue(20),
   },
   back:{
-    height: RFValue(25),
+    height: RFValue(20),
     width: RFValue(20),
   },
     homeHeader: {

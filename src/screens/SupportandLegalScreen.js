@@ -140,12 +140,12 @@ export default function SupportandLegalScreen({ navigation, data }) {
               <Text
                 style={{
                   ...styles.addSubscription,
-                  fontSize: RFValue(12),
+                  fontSize: RFValue(14),
                   marginLeft: RFValue(15),
                   color: "#000000",
                 }}
               >
-                FAQS
+                FAQs
               </Text>
             </View>
 
@@ -167,12 +167,12 @@ export default function SupportandLegalScreen({ navigation, data }) {
               <Text
                 style={{
                   ...styles.addSubscription,
-                  fontSize: RFValue(12),
+                  fontSize: RFValue(14),
                   marginLeft: RFValue(15),
                   color: "#000000",
                 }}
               >
-                Terms & Pricacy Policy
+                Terms & Privacy Policy
               </Text>
             </View>
 
@@ -194,12 +194,12 @@ export default function SupportandLegalScreen({ navigation, data }) {
               <Text
                 style={{
                   ...styles.addSubscription,
-                  fontSize: RFValue(12),
+                  fontSize: RFValue(14),
                   marginLeft: RFValue(15),
                   color: "#000000",
                 }}
               >
-                Support Ticket
+                Support Tickets
               </Text>
             </View>
 
@@ -224,12 +224,12 @@ export default function SupportandLegalScreen({ navigation, data }) {
               <Text
                 style={{
                   ...styles.addSubscription,
-                  fontSize: RFValue(12),
+                  fontSize: RFValue(14),
                   marginLeft: RFValue(15),
                   color: "#000000",
                 }}
               >
-                App Permission
+                App Permissions
               </Text>
             </View>
 
@@ -241,8 +241,8 @@ export default function SupportandLegalScreen({ navigation, data }) {
             />
           </TouchableOpacity>
 
-          <TouchableOpacity
-            onPress={twoOptionAlertHandler}
+          <TouchableOpacity 
+            onPress={() => navigation.navigate("SellInfo")}
             activeOpacity={0.2}
             style={styles.itemContainer}
           >
@@ -252,7 +252,7 @@ export default function SupportandLegalScreen({ navigation, data }) {
               <Text
                 style={{
                   ...styles.addSubscription,
-                  fontSize: RFValue(12),
+                  fontSize: RFValue(14),
                   marginLeft: RFValue(15),
                   color: "#000000",
                 }}
@@ -280,7 +280,7 @@ export default function SupportandLegalScreen({ navigation, data }) {
               <Text
                 style={{
                   ...styles.addSubscription,
-                  fontSize: RFValue(12),
+                  fontSize: RFValue(14),
                   marginLeft: RFValue(15),
                   
                   color: "#FF0203",

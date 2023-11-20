@@ -73,7 +73,7 @@ export default function SettingScreen({ navigation }) {
               <Text
                 style={{
                   ...styles.addSubscription,
-                  fontSize: RFValue(12),
+                  fontSize: RFValue(14),
                   marginLeft: RFValue(15),
                 }}
               >
@@ -101,7 +101,7 @@ export default function SettingScreen({ navigation }) {
               <Text
                 style={{
                   ...styles.addSubscription,
-                  fontSize: RFValue(12),
+                  fontSize: RFValue(14),
                   marginLeft: RFValue(15),
                 }}
               >
@@ -129,7 +129,7 @@ export default function SettingScreen({ navigation }) {
               <Text
                 style={{
                   ...styles.addSubscription,
-                  fontSize: RFValue(12),
+                  fontSize: RFValue(14),
                   marginLeft: RFValue(15),
                   color: "#000000",
                 }}

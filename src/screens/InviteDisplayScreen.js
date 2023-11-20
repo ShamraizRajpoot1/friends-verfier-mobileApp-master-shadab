@@ -322,10 +322,28 @@ export default function InviteDisplayScreen({ navigation, ContactsDatas }) {
           </View>
         </TouchableOpacity> */}
 
-        <Text style={styles.topText}>
-          Invite one of your contacts, and earn a{"\n"}
-          credit to run a free background check{"\n"}if they create an account.
-        </Text>
+<View style={{ marginTop: RFValue(20), marginHorizontal: RFValue(20) }}>
+          <View style={[styles.paragraph]}>
+            <View style={styles.heading}>
+              <Image
+                source={require("../assets/icons/partypopper.png")}
+                style={styles.do}
+              />
+              <Text style={styles.title}>Earn Free Credits!</Text>
+            </View>
+
+            <Text style={[styles.subtitle, { marginTop: RFValue(8) }]}>
+              You'll earn 1 free credit for each friend
+            </Text>
+            <Text style={styles.subtitle}>
+              you invite who accepts your invitation.
+            </Text>
+            <Text style={styles.subtitle}>
+              There is no limit, 500 friends accept,
+            </Text>
+            <Text style={styles.subtitle}>you'll get 500 free credits!</Text>
+          </View>
+        </View>
 
         <View style={styles.textinputCOntainer}>
           <Image
@@ -341,18 +359,10 @@ export default function InviteDisplayScreen({ navigation, ContactsDatas }) {
               filterBySearch(text);
             }}
             value={input}
-            placeholder="Invite by phone#"
+            placeholder="Quick Find"
             // keyboardType="number-pad"
           />
-          <TouchableOpacity
-            onPress={() => {
-              setInput();
-              // phoneContact();
-            }}
-            style={styles.crossButton}
-          >
-            <Feather name="x" size={19} color="#898F96" />
-          </TouchableOpacity>
+          
         </View>
 
         <View style={styles.inviteListContainer}>
@@ -394,7 +404,7 @@ const styles = StyleSheet.create({
   },
   homeHeader: {
     width: WIDTH,
-    height: RFValue(75),
+    height: RFValue(90),
     backgroundColor: "#305A9C",
     justifyContent: "space-between",
     alignItems: "center",
@@ -404,16 +414,59 @@ const styles = StyleSheet.create({
     // paddingTop: Device.STATUS_BAR_HEIGHT + 20,
     paddingTop:
       Platform.OS === "android"
-        ? Device.STATUS_BAR_HEIGHT - 15
+        ? Device.STATUS_BAR_HEIGHT 
         : Device.STATUS_BAR_HEIGHT + 20,
   },
 
   headerTitle: {
-    fontSize: RFValue(22),
+    fontSize: RFValue(18),
     color: "#fff",
     fontFamily: "RegularText",
     // textAlign:"center",
     // marginRight:RFValue(20),
+  },
+  heading: {
+    alignSelf: "center",
+    backgroundColor: "#F5F5F5",
+    width: WIDTH - RFValue(40),
+    height: RFValue(30),
+    flexDirection: "row",
+    borderRadius: 10,
+    alignItems: "center",
+    paddingLeft: RFValue(20),
+  },
+  do: {
+    width: RFValue(12),
+    height: RFValue(12),
+    marginRight: RFValue(5),
+  },
+  paragraph: {
+    alignItems: "center",
+    shadowColor: "#000",
+    shadowOffset: { width: 0, height: -2 },
+    shadowOpacity: 0.5,
+    shadowRadius: 2,
+    backgroundColor: "#FCFCFC",
+    elevation: 1,
+    borderWidth: 0,
+    height: RFValue(110),
+    borderTopRightRadius: 10,
+    borderTopLeftRadius: 10,
+    marginTop: RFValue(10),
+    borderRadius: 10,
+  },
+  title: {
+    fontSize: RFValue(14),
+    color: "#000",
+    fontFamily: "SemiBold",
+  },
+  subtitle: {
+    marginHorizontal: RFValue(10),
+    fontSize: RFValue(13),
+    color: "#000000",
+    fontFamily: "RegularText",
+    textAlign: "left",
+    lineHeight: RFValue(15),
   },
   topText: {
     fontSize: RFValue(15),
@@ -423,9 +476,9 @@ const styles = StyleSheet.create({
     textAlign: "center",
   },
   textinputCOntainer: {
-    width: WIDTH - RFValue(60),
+    width: WIDTH - RFValue(100),
     marginTop: RFValue(12),
-    height: RFValue(38),
+    height: RFValue(28),
     alignSelf: "center",
     backgroundColor: "#EEEEEE",
     borderRadius: 10,
@@ -450,12 +503,12 @@ const styles = StyleSheet.create({
     height: RFValue(20),
   },
   input: {
-    width: WIDTH - RFValue(135),
+    width: "100%",
     height: RFValue(50),
     marginLeft: RFValue(12),
     fontSize: RFValue(14),
     fontFamily: "RegularText",
-    color: "#7A7A7A",
+    color: "#F5F5F5",
   },
 
   searchByContactContainer: {
@@ -496,11 +549,7 @@ const styles = StyleSheet.create({
     color: "#000",
     marginLeft: RFValue(5),
   },
-  subtitle: {
-    fontSize: RFValue(11),
-    color: "#7F7F7F",
-    marginLeft: RFValue(5),
-  },
+ 
 
   inviteItemLeft: {
     flexDirection: "row",

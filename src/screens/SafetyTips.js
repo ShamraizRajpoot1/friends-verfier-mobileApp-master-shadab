@@ -81,7 +81,7 @@ const SafetyTips = ({navigation}) => {
                 source={require("../assets/icons/warning.png")}
                 style={styles.do}
               />
-              <Text style={styles.title}>Use Reputable Platform</Text>
+              <Text style={styles.title}>Use Reputable Platforms</Text>
             </View>
 
             <View style={styles.paragraph}>
@@ -122,7 +122,7 @@ const SafetyTips = ({navigation}) => {
               <Text style={styles.subtitle}>
                 Get to know the person gradually. Be wary of{"\n"}
                 individuals who want to meet in person immediately{"\n"}
-                or rush the relationship
+                or rush the relationship.
               </Text>
             </View>
           </View>
@@ -175,7 +175,7 @@ const SafetyTips = ({navigation}) => {
               <Text style={styles.subtitle}>
                 If something doesn't feel right or if you feel{"\n"}
                 uncomfertable during the meeting, it's okay to leave{"\n"}
-                and prionitize your safety.
+                and prioritize your safety.
               </Text>
             </View>
           </View>
@@ -208,7 +208,7 @@ const SafetyTips = ({navigation}) => {
             <View style={styles.paragraph}>
               <Text style={styles.subtitle}>
                 Keep your belongings, such as your purse, phone,{"\n"}
-                and wallet, within reach and under your control.{"\n"}
+                and wallet, within reach and under your control.{"\n"}{"\n"}
                 Also keep an eye on your drink.
               </Text>
             </View>
@@ -226,7 +226,7 @@ const SafetyTips = ({navigation}) => {
               <Text style={styles.subtitle}>
                 Adjust your privacy settings on social media and{"\n"}
                 online dating profiles to limit the amount of personal{"\n"}
-                information visible to others
+                information visible to others.
               </Text>
             </View>
           </View>
@@ -258,7 +258,7 @@ const SafetyTips = ({navigation}) => {
 
             <View style={styles.paragraph}>
               <Text style={styles.subtitle}>
-                if you encounter any suspicious behavior or suspect{"\n"}
+                If you encounter any suspicious behavior or suspect{"\n"}
                 someone is not who they claim to be, report it to the{"\n"}
                 platform administrators.
               </Text>
@@ -286,17 +286,21 @@ const styles = StyleSheet.create({
     paddingLeft: RFValue(12),
   },
   do: {
-    width: RFValue(12),
-    height: RFValue(12),
+    width: RFValue(14),
+    height: RFValue(14),
     marginRight: RFValue(5),
   },
   paragraph: {
     backgroundColor: "#FFFFFF",
-    elevation: 2,
+    elevation: 1,
     height: RFValue(90),
     paddingHorizontal: RFValue(12),
     marginTop: RFValue(10),
-    borderRadius: 10,
+    borderRadius: 2,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: -2 },
+    shadowOpacity: 0.5,
+    shadowRadius: 2,
   },
 
   homeHeader: {

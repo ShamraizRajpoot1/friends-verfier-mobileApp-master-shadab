@@ -223,7 +223,7 @@ export default function SmsOtpVerificationScreen({ navigation, route }) {
               route?.params?.screen == "forgotPassword"
                 ? "email"
                 : "messages"}{" "}
-              and enter the security code below
+              and enter the security code below.
             </Text>
           </View>
           <View style={styles.otpInputBox}>
@@ -252,7 +252,7 @@ export default function SmsOtpVerificationScreen({ navigation, route }) {
                 Didn't receive the{" "}
                 {route?.params?.screen == "forgotPassword" ||
                 route?.params?.screen == "email"
-                  ? "OTP Email"
+                  ? "OTP email"
                   : " SMS Verification"}
                 ? You can request a new one in{" "}
                 <Text style={styles.redCount}>
@@ -289,7 +289,7 @@ const styles = StyleSheet.create({
 
   header: {
     width: WIDTH,
-    height: RFValue(100),
+    height: RFValue(90),
     backgroundColor: "#315A9C",
     paddingHorizontal: RFValue(10),
     flexDirection: "row",
@@ -297,7 +297,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
     paddingTop:
       Platform.OS === "android"
-        ? Device.STATUS_BAR_HEIGHT - 15
+        ? Device.STATUS_BAR_HEIGHT 
         : Device.STATUS_BAR_HEIGHT + 20,
   },
   emailVerificationText: {
@@ -320,7 +320,7 @@ const styles = StyleSheet.create({
   },
   loginButtonContainer: {
     width: WIDTH - RFValue(40),
-    height: RFValue(50),
+    height: RFValue(45),
     alignSelf: "center",
     backgroundColor: "#305A9C",
     justifyContent: "center",

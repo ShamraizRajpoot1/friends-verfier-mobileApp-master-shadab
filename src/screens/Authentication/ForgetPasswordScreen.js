@@ -52,7 +52,7 @@ export default function ForgotPasswordScreen({ navigation }) {
       <StatusBar
         barStyle="light-content"
         hidden={false}
-        backgroundColor="#305A9C"
+        backgroundColor="#315A9C"
       />
       <KeyboardAvoidingView
         style={{ flex: 1 }}
@@ -122,19 +122,19 @@ const styles = StyleSheet.create({
   ScreenHeaderContainer: {
     width: WIDTH,
     height: HIEGHT / 1.42,
-    backgroundColor: "#305A9C",
+    backgroundColor: "#315A9C",
     justifyContent: "center",
     alignItems: "center",
   },
   logo: {
-    width: WIDTH - RFValue(70),
-    height: RFValue(152),
-    marginBottom: RFValue(100),
+    width: WIDTH - RFValue(100),
+    height: RFValue(140),
+    marginBottom: RFValue(80),
   },
 
   textinputCOntainer: {
     width: WIDTH - RFValue(40),
-    height: RFValue(50),
+    height: RFValue(40),
     alignSelf: "center",
     backgroundColor: "#EEEEEE",
     borderRadius: 16,
@@ -156,8 +156,9 @@ const styles = StyleSheet.create({
     marginTop: RFValue(30),
   },
   icon: {
-    width: RFValue(13),
-    height: RFValue(13),
+    width: RFValue(11),
+    height: RFValue(11),
+    opacity:0.7
   },
   input: {
     width: WIDTH - RFValue(120),
@@ -169,7 +170,7 @@ const styles = StyleSheet.create({
   },
   loginButtonContainer: {
     width: WIDTH - RFValue(40),
-    height: RFValue(50),
+    height: RFValue(40),
     alignSelf: "center",
     backgroundColor: "#305A9C",
     justifyContent: "center",
@@ -182,18 +183,18 @@ const styles = StyleSheet.create({
     },
     shadowOpacity: 0.18,
     shadowRadius: 1.0,
-    marginTop: RFValue(20),
+    marginTop: RFValue(15),
     elevation: 1,
   },
   loginButtonText: {
     color: "#fff",
-    fontSize: RFValue(16),
+    fontSize: RFValue(14),
     fontFamily: "RegularText",
   },
   forgotPasswordText: {
-    fontSize: RFValue(14),
+    fontSize: RFValue(12),
     fontFamily: "RegularText",
-    color: "#7A7A7A",
+    color: "#757575",
     textAlign: "center",
     marginTop: RFValue(20),
   },

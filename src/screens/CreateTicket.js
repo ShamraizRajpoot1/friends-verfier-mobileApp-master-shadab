@@ -205,7 +205,7 @@ export default function CreateTicket({ navigation }) {
 
         <Text style={styles.headerTitle}>
           <Text style={{ ...styles.headerTitle, fontFamily: "SemiBold" }}>
-            Support
+            Create Ticket
           </Text>
         </Text>
         <Pressable>
@@ -230,7 +230,7 @@ export default function CreateTicket({ navigation }) {
                 alignItems: "center",
               }}
             >
-              <View style={{ marginVertical: 40 }}>
+              <View style={{ marginTop: RFValue(25),marginBottom:RFValue(16) }}>
                 <View style={styles.textinputCOntainer}>
                   <TouchableOpacity
                     activeOpacity={0.5}
@@ -325,10 +325,10 @@ export default function CreateTicket({ navigation }) {
               </View>
               <TouchableOpacity
                 style={{
-                  height: 50,
-                  width: WIDTH / 2,
+                  height: RFValue(30),
+                  width: WIDTH / 1.19 ,
                   borderRadius: 10,
-                  backgroundColor: "#43ce91",
+                  backgroundColor: "#315A9C",
                   alignItems: "center",
                   justifyContent: "center",
                 }}
@@ -364,6 +364,7 @@ const styles = StyleSheet.create({
     height: RFValue(50),
     alignSelf: "center",
     backgroundColor: "#F8F8F8",
+    paddingBottom:RFValue(5),
     borderWidth: 1,
     borderColor: "#E5E5E5",
     borderRadius: 2,
@@ -384,7 +385,7 @@ const styles = StyleSheet.create({
   },
   homeHeader: {
     width: WIDTH,
-    height: RFValue(75),
+    height: RFValue(90),
     backgroundColor: "#305A9C",
     justifyContent: "space-between",
     alignItems: "center",
@@ -393,14 +394,14 @@ const styles = StyleSheet.create({
     // paddingTop: Device.STATUS_BAR_HEIGHT + 20,
     paddingTop:
       Platform.OS === "android"
-        ? Device.STATUS_BAR_HEIGHT - 15
+        ? Device.STATUS_BAR_HEIGHT 
         : Device.STATUS_BAR_HEIGHT + 20,
 
     // paddingTop:Platform.OS==='android'?0:RFValue(12),
   },
 
   headerTitle: {
-    fontSize: RFValue(22),
+    fontSize: RFValue(18),
     color: "#fff",
     fontFamily: "RegularText",
     // textAlign:"center",

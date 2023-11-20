@@ -13,65 +13,12 @@ import React, { useState } from "react";
 import { Entypo, Feather } from "@expo/vector-icons";
 import { RFValue } from "react-native-responsive-fontsize";
 import Device from "../../src/constants/device";
-import RenderHtml from "react-native-render-html";
 
 const WIDTH = Dimensions.get("window").width;
 export default function FaqScreen({ navigation }) {
   const classesStyles = {};
 
-  const source = {
-    html: `
-    <p><strong>What is Friend Verifier?</strong></p>
-<p><br></p>
-<p>With crime rates escalating and numerous reports of convicted criminals exploiting dating apps and social media to target victims, we are thrilled to reintroduce Friend Verifier. This new version equips you with the essential tool to conduct searches, enabling you to assess the background of individuals you are about to meet. Friend or Foe, You Need to Know!</p>
-<p><br></p>
-<p><br></p>
-<p><strong>How do you handle user data?</strong></p>
-<p><br></p>
-<p>At Friend Verifier, empowering you with information while safeguarding your privacy is our utmost priority. Rest assured, your user data remains strictly confidential and is never shared with any third party. The data you provide during the account creation process is solely used for that purpose and is not cross-referenced with any other data sources, nor is it accessible to anyone else.</p>
-<p><br></p>
-<p>In the event that an account is not fully completed during signup or if you choose to delete your account, rest assured that all data, including your search history, is routinely purged from our system. Our commitment to data protection ensures that your information is handled responsibly and securely, providing you with peace of mind while using our services.</p>
-<p><br></p>
-<p><br></p>
-<p><strong>Are people alerted if I run a search on them?</strong></p>
-<p><br></p>
-<p>Your privacy and safety are of the utmost importance to us. Our unwavering mission is to ensure that we take every possible measure to keep you secure.&nbsp;</p>
-<p><br></p>
-<p>Whether you&apos;re using our services to keep track of important dates like your aunt&apos;s birthday or to assess the safety of someone you&apos;re meeting for a date, rest assured that your search history is entirely private, inaccessible even to us. Your personal information remains in your control, and our commitment to protecting it is steadfast.</p>
-<p><br></p>
-<p><br></p>
-<p><strong>Am I required to give Friend Verifier access to my phone&apos;s contact list?</strong></p>
-<p><br></p>
-<p>Certainly not. Friend Verifier utilizes two features that access your phone&apos;s contact list. The first feature allows you to invite friends who could benefit from using our app; it&apos;s a simple and convenient way to bring them on board. The second feature enables you to conduct a reverse search on a saved contact.&nbsp;</p>
-<p><br></p>
-<p>This involves reading the selected contact&apos;s phone number to perform the search. It&apos;s important to note that this access is granted on a per-transaction basis, and at any point, you can easily revoke our access to your contacts within your phone&apos;s settings app. Rest assured, even if you choose not to grant access, the app will work flawlessly without any hiccups. Your control over your data and privacy is paramount to us.</p>
-<p><br></p>
-<p><br></p>
-<p><strong>Can I opt-out of your database?</strong></p>
-<p><br></p>
-<p>Absolutely! You have the right to remove your information from our database. While this requirement is mandated by law in only three states (California, Colorado, and Virginia), we go beyond and offer this option to every United States citizen, regardless of their state of residence. Your privacy and control over your information are of utmost importance to us.</p>
-<p><br></p>
-<p><br></p>
-<p><strong>What is the history of Friend Verifier?</strong></p>
-<p><br></p>
-<p>In 2012, Friend Verifier revolutionized the landscape by becoming the pioneering app that empowered Facebook users to scan their friends and friend requests for registered sex offenders. Despite initial skepticism, the app swiftly garnered attention from journalists across the United States, who subjected Friend Verifier to rigorous testing. The results were eye-opening, revealing that registered sex offenders were indeed present on Facebook, posing a significant threat to women and children.</p>
-<p><br></p>
-<p>The investigative journalists made startling discoveries, revealing how sex offenders managed to befriend unsuspecting teenagers and young adults, putting them in perilous situations. This had severe consequences, as convicted rapists and child molesters gained access to sensitive information such as school details and hangout locations, posing a direct threat to innocent lives. The rapid surge in our app&apos;s popularity, reaching over 14 million users, triggered a wave of questions, questioning why these dangerous individuals were allowed on the platform.</p>
-<p><br></p>
-<p>In response to the growing concern, Facebook took decisive action and altered developer access, removing APIs needed for Friend Verifier to work.&nbsp;</p>
-<p><br></p>
-<p><br></p>
-<p><strong>Can I pay for one search or must I get a subscription?</strong></p>
-<p><br></p>
-<p>Unlike many of our competitors, we offer a more flexible and customer-friendly approach. With us, you have the freedom to conduct a single search without being forced into a monthly subscription. Additionally, we don&apos;t surprise you with additional fees for accessing more information. Our goal is to provide a transparent and straightforward experience, ensuring that you only pay for what you need and use. Your satisfaction is our priority.</p>
-<p><br></p>
-<p><br></p>
-<p><strong>How do I cancel my subscription?</strong></p>
-<p><br></p>
-<p>Opting for one of our convenient paid monthly or yearly subscriptions is a breeze, and canceling is just as simple! To cancel, open your phone&apos;s settings, navigate to subscriptions, and choose to cancel your subscription hassle-free. We believe in providing you with an effortless experience, even when it comes to managing your subscription.</p>
-<p><br></p>
-   `,
-  };
+  
   return (
     <View style={styles.container}>
       <StatusBar
@@ -79,163 +26,166 @@ export default function FaqScreen({ navigation }) {
         hidden={false}
         backgroundColor="#305A9C"
       />
-      <View style={styles.homeHeader}>
-        <Entypo
-          onPress={() => navigation.goBack()}
-          name="chevron-thin-left"
-          size={24}
-          color="#fff"
-        />
-
-        <Text style={styles.headerTitle}>
-          <Text style={{ ...styles.headerTitle, fontFamily: "SemiBold" }}>
-            FAQs
-          </Text>
-        </Text>
-        <Pressable>
-          <Feather name="menu" size={24} color="#305A9C" />
-        </Pressable>
-      </View>
 
       <ScrollView
         showsVerticalScrollIndicator={false}
         contentContainerStyle={{
           paddingBottom: RFValue(50),
-          paddingHorizontal: RFValue(25),
         }}
       >
-        <View style={{ marginTop: RFValue(20) }}>
-          <View style={[styles.paragraph]}>
-            <View style={styles.heading}>
-              <Image
-                source={require("../assets/icons/faq1.png")}
-                style={styles.do}
-              />
-              <Text style={styles.title}>
-                Didn't Friend Verifier Exist a{"\n"}
-                While Ago?
-              </Text>
-            </View>
+        <View style={styles.homeHeader}>
+          <Entypo
+            onPress={() => navigation.goBack()}
+            name="chevron-thin-left"
+            size={24}
+            color="#fff"
+          />
 
-            <Text style={styles.subtitle}>
-              Yep! The initial iteration of Friend Verifier, introduced{"\n"}
-              in 2012, enabled Facebook users to scan their{"\n"}
-              friends and friend requests for registered sex{"\n"}
-              offenders. It went viral, and journalists around the{"\n"}
-              country reported that they had found sex offenders{"\n"}
-              on Facebook using Friend Verifier.{"\n"}
-              {"\n"}
-              However, these journalists repeatedly questioned{"\n"}
-              Facebook about the presence of registered sex{"\n"}
-              offenders on their platform, which was a clear{"\n"}
-              breach of their terms of service. Subsequently, in the{"\n"}
-              summer of 2015, Facebook terminated our access.{"\n"}
+          <Text style={styles.headerTitle}>
+            <Text style={{ ...styles.headerTitle, fontFamily: "SemiBold" }}>
+              FAQs
             </Text>
-          </View>
+          </Text>
+          <Pressable>
+            <Feather name="menu" size={24} color="#305A9C" />
+          </Pressable>
         </View>
+        <View style={{ paddingHorizontal: RFValue(25) }}>
+          <View style={{ marginTop: RFValue(20) }}>
+            <View style={[styles.paragraph]}>
+              <View style={styles.heading}>
+                <Image
+                  source={require("../assets/icons/faq1.png")}
+                  style={styles.do}
+                />
+                <Text style={styles.title}>
+                  Didn't Friend Verifier Exist a{"\n"}
+                  While Ago?
+                </Text>
+              </View>
 
-        <View style={{ marginTop: RFValue(20) }}>
-          <View style={[styles.paragraph]}>
-            <View style={styles.heading}>
-              <Image
-                source={require("../assets/icons/faq1.png")}
-                style={styles.do}
-              />
-              <Text style={styles.title}>
-                Why Did Friend Verifier Come{"\n"}
-                Back?
+              <Text style={styles.subtitle}>
+                Yep! The initial iteration of Friend Verifier, introduced{"\n"}
+                in 2012, enabled Facebook users to scan their{"\n"}
+                friends and friend requests for registered sex{"\n"}
+                offenders. It went viral, and journalists around the{"\n"}
+                country reported that they had found sex offenders{"\n"}
+                on Facebook using Friend Verifier.{"\n"}
+                {"\n"}
+                However, these journalists repeatedly questioned{"\n"}
+                Facebook about the presence of registered sex{"\n"}
+                offenders on their platform, which was a clear{"\n"}
+                breach of their terms of service. Subsequently, in the{"\n"}
+                summer of 2015, Facebook terminated our access.{"\n"}
               </Text>
             </View>
-
-            <Text style={styles.subtitle}>
-              During and following the pandemic, we witnessed an{"\n"}
-              upsurge in criminal activities, particularly targeting{"\n"}
-              individuals through dating apps. Upon examining the{"\n"}
-              existing Data-Centric Personal Safety platforms, we{"\n"}
-              identified shortcomings in both innovation and{"\n"}
-              affordability.{"\n"}
-              {"\n"}
-              Our commitment is to provide you with cutting-edge{"\n"}
-              solutions to enhance your safety and that of your{"\n"}
-              loved ones, all without straining your budget.
-            </Text>
           </View>
-        </View>
-        <View style={{ marginTop: RFValue(20) }}>
-          <View style={[styles.paragraph]}>
-            <View style={styles.heading}>
-              <Image
-                source={require("../assets/icons/faq1.png")}
-                style={styles.do}
-              />
-              <Text style={styles.title}>
-                How Much Does Friend Verifier{"\n"}
-                Cost?
+
+          <View style={{ marginTop: RFValue(20) }}>
+            <View style={[styles.paragraph]}>
+              <View style={styles.heading}>
+                <Image
+                  source={require("../assets/icons/faq1.png")}
+                  style={styles.do}
+                />
+                <Text style={styles.title}>
+                  Why Did Friend Verifier Come{"\n"}
+                  Back?
+                </Text>
+              </View>
+
+              <Text style={styles.subtitle}>
+                During and following the pandemic, we witnessed an{"\n"}
+                upsurge in criminal activities, particularly targeting{"\n"}
+                individuals through dating apps. Upon examining the{"\n"}
+                existing Data-Centric Personal Safety platforms, we{"\n"}
+                identified shortcomings in both innovation and{"\n"}
+                affordability.{"\n"}
+                {"\n"}
+                Our commitment is to provide you with cutting-edge{"\n"}
+                solutions to enhance your safety and that of your{"\n"}
+                loved ones, all without straining your budget.
               </Text>
             </View>
-
-            <Text style={styles.subtitle}>
-              We give our users two options: Pay-As-You-Go or{"\n"}
-              obtaining a subscription. If you choose to{"\n"}
-              Pay-As-You-Go, each report will cost $4.99, that's{"\n"}
-              less than a frappuccino.{"\n"}
-              {"\n"}
-              If you opt for a subscription, we offer three tiers:{"\n"}
-              Basic, Goid, and Platinum. If you were to seloct the{"\n"}
-              Platinum subscription, billed annually, it includes{"\n"}
-              1,200 background chocks for the yoar, at a cost of{"\n"}
-              just 15 cents per background check. For further{"\n"}
-              details on our subscription options and associated{"\n"}
-              costs, please visit our subscriptions page.
-            </Text>
           </View>
-        </View>
-        <View style={{ marginTop: RFValue(20) }}>
-          <View style={[styles.paragraph]}>
-            <View style={styles.heading}>
-              <Image
-                source={require("../assets/icons/faq1.png")}
-                style={styles.do}
-              />
-              <Text style={styles.title}>
-                What can I access on Friend{"\n"}
-                Verifier?
+          <View style={{ marginTop: RFValue(20) }}>
+            <View style={[styles.paragraph]}>
+              <View style={styles.heading}>
+                <Image
+                  source={require("../assets/icons/faq1.png")}
+                  style={styles.do}
+                />
+                <Text style={styles.title}>
+                  How Much Does Friend Verifier{"\n"}
+                  Cost?
+                </Text>
+              </View>
+
+              <Text style={styles.subtitle}>
+                We give our users two options: Pay-As-You-Go or{"\n"}
+                obtaining a subscription. If you choose to{"\n"}
+                Pay-As-You-Go, each report will cost $4.99, that's{"\n"}
+                less than a frappuccino.{"\n"}
+                {"\n"}
+                If you opt for a subscription, we offer three tiers:{"\n"}
+                Basic, Goid, and Platinum. If you were to select the{"\n"}
+                Platinum subscription, billed annually, it includes{"\n"}
+                1,200 background checks for the year, at a cost of{"\n"}
+                just 15 cents per background check. For further{"\n"}
+                details on our subscription options and associated{"\n"}
+                costs, please visit our subscriptions page.
               </Text>
             </View>
-
-            <Text style={styles.subtitle}>
-              Our reports include names and aliasos, rolatives and{"\n"}
-              associates, address histories, phone numbers, email{"\n"}
-              addresses, criminal records and convictions, and{"\n"}
-              more.{"\n"}
-              {"\n"}
-              Unlike our competitors, there are no upcharges or{"\n"}
-              additional fees; we provide all the information we{"\n"}
-              have in each report.
-            </Text>
           </View>
-        </View>
-        <View style={{ marginTop: RFValue(20) }}>
-          <View style={[styles.paragraph]}>
-            <View style={styles.heading}>
-              <Image
-                source={require("../assets/icons/faq1.png")}
-                style={styles.do}
-              />
-              <Text style={styles.title}>
-              Will I Still be Charged if There is{"\n"}
-No Match?
+          <View style={{ marginTop: RFValue(20) }}>
+            <View style={[styles.paragraph]}>
+              <View style={styles.heading}>
+                <Image
+                  source={require("../assets/icons/faq1.png")}
+                  style={styles.do}
+                />
+                <Text style={styles.title}>
+                  What can I access on Friend{"\n"}
+                  Verifier?
+                </Text>
+              </View>
+
+              <Text style={styles.subtitle}>
+                Our reports include names and aliases, relatives and{"\n"}
+                associates, address histories, phone numbers, email{"\n"}
+                addresses, criminal records and convictions, and{"\n"}
+                more.{"\n"}
+                {"\n"}
+                Unlike our competitors, there are no upcharges or{"\n"}
+                additional fees; we provide all the information we{"\n"}
+                have in each report.
               </Text>
             </View>
+          </View>
+          <View style={{ marginTop: RFValue(20) }}>
+            <View style={[styles.paragraph]}>
+              <View style={styles.heading}>
+                <Image
+                  source={require("../assets/icons/faq1.png")}
+                  style={styles.do}
+                />
+                <Text style={styles.title}>
+                  Will I Still be Charged if There is{"\n"}
+                  No Match?
+                </Text>
+              </View>
 
-            <Text style={styles.subtitle}>
-            No. operan. You and also manyou{"\n"}
-choose to view a report. If you have a subscription,{"\n"}
-one credit is deducted from your tally when you{"\n"}
-choose to view a report.{"\n"}{"\n"}
-You are paying for the report whether there is a{"\n"}
-criminal record or not.
-            </Text>
+              <Text style={styles.subtitle}>
+                No, If you perform a search and there is no match,{"\n"}
+                you are not charged. You are only charged when you{"\n"}
+                choose to view a report. If you have a subscription,{"\n"}
+                one credit is deducted from your tally when you{"\n"}
+                choose to view a report.{"\n"}
+                {"\n"}
+                You are paying for the report whether there is a{"\n"}
+                criminal record or not.
+              </Text>
+            </View>
           </View>
         </View>
       </ScrollView>
@@ -260,7 +210,7 @@ const styles = StyleSheet.create({
     // paddingTop: Device.STATUS_BAR_HEIGHT + 20,
     paddingTop:
       Platform.OS === "android"
-        ? Device.STATUS_BAR_HEIGHT - 15
+        ? Device.STATUS_BAR_HEIGHT
         : Device.STATUS_BAR_HEIGHT + 20,
 
     // paddingTop:Platform.OS==='android'?0:RFValue(12)
@@ -297,10 +247,13 @@ const styles = StyleSheet.create({
     marginRight: RFValue(5),
   },
   paragraph: {
+    shadowColor: "#000",
+    shadowOffset: { width: 0, height: -2 },
+    shadowOpacity: 0.5,
+    shadowRadius: 2,
     backgroundColor: "#FFFFFF",
-    elevation: 0.2,
+    elevation: 1,
     borderWidth: 0,
-    borderColor: 'transperant',
     height: RFValue(210),
     borderTopRightRadius: 10,
     borderTopLeftRadius: 10,

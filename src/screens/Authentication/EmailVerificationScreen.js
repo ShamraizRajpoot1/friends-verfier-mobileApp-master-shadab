@@ -148,7 +148,7 @@ const styles = StyleSheet.create({
     // justifyContent: "center",
     // alignItems: "center",
     width: WIDTH,
-    height: RFValue(75),
+    height: RFValue(90),
     backgroundColor: "#305A9C",
     // alignItems: "center",
     paddingHorizontal: RFValue(20),
@@ -156,12 +156,12 @@ const styles = StyleSheet.create({
     justifyContent: "space-between",
     paddingTop:
       Platform.OS === "android"
-        ? Device.STATUS_BAR_HEIGHT - 15
+        ? Device.STATUS_BAR_HEIGHT 
         : Device.STATUS_BAR_HEIGHT + 20,
     alignItems: "center",
   },
   emailVerificationText: {
-    fontSize: RFValue(18),
+    fontSize: RFValue(16),
     color: "#fff",
     fontFamily: "SemiBold",
     textAlign: "center",

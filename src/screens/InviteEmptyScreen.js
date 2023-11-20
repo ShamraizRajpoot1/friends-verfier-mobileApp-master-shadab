@@ -149,12 +149,30 @@ export default function InviteEmptyScreen({ navigation }) {
         showsVerticalScrollIndicator={false}
         contentContainerStyle={{ paddingBottom: RFValue(50) }}
       >
-        <Text style={styles.topText}>
-          Invite one of your contacts, and earn a{"\n"}
-          credit to run a free background check{"\n"}if they create an account.
-        </Text>
+        <View style={{ marginTop: RFValue(20), marginHorizontal: RFValue(20) }}>
+          <View style={[styles.paragraph]}>
+            <View style={styles.heading}>
+              <Image
+                source={require("../assets/icons/partypopper.png")}
+                style={styles.do}
+              />
+              <Text style={styles.title}>Earn Free Credits!</Text>
+            </View>
 
-        <View style={styles.textinputCOntainer}>
+            <Text style={[styles.subtitle, { marginTop: RFValue(8) }]}>
+              You'll earn 1 free credit for each friend
+            </Text>
+            <Text style={styles.subtitle}>
+              you invite who accepts your invitation.
+            </Text>
+            <Text style={styles.subtitle}>
+              There is no limit, 500 friends accept,
+            </Text>
+            <Text style={styles.subtitle}>you'll get 500 free credits!</Text>
+          </View>
+        </View>
+
+        {/* <View style={styles.textinputCOntainer}>
           <Image
             style={styles.icon}
             source={require("../assets/icons/search.png")}
@@ -166,7 +184,7 @@ export default function InviteEmptyScreen({ navigation }) {
             placeholder="Invite by phone#"
             keyboardType="number-pad"
           />
-        </View>
+        </View> */}
 
         <View style={styles.searchByContactContainer}>
           <Image
@@ -180,7 +198,7 @@ export default function InviteEmptyScreen({ navigation }) {
             style={{
               ...styles.topText,
               marginTop: RFValue(14),
-              fontSize: RFValue(14),
+              fontSize: RFValue(12),
             }}
           >
             We will show you who’s already here{"\n"}and show you friends you
@@ -196,7 +214,7 @@ export default function InviteEmptyScreen({ navigation }) {
             style={styles.searchbyContactbutton}
           >
             <Text style={{ ...styles.boxtitle, marginTop: 0 }}>
-              Search using my contacts
+              Grant Access
             </Text>
           </TouchableOpacity>
           {/* <Text>hchhg</Text> */}
@@ -216,6 +234,54 @@ export default function InviteEmptyScreen({ navigation }) {
             </View>
           </TouchableOpacity>
           </Modal> */}
+        </View>
+        <View style={{ marginTop: RFValue(90), marginHorizontal: RFValue(20), }}>
+          <View
+            style={[
+              styles.heading,
+              { paddingLeft: RFValue(12), width: WIDTH - RFValue(60), },
+            ]}
+          >
+            <Image
+              source={require("../assets/icons/info.png")}
+              style={styles.do}
+            />
+            <Text style={[styles.title,{fontFamily: 'BoldText',}]}>Disclaimer</Text>
+          </View>
+          <View
+            style={[
+              styles.paragraph,
+              {
+               
+                backgroundColor: "#FFFFFF",
+                width: WIDTH - RFValue(60),
+                alignSelf: "center",
+                height:RFValue(90),
+                borderRadius: 3,
+              },
+            ]}
+          >
+            <Text
+              style={[
+                styles.subtitle,
+                {
+                  marginTop: RFValue(8),
+                  fontSize: RFValue(6.8),
+                  lineHeight: RFValue(10),
+                },
+              ]}
+            >
+              By using the contact search feature, you can swiftly perform a
+              reverse phone{"\n"}
+              lookup on someone stored in your contact list.{"\n"}
+              {"\n"}
+              Rest assured, we never store your contacts on our servers. This
+              process is{"\n"}
+              handled on a per-case basis, and you have the freedom to revoke
+              access at any{"\n"}
+              time, with all other functionalities remaining unaffected.
+            </Text>
+          </View>
         </View>
       </ScrollView>
       {/* <InviteDisplayScreen ContactsDatas={contactsState} /> */}
@@ -238,7 +304,7 @@ const styles = StyleSheet.create({
   },
   homeHeader: {
     width: WIDTH,
-    height: RFValue(100),
+    height: RFValue(90),
     backgroundColor: "#305A9C",
     justifyContent: "space-between",
     alignItems: "center",
@@ -289,6 +355,49 @@ const styles = StyleSheet.create({
   inputContainer: {
     marginTop: RFValue(30),
   },
+  heading: {
+    alignSelf: "center",
+    backgroundColor: "#F5F5F5",
+    width: WIDTH - RFValue(40),
+    height: RFValue(30),
+    flexDirection: "row",
+    borderRadius: 10,
+    alignItems: "center",
+    paddingLeft: RFValue(20),
+  },
+  do: {
+    width: RFValue(12),
+    height: RFValue(12),
+    marginRight: RFValue(5),
+  },
+  paragraph: {
+    alignItems: "center",
+    shadowColor: "#000",
+    shadowOffset: { width: 0, height: -2 },
+    shadowOpacity: 0.5,
+    shadowRadius: 2,
+    backgroundColor: "#FCFCFC",
+    elevation: 1,
+    borderWidth: 0,
+    height: RFValue(110),
+    borderTopRightRadius: 10,
+    borderTopLeftRadius: 10,
+    marginTop: RFValue(10),
+    borderRadius: 10,
+  },
+  title: {
+    fontSize: RFValue(14),
+    color: "#000",
+    fontFamily: "SemiBold",
+  },
+  subtitle: {
+    marginHorizontal: RFValue(10),
+    fontSize: RFValue(13),
+    color: "#000000",
+    fontFamily: "RegularText",
+    textAlign: "left",
+    lineHeight: RFValue(15),
+  },
   icon: {
     width: RFValue(20),
     height: RFValue(20),
@@ -303,13 +412,13 @@ const styles = StyleSheet.create({
   },
 
   searchByContactContainer: {
-    width: WIDTH - RFValue(60),
+    width: WIDTH - RFValue(90),
     paddingVertical: RFValue(20),
     paddingHorizontal: RFValue(12),
     backgroundColor: "#F3F3F3",
     borderRadius: 8,
     alignSelf: "center",
-    marginTop: Dimensions.get("window").height / 5,
+    marginTop: Dimensions.get("window").height / 20,
   },
   iconinvite: {
     width: RFValue(24),
@@ -318,14 +427,14 @@ const styles = StyleSheet.create({
   },
 
   boxtitle: {
-    fontSize: RFValue(14),
+    fontSize: RFValue(11),
     fontFamily: "BoldText",
     color: "#000",
     textAlign: "center",
     marginTop: RFValue(8),
   },
   searchbyContactbutton: {
-    width: WIDTH / 1.6,
+    width: WIDTH / 2,
     padding: RFValue(5),
     backgroundColor: "#FFFFFF",
     borderRadius: 10,

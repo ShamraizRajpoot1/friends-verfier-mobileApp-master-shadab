@@ -717,7 +717,7 @@ const styles = StyleSheet.create({
   stateInput: {
     width: WIDTH - RFValue(62),
 
-    fontSize: RFValue(12),
+    fontSize: RFValue(14),
     fontFamily: "RegularText",
     color: "#000",
   },

@@ -12,6 +12,8 @@ import {
   Platform,
   Alert,
   ActivityIndicator,
+  Image,
+  TextInput,
 } from "react-native";
 import React, { useState, useRef, useEffect, useCallback } from "react";
 import { Entypo, Feather, Fontisto } from "@expo/vector-icons";
@@ -314,37 +316,11 @@ export default function SubscribeScreen({ navigation, route }) {
               borderRadius: 20,
               flexDirection: "row",
               alignItems: "center",
-              borderWidth: 0.5,
+
               paddingHorizontal: 3,
               marginLeft: 10,
             }}
           >
-            <TouchableOpacity
-              activeOpacity={0.5}
-              onPress={() => {
-                setSelectedPlan(1);
-              }}
-              style={{
-                height: 30,
-                width: "50%",
-                backgroundColor: SelectedPlan == 1 && "#305A9C",
-                borderRadius: 20,
-                justifyContent: "center",
-                alignItems: "center",
-              }}
-            >
-              <Text
-                style={[
-                  styles.choosePlanContainerText,
-                  {
-                    color: SelectedPlan == 1 ? "white" : "black",
-                    fontSize: RFValue(10),
-                  },
-                ]}
-              >
-                Monthly
-              </Text>
-            </TouchableOpacity>
             <TouchableOpacity
               activeOpacity={0.5}
               onPress={() => {
@@ -364,11 +340,37 @@ export default function SubscribeScreen({ navigation, route }) {
                   styles.choosePlanContainerText,
                   {
                     color: SelectedPlan == 2 ? "white" : "black",
-                    fontSize: RFValue(10),
+                    fontSize: RFValue(12),
                   },
                 ]}
               >
                 Yearly
+              </Text>
+            </TouchableOpacity>
+            <TouchableOpacity
+              activeOpacity={0.5}
+              onPress={() => {
+                setSelectedPlan(1);
+              }}
+              style={{
+                height: 30,
+                width: "50%",
+                backgroundColor: SelectedPlan == 1 && "#305A9C",
+                borderRadius: 20,
+                justifyContent: "center",
+                alignItems: "center",
+              }}
+            >
+              <Text
+                style={[
+                  styles.choosePlanContainerText,
+                  {
+                    color: SelectedPlan == 1 ? "white" : "black",
+                    fontSize: RFValue(12),
+                  },
+                ]}
+              >
+                Monthly
               </Text>
             </TouchableOpacity>
           </View>
@@ -439,7 +441,7 @@ export default function SubscribeScreen({ navigation, route }) {
               style={{
                 ...styles.titleSearches,
                 fontFamily: "BoldText",
-                fontSize: RFValue(12),
+                fontSize: RFValue(14),
                 marginBottom: 10,
               }}
             >
@@ -449,8 +451,8 @@ export default function SubscribeScreen({ navigation, route }) {
               <Text
                 style={{
                   ...styles.titleSearches,
-                  fontFamily: "BoldText",
-                  fontSize: RFValue(9),
+                  fontFamily: "Heavy",
+                  fontSize: RFValue(14),
                   color: "#305A9C",
                 }}
               >
@@ -491,7 +493,7 @@ export default function SubscribeScreen({ navigation, route }) {
                     fontFamily: "BoldText",
                     fontSize: RFValue(10),
                     color: "#FD2D43",
-                    fontWeight: "bold",
+                    fontWeight: "Heavy",
                   }}
                 >
                   {discountPercentage}% off!
@@ -505,7 +507,7 @@ export default function SubscribeScreen({ navigation, route }) {
                 height: 25,
                 width: 25,
                 borderRadius: 15,
-                borderWidth: 1,
+                borderWidth: 0.2,
                 borderColor: "gray",
                 bottom: 20,
                 alignItems: "center",
@@ -549,7 +551,7 @@ export default function SubscribeScreen({ navigation, route }) {
 
             <Text style={styles.headerTitle}>
               <Text style={{ ...styles.headerTitle, fontFamily: "SemiBold" }}>
-                My Subscription
+                Subscriptions
               </Text>
             </Text>
             <Pressable>
@@ -568,7 +570,7 @@ export default function SubscribeScreen({ navigation, route }) {
           <View style={styles.choosePlanContainer}>
             <Text
               onPress={() => navigation.goBack()}
-              style={styles.choosePlanContainerText}
+              style={styles.choosePlanContainerText1}
             >
               Choose Plan
             </Text>
@@ -617,39 +619,6 @@ export default function SubscribeScreen({ navigation, route }) {
                     )}
                   </>
                 ))}
-
-              {!pay_as_you_go && FirstVisit != 1 && (
-                <>
-                  <Text
-                    style={{
-                      fontSize: RFValue(18),
-                      textAlign: "center",
-                      color: "gray",
-                    }}
-                  >
-                    Privacy & Terms
-                  </Text>
-
-                  <Text
-                    style={{
-                      fontFamily: "BoldText",
-
-                      fontSize: RFValue(6),
-                      textAlign: "center",
-                      color: "#000",
-                      marginTop: RFValue(10),
-                    }}
-                  >
-                    Upon confirmation of your purchase, payment will be charged
-                    to your iCloud Account{"\n"}, including relevant tax. Your
-                    subscription will automatically renew, and you will be
-                    billed via{"\n"}your iCloud Account at the end of the
-                    duration of the plan that you have subscribed to. You{"\n"}
-                    may cancel your subscription anytime from the App Store
-                    account settings.r
-                  </Text>
-                </>
-              )}
               <TouchableOpacity
                 onPress={() => {
                   if (ActivePlan) {
@@ -673,11 +642,58 @@ export default function SubscribeScreen({ navigation, route }) {
                         { color: "white" },
                       ]}
                     >
-                      {ActivePlan ? "Cancel Subscription" : "Choose"}
+                      {ActivePlan ? "Cancel Subscription" : "CHOOSE"}
                     </Text>
                   </>
                 )}
               </TouchableOpacity>
+              <View style={{ marginTop: RFValue(15), marginLeft: "5%" }}>
+                <View style={styles.heading}>
+                  <Image
+                    source={require("../assets/icons/thumbs.png")}
+                    style={styles.do}
+                  />
+                  <Text style={styles.title}>Referral Code</Text>
+                </View>
+              </View>
+              <View style={{flexDirection:"row",justifyContent:'space-between', marginHorizontal: '8%',}}>
+              <TextInput
+            style={styles.input} 
+            />
+            <TouchableOpacity style={styles.send}><Text style={styles.sendtext}>SEND</Text></TouchableOpacity>
+              </View>
+              {!pay_as_you_go && FirstVisit != 1 && (
+                <>
+                  <Text
+                    style={{
+                      marginTop: RFValue(15),
+                      fontSize: RFValue(10),
+                      textAlign: "center",
+                      color: "gray",
+                    }}
+                  >
+                    Privacy & Terms
+                  </Text>
+
+                  <Text
+                    style={{
+                      fontSize: RFValue(7),
+                      textAlign: "center",
+                      color: "#000",
+                      marginTop: RFValue(10),
+                    }}
+                  >
+                    Upon purchase confirmation, charges, including taxes, will
+                    be billed to your mobile device{"\n"}
+                    payment account. Your subscription will renew automatically,
+                    with charges processed{"\n"}
+                    through your mobile payment account at the subscription's
+                    end. Cancel anytime in the App{"\n"}
+                    Store settinas.
+                  </Text>
+                </>
+              )}
+
               {/* )} */}
             </View>
           </View>
@@ -691,6 +707,30 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: "#fff",
+  },
+  input: {
+    borderWidth: 1,
+    borderColor: "rgba(0,0,0,0.2)",
+    borderRadius: RFValue(8),
+    marginTop: RFValue(10),
+    width: "75%",
+    height: RFValue(35),
+    color:'#000000',
+    fontSize: RFValue(12),
+    paddingHorizontal:RFValue(8)
+  },
+  send:{
+    width:'23%',
+    backgroundColor:'#305A9C',
+    marginTop: RFValue(10),
+    height: RFValue(35),
+    alignItems:'center',
+    justifyContent:'center',
+    borderRadius: RFValue(8),
+  },
+  sendtext:{
+    color:"#FFFFFF",
+    fontSize: RFValue(12),
   },
   payMent: {
     justifyContent: "center",
@@ -729,7 +769,7 @@ const styles = StyleSheet.create({
     // marginTop: Device.STATUS_BAR_HEIGHT + 30,
 
     width: WIDTH,
-    height: RFValue(75),
+    height: RFValue(90),
     backgroundColor: "#305A9C",
     // alignItems: "center",
     paddingHorizontal: RFValue(20),
@@ -738,17 +778,36 @@ const styles = StyleSheet.create({
     // paddingTop: Device.STATUS_BAR_HEIGHT + 20,
     paddingTop:
       Platform.OS === "android"
-        ? Device.STATUS_BAR_HEIGHT - 15
+        ? Device.STATUS_BAR_HEIGHT
         : Device.STATUS_BAR_HEIGHT + 20,
     alignItems: "center",
 
     // paddingTop:Platform.OS==='android'?0:RFValue(12),
   },
-
+  heading: {
+    backgroundColor: "#F5F5F5",
+    width: "95%",
+    height: RFValue(32),
+    flexDirection: "row",
+    borderRadius: 10,
+    alignItems: "center",
+    paddingLeft: RFValue(12),
+  },
+  do: {
+    width: RFValue(14),
+    height: RFValue(14),
+    marginRight: RFValue(5),
+  },
+  title: {
+    fontSize: RFValue(14),
+    color: "#000",
+    fontFamily: "SemiBold",
+    // marginLeft: RFValue(40),
+  },
   headerTitle: {
-    fontSize: RFValue(16),
+    fontSize: RFValue(18),
     color: "#fff",
-    fontFamily: "RegularText",
+    fontFamily: "Bold",
     // textAlign:"center",
     // marginRight:RFValue(20),
   },
@@ -767,12 +826,6 @@ const styles = StyleSheet.create({
     justifyContent: "space-between",
     marginBottom: RFValue(8),
   },
-  titleSearches: {
-    fontSize: RFValue(1),
-    color: "#000",
-    // fontFamily: "Medium",
-  },
-
   membershipIncludes: {
     fontFamily: "Heavy",
     color: "#315A9C",
@@ -797,7 +850,7 @@ const styles = StyleSheet.create({
     marginTop: RFValue(16),
   },
   WelcomeText: {
-    fontSize: RFValue(14),
+    fontSize: RFValue(10),
     fontWeight: "bold",
     color: "#30599D",
     marginVertical: 20,
@@ -817,8 +870,14 @@ const styles = StyleSheet.create({
     marginVertical: 20,
   },
   choosePlanContainerText: {
-    fontSize: RFValue(16),
+    fontSize: RFValue(11),
     fontWeight: "bold",
+  },
+  choosePlanContainerText1: {
+    marginLeft: RFValue(5),
+    fontSize: RFValue(15),
+    fontWeight: "bold",
+    color: "rgba(0,0,0,0.7)",
   },
   PlanContainer: {
     // height: RFValue(180),
@@ -837,19 +896,20 @@ const styles = StyleSheet.create({
   },
   titleSearches: {
     fontSize: RFValue(12),
-    color: "#000",
+    color: "rgba(0,0,0,0.8)",
     // fontFamily: "Medium",
   },
   PlanContent: {
     // borderWidth: 1,
-    width: WIDTH / 1.5,
+    width: WIDTH / 1.2,
     padding: 15,
   },
   PlanCheckBoxContainer: {
     // borderWidth: 1,
-    width: WIDTH / 4,
+    width: WIDTH / 10,
     justifyContent: "center",
-    alignItems: "center",
+    alignItems: "flex-start",
+    marginLeft: RFValue(-5),
   },
   PlanCheckBox: {},
   modal: {

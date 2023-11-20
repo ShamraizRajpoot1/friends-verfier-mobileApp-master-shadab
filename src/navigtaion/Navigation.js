@@ -43,6 +43,7 @@ import { loginDetails } from "../redux/action"; // Action function
 import navigationService from "../../navigationService";
 import GetStartedScreen from "../screens/Authentication/GetStartedScreen.js";
 import SafetyTips from "../screens/SafetyTips.js";
+import SellInfo from "../screens/SellInfo.js";
 const Stack = createNativeStackNavigator();
 
 function Navigation() {
@@ -118,6 +119,10 @@ function Navigation() {
           <Stack.Screen
             name="InviteEmptyScreen"
             component={InviteEmptyScreen}
+          />
+           <Stack.Screen
+            name="SellInfo"
+            component={SellInfo}
           />
           <Stack.Screen
             name="SafetyTips"
