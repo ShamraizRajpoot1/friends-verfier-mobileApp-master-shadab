@@ -13,6 +13,7 @@ import React, { useState } from "react";
 import { Entypo, Feather } from "@expo/vector-icons";
 import { RFValue } from "react-native-responsive-fontsize";
 import Device from "../../src/constants/device";
+import { TouchableOpacity } from "react-native";
 
 const WIDTH = Dimensions.get("window").width;
 export default function FaqScreen({ navigation }) {
@@ -34,12 +35,12 @@ export default function FaqScreen({ navigation }) {
         }}
       >
         <View style={styles.homeHeader}>
-          <Entypo
-            onPress={() => navigation.goBack()}
-            name="chevron-thin-left"
-            size={24}
-            color="#fff"
+        <TouchableOpacity onPress={() => navigation.goBack()}>
+          <Image
+            source={require("../assets/icons/back.png")}
+            style={{ width: RFValue(10), height: RFValue(20) }}
           />
+        </TouchableOpacity>
 
           <Text style={styles.headerTitle}>
             <Text style={{ ...styles.headerTitle, fontFamily: "SemiBold" }}>
@@ -252,7 +253,7 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.5,
     shadowRadius: 2,
     backgroundColor: "#FFFFFF",
-    elevation: 1,
+    elevation: 4,
     borderWidth: 0,
     height: RFValue(210),
     borderTopRightRadius: 10,

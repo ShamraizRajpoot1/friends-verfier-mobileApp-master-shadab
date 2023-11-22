@@ -103,12 +103,12 @@ export default function DoandDOntsScreen({ navigation }) {
           backgroundColor="#305A9C"
         />
         <View style={styles.homeHeader}>
-          <Entypo
-            onPress={() => navigation.goBack()}
-            name="chevron-thin-left"
-            size={24}
-            color="#fff"
+        <TouchableOpacity onPress={() => navigation.goBack()}>
+          <Image
+            source={require("../assets/icons/back.png")}
+            style={{ width: RFValue(10), height: RFValue(20) }}
           />
+        </TouchableOpacity>
 
           <Text style={styles.headerTitle}>
             <Text style={{ ...styles.headerTitle, fontFamily: "SemiBold" }}>
@@ -200,7 +200,7 @@ export default function DoandDOntsScreen({ navigation }) {
 
             <View style={styles.paragraph}>
               <Text style={styles.subtitle}>
-                Before you move in together and commit to a lease{"\n"}find out
+                Before you move in together and commit to a lease,{"\n"}find out
                 who you'll be living with.
               </Text>
             </View>
@@ -277,7 +277,7 @@ export default function DoandDOntsScreen({ navigation }) {
               <Text style={styles.subtitle}>
                 The Fair Credit Reporting Act (FCRA) regulates how {"\n"}public
                 databases are used. Friend Verifier, the public {"\n"}databases
-                that power our platform, can not be used in {"\n"}business, and
+                that power our platform, <Text style={{fontFamily:'BoldText'}}>can not be used</Text> in {"\n"}business, and
                 the following use cases.
               </Text>
             </View>
@@ -424,7 +424,7 @@ const styles = StyleSheet.create({
   },
   paragraph: {
     backgroundColor: "#FFFFFF",
-    elevation: 0.5,
+    elevation: 5,
     height: RFValue(90),
     paddingHorizontal: RFValue(12),
     marginTop: RFValue(10),

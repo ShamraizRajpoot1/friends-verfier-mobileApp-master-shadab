@@ -542,12 +542,12 @@ export default function SubscribeScreen({ navigation, route }) {
         />
         {FirstVisit == 0 ? (
           <View style={styles.homeHeader}>
-            <Entypo
-              onPress={() => navigation.goBack()}
-              name="chevron-thin-left"
-              size={24}
-              color="#fff"
-            />
+             <TouchableOpacity onPress={() => navigation.goBack()}>
+          <Image
+            source={require("../assets/icons/back.png")}
+            style={{ width: RFValue(10), height: RFValue(20) }}
+          />
+        </TouchableOpacity>
 
             <Text style={styles.headerTitle}>
               <Text style={{ ...styles.headerTitle, fontFamily: "SemiBold" }}>

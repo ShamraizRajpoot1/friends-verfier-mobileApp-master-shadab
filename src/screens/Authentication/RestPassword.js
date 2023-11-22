@@ -111,7 +111,9 @@ export default function ResetPassword({ navigation, route }) {
         contentContainerStyle={{ paddingBottom: RFValue(50) }}
       >
         <View style={{ alignSelf: "center" }}>
-          <Text style={styles.updateText}>Update your password</Text>
+          <Text style={styles.updateText}>Thank you for confirming your email{"\n"}
+address, please change your password{"\n"}
+below.</Text>
           <View style={styles.textinputCOntainer}>
           <View style={{height:'100%'}}>
               <Text style={styles.lebal}>Password</Text>
@@ -275,9 +277,8 @@ const styles = StyleSheet.create({
   },
   updateText: {
     fontSize: RFValue(15),
-    fontFamily: "SemiBold",
-    color: "#757575",
-    marginVertical: RFValue(20),
+    color: "#000",
+    marginVertical: RFValue(30),
   },
   loginButtonContainer: {
     width: WIDTH - RFValue(40),

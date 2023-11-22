@@ -551,7 +551,7 @@ const styles = StyleSheet.create({
   topTab: {
     flexDirection: 'row',
     marginTop: RFValue(25),
-    height:RFValue(35),
+    height:RFValue(40),
     width: WIDTH-RFValue(50),
     backgroundColor: '#ebebeb',
     alignSelf: 'center',

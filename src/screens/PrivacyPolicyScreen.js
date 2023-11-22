@@ -7,6 +7,7 @@ import {
   ScrollView,
   Pressable,
   Platform,
+  TouchableOpacity,
 } from "react-native";
 import React, { useState } from "react";
 import { Entypo, Feather } from "@expo/vector-icons";
@@ -14,6 +15,7 @@ import { RFValue } from "react-native-responsive-fontsize";
 import Device from "../../src/constants/device";
 const WIDTH = Dimensions.get("window").width;
 import RenderHtml from "react-native-render-html";
+import { Image } from "react-native";
 
 export default function PrivacyPolicyScreen({ navigation }) {
   const classesStyles = {};
@@ -169,12 +171,12 @@ export default function PrivacyPolicyScreen({ navigation }) {
         backgroundColor="#305A9C"
       />
       <View style={styles.homeHeader}>
-        <Entypo
-          onPress={() => navigation.goBack()}
-          name="chevron-thin-left"
-          size={24}
-          color="#fff"
-        />
+      <TouchableOpacity onPress={() => navigation.goBack()}>
+          <Image
+            source={require("../assets/icons/back.png")}
+            style={{ width: RFValue(10), height: RFValue(20) }}
+          />
+        </TouchableOpacity>
 
         <Text style={styles.headerTitle}>
           <Text style={{ ...styles.headerTitle, fontFamily: "SemiBold" }}>

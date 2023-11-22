@@ -81,7 +81,7 @@ export default function NotificationScreen({ navigation }) {
 
           <View style={{ marginTop: RFValue(10) }}>
             <View style={styles.individualListIte}>
-              <Text style={styles.listText}>Account Notification</Text>
+              <Text style={styles.listText}>Account Notifications</Text>
               <Switch
                 useNativeDriver={true}
                 value={product}
@@ -165,7 +165,7 @@ export default function NotificationScreen({ navigation }) {
 
             <View style={{ marginTop: RFValue(10) }}>
             <View style={styles.individualListIte}>
-              <Text style={styles.listText}>Account Notification</Text>
+              <Text style={styles.listText}>Account Notifications</Text>
               <Switch
                 useNativeDriver={true}
                 value={emailAccount}

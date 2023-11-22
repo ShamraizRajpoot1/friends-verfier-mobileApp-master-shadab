@@ -311,7 +311,7 @@ function LoginScreen({ navigation }) {
         </View>
 
         <TouchableOpacity
-          onPress={() => navigation.replace("CreateAccountScreen")}
+          onPress={() => navigation.replace("Terms")}
           style={styles.createAccountContainer}
         >
           <Text style={{ ...styles.loginButtonText, color: "#305A9C" }}>

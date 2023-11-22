@@ -44,6 +44,7 @@ import navigationService from "../../navigationService";
 import GetStartedScreen from "../screens/Authentication/GetStartedScreen.js";
 import SafetyTips from "../screens/SafetyTips.js";
 import SellInfo from "../screens/SellInfo.js";
+import Terms from "../screens/Terms.js";
 const Stack = createNativeStackNavigator();
 
 function Navigation() {
@@ -119,6 +120,10 @@ function Navigation() {
           <Stack.Screen
             name="InviteEmptyScreen"
             component={InviteEmptyScreen}
+          />
+          <Stack.Screen
+            name="Terms"
+            component={Terms}
           />
            <Stack.Screen
             name="SellInfo"

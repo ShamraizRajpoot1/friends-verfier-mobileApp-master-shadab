@@ -12,6 +12,7 @@ import {
   Pressable,
   Modal,
   Alert,
+  Image,
   Platform,
 } from "react-native";
 import React, { useEffect } from "react";
@@ -64,8 +65,8 @@ export default function EmailScreen({ navigation }) {
             verifier
           </Text>
         </Text>
-        <Pressable>
-          <Feather name="menu" size={33} color="#305A9C" />
+        <Pressable onPress={() => navigation.navigate("InviteEmptyScreen")}>
+          <Image source={require('../../assets/icons/inviteicon.png')} style={styles.icon} />
         </Pressable>
       </View>
       <ScrollView
@@ -128,7 +129,7 @@ export default function EmailScreen({ navigation }) {
               }}
               style={styles.searchButton}
             >
-              <Text style={styles.loginButtonText}>Search</Text>
+              <Text style={styles.loginButtonText}>search</Text>
             </TouchableOpacity>
           </View>
         </View>
@@ -149,7 +150,7 @@ const styles = StyleSheet.create({
 
   homeHeader: {
     width: WIDTH,
-    height: RFValue(75),
+    height: RFValue(90),
     backgroundColor: "#305A9C",
     justifyContent: "space-between",
     alignItems: "center",
@@ -158,7 +159,7 @@ const styles = StyleSheet.create({
     // paddingTop: Device.STATUS_BAR_HEIGHT + 20,
     paddingTop:
       Platform.OS === "android"
-        ? Device.STATUS_BAR_HEIGHT - 15
+        ? Device.STATUS_BAR_HEIGHT 
         : Device.STATUS_BAR_HEIGHT + 20,
 
     // paddingTop:Platform.OS==='android'?0:RFValue(12)
@@ -193,7 +194,7 @@ const styles = StyleSheet.create({
   },
   textinputCOntainer: {
     width: WIDTH - RFValue(24),
-    height: RFValue(50),
+    height: RFValue(40),
     alignSelf: "center",
     backgroundColor: "#fff",
     borderWidth: 1,
@@ -203,21 +204,13 @@ const styles = StyleSheet.create({
     alignItems: "center",
     paddingHorizontal: RFValue(10),
     marginBottom: RFValue(10),
-    shadowColor: "#000",
-    shadowOffset: {
-      width: 0,
-      height: 1,
-    },
-    shadowOpacity: 0.18,
-    shadowRadius: 1.0,
-
-    elevation: 1,
+    
   },
   inputContainer: {
     marginTop: RFValue(30),
   },
   input: {
-    width: WIDTH - RFValue(80),
+    width: WIDTH - RFValue(70),
     height: RFValue(50),
     marginLeft: RFValue(5),
     fontSize: RFValue(14),
@@ -234,20 +227,20 @@ const styles = StyleSheet.create({
   },
 
   crossButton: {
-    width: RFValue(28),
-    height: RFValue(28),
+    width: RFValue(24),
+    height: RFValue(24),
     borderRadius: 20,
     justifyContent: "center",
     alignItems: "center",
     backgroundColor: "#DEDEDE",
   },
   HomeInputsContainer: {
-    marginTop: RFValue(15),
+    marginTop: RFValue(25),
   },
 
   searchButton: {
-    width: WIDTH - RFValue(30),
-    height: RFValue(50),
+    width: WIDTH - RFValue(25),
+    height: RFValue(40),
     backgroundColor: "#305A9C",
     justifyContent: "center",
     alignItems: "center",
@@ -259,7 +252,7 @@ const styles = StyleSheet.create({
     },
     shadowOpacity: 0.18,
     shadowRadius: 1.0,
-    marginTop: RFValue(5),
+    marginTop: RFValue(2),
     elevation: 1,
   },
   loginButtonText: {
@@ -283,7 +276,7 @@ const styles = StyleSheet.create({
   searchFilterContainer: {
     flexDirection: "row",
     alignItems: "center",
-    marginLeft: RFValue(15),
+    marginLeft: RFValue(12),
   },
   recentSearchesContainer: {
     width: WIDTH - RFValue(30),
@@ -301,6 +294,10 @@ const styles = StyleSheet.create({
     fontSize: RFValue(20),
     color: "#fff",
     fontFamily: "Medium",
+  },
+  icon:{
+    height: RFValue(20),
+    width: RFValue(20),
   },
   norecentSearchesText: {
     color: "#919191",
