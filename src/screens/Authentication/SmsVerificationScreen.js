@@ -78,7 +78,7 @@ export default function SmsVerificationScreen({ navigation, route }) {
             onPress={() => navigation.navigate("SmsOtpVerificationScreen")}
           >
             <Image
-              style={{ height: RFValue(15), width: RFValue(30) }}
+             style={{ width: RFValue(10), height: RFValue(20) }}
               source={require("../../assets/icons/back.png")}
             />
           </TouchableOpacity>
@@ -170,7 +170,7 @@ const styles = StyleSheet.create({
 
   header: {
     width: WIDTH,
-    height: RFValue(100),
+    height: RFValue(90),
     backgroundColor: "#315A9C",
     paddingHorizontal: RFValue(10),
     flexDirection: "row",

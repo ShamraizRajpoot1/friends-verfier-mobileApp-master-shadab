@@ -278,7 +278,7 @@ export default function SupportTicketScreen({ navigation }) {
               <Text style={styles.title}>Ticket Topic</Text>
             </View>
                  
-      <View>
+      <View style={{marginBottom: RFValue(50),}}>
         {/* <Text>{JSON.stringify(list)}</Text> */}
         <FlatList
           showsVerticalScrollIndicator={false}

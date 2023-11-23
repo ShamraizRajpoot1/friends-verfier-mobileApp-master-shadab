@@ -508,7 +508,7 @@ const styles = StyleSheet.create({
     marginLeft: RFValue(12),
     fontSize: RFValue(14),
     fontFamily: "RegularText",
-    color: "#F5F5F5",
+    color: "#000",
   },
 
   searchByContactContainer: {

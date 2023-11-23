@@ -23,6 +23,7 @@ import { useSelector } from "react-redux";
 import moment from "moment";
 import simpleAlertCall from "../utils/alerts";
 import SelectPicker from "react-native-form-select-picker";
+import { Image } from "react-native";
 
 const WIDTH = Dimensions.get("window").width;
 export default function CreateTicket({ navigation }) {
@@ -244,6 +245,7 @@ export default function CreateTicket({ navigation }) {
                         alignItems: "center",
                         justifyContent: "space-between",
                         width: "80%",
+                        //paddingTop:RFValue()
                       }}
                     >
                       <View>
@@ -261,9 +263,9 @@ export default function CreateTicket({ navigation }) {
                             fontFamily: "RegularText",
                           }}
                           placeholderStyle={{
-                            fontSize: RFValue(14),
+                            fontSize: RFValue(16),
                             color: "#000",
-                            fontFamily: "RegularText",
+                           
                           }}
                           onValueChange={(value, label) => {
                             // Do anything you want with the value.
@@ -307,7 +309,7 @@ export default function CreateTicket({ navigation }) {
                   </TouchableOpacity>
                 </View>
                 <View>
-                  <View style={[styles.textinputCOntainer, { height: 260 }]}>
+                  <View style={[styles.textinputCOntainer, { paddingTop: RFValue(20), height: 260 }]}>
                     <TextInput
                       style={{
                         textAlignVertical: "top",
@@ -361,7 +363,7 @@ const styles = StyleSheet.create({
   },
   textinputCOntainer: {
     width: WIDTH - RFValue(35),
-    height: RFValue(50),
+    height: RFValue(65),
     alignSelf: "center",
     backgroundColor: "#F8F8F8",
     paddingBottom:RFValue(5),
@@ -381,7 +383,7 @@ const styles = StyleSheet.create({
     shadowRadius: 1.0,
 
     elevation: 1,
-    paddingTop: 10,
+    paddingTop: RFValue(14),
   },
   homeHeader: {
     width: WIDTH,

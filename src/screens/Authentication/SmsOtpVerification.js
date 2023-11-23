@@ -197,7 +197,7 @@ export default function SmsOtpVerificationScreen({ navigation, route }) {
               onPress={() => navigation.navigate("LoginScreen")}
             >
               <Image
-                style={{ height: RFValue(15), width: RFValue(30) }}
+                style={{ width: RFValue(10), height: RFValue(20) }}
                 source={require("../../assets/icons/back.png")}
               />
             </TouchableOpacity>
@@ -291,13 +291,13 @@ const styles = StyleSheet.create({
     width: WIDTH,
     height: RFValue(90),
     backgroundColor: "#315A9C",
-    paddingHorizontal: RFValue(10),
+    paddingHorizontal: RFValue(20),
     flexDirection: "row",
     justifyContent: "space-between",
     alignItems: "center",
     paddingTop:
       Platform.OS === "android"
-        ? Device.STATUS_BAR_HEIGHT 
+        ? Device.STATUS_BAR_HEIGHT
         : Device.STATUS_BAR_HEIGHT + 20,
   },
   emailVerificationText: {

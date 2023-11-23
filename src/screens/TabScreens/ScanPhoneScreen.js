@@ -1,4 +1,3 @@
-/** @format */
 
 import {
   View,
@@ -20,6 +19,7 @@ import { PermissionsAndroid, Platform } from "react-native";
 import Contacts from "react-native-contacts";
 import { useSelector } from "react-redux";
 import { useIsFocused } from "@react-navigation/native";
+import { Image } from "react-native";
 
 const WIDTH = Dimensions.get("window").width;
 
@@ -29,6 +29,7 @@ export default function ScanPhoneScreen({ navigation }) {
   const [input, setInput] = useState("");
   const [isPermitted, setIsPermitted] = useState(false);
   const [contactsState, setContactsState] = useState([]);
+  const [isTab1Active, setTab1Active] = useState(true);
 
   useEffect(() => {
     if (Platform.OS == "ios") {
@@ -110,37 +111,79 @@ export default function ScanPhoneScreen({ navigation }) {
   };
 
   const AccessComp = () => (
-    <View
-      style={{
-        justifyContent: "center",
-        alignItems: "center",
-        paddingHorizontal: 10,
-        top: 150,
-      }}
-    >
-      <Text style={{ textAlign: "center", fontSize: 14 }}>
-        By using the contact search feature, you can swiftly perform a reverse
-        phone lookup on someone stored in your contact list. Rest assured, we
-        never store your contacts on our servers. This process is handled on a
-        per-case basis, and you have the freedom to revoke access at any time,
-        with all other functionalities remaining unaffected.
-      </Text>
-      <TouchableOpacity
-        activeOpacity={0.5}
-        onPress={getPermission}
-        style={{
-          height: 50,
-          width: "50%",
-          borderRadius: 5,
-          backgroundColor: "#dddadb",
-          alignItems: "center",
-          justifyContent: "center",
-          marginTop: 40,
-        }}
-      >
-        <Text>Grant Access</Text>
-      </TouchableOpacity>
-    </View>
+    
+    // <View
+    //   style={{
+    //     justifyContent: "center",
+    //     alignItems: "center",
+    //     paddingHorizontal: 10,
+    //     top: 150,
+    //   }}
+    // >
+      <View style={styles.searchByContactContainer}>
+          <Image
+            style={{ ...styles.iconinvite }}
+            source={require("../../assets/icons/invitesearch.png")}
+          />
+
+          <Text style={styles.boxtitle}>Search Your Saved Contacts</Text>
+
+          <Text
+            style={{
+              ...styles.topText,
+              marginTop: RFValue(14),
+              fontSize: RFValue(12),
+            }}
+          >
+           Reverse search any saved contact</Text>
+           <Text
+            style={{
+              ...styles.topText,
+              fontSize: RFValue(12),
+            }}
+          >number. Each search is done on a</Text>
+ <Text
+            style={{
+              ...styles.topText,
+              fontSize: RFValue(12),
+            }}
+          >per-instance basis.
+          </Text>
+
+          <TouchableOpacity
+            onPress={getPermission}
+            // onPress={givePermission}
+            style={styles.searchbyContactbutton}
+          >
+            <Text style={{ ...styles.boxtitle, marginTop: 0 }}>
+              Grant Access
+            </Text>
+          </TouchableOpacity>
+          
+        </View>
+    //   {/* <Text style={{ textAlign: "center", fontSize: 14 }}>
+    //     By using the contact search feature, you can swiftly perform a reverse
+    //     phone lookup on someone stored in your contact list. Rest assured, we
+    //     never store your contacts on our servers. This process is handled on a
+    //     per-case basis, and you have the freedom to revoke access at any time,
+    //     with all other functionalities remaining unaffected.
+    //   </Text>
+    //   <TouchableOpacity
+    //     activeOpacity={0.5}
+    //     onPress={getPermission}
+    //     style={{
+    //       height: 50,
+    //       width: "50%",
+    //       borderRadius: 5,
+    //       backgroundColor: "#dddadb",
+    //       alignItems: "center",
+    //       justifyContent: "center",
+    //       marginTop: 40,
+    //     }}
+    //   >
+    //     <Text>Grant Access</Text>
+    //   </TouchableOpacity> */}
+    // {/* </View> */}
   );
 
   return (
@@ -161,8 +204,11 @@ export default function ScanPhoneScreen({ navigation }) {
             verifier
           </Text>
         </Text>
-        <Pressable>
-          <Feather name="menu" size={33} color="#305A9C" />
+        <Pressable onPress={() => navigation.navigate("InviteEmptyScreen")}>
+          <Image
+            source={require("../../assets/icons/inviteicon.png")}
+            style={styles.icon}
+          />
         </Pressable>
       </View>
 
@@ -198,15 +244,62 @@ export default function ScanPhoneScreen({ navigation }) {
             }
           }}
         >
-          <View style={styles.recentSearchesContainer}>
-            <Text style={styles.recentSearchesText} onPress={getPermission}>
-              SCAN A PHONE CONTACT
-            </Text>
-            <View />
-          </View>
+         
         </TouchableOpacity>
-        <View style={{ ...styles.textinputCOntainer }}>
-          <Ionicons name="search-sharp" size={24} color="#DDDDDD" />
+        <View style={styles.topTab}>
+            <TouchableOpacity
+              style={isTab1Active ? styles.topTabbtn : styles.topTabbtn2}
+              onPress={() => {
+                setTab1Active(true);
+                // Additional logic or navigation can be added here
+              }}
+            >
+              <Text
+                style={
+                  isTab1Active ? styles.tabactiveText : styles.inActiveText
+                }
+              >
+                Criminal Screening
+              </Text>
+            </TouchableOpacity>
+
+            <TouchableOpacity disabled={!isPermitted}
+              style={!isTab1Active ? styles.topTabbtn : styles.topTabbtn2}
+              onPress={() => {
+                setTab1Active(false);
+                // Additional logic or navigation can be added here
+              }}
+            >
+              <Text
+                style={
+                  !isTab1Active ? styles.tabactiveText : styles.inActiveText
+                }
+              >
+                Sex Offender Screening
+              </Text>
+            </TouchableOpacity>
+          </View>
+        <View style={{ marginTop: RFValue(20) }}>
+          <View style={[styles.paragraph]}>
+            <View style={styles.heading}>
+              <Image
+                source={require("../../assets/icons/copcar.png")}
+                style={styles.do}
+              />
+              <Text style={styles.title}>
+                Criminal Screening
+              </Text>
+            </View>
+
+            <Text style={[styles.subtitle,{marginTop: RFValue(5) }]}>
+              Reverse-search the saved phone</Text>
+              <Text style={styles.subtitle}>numbers for each of your contacts to</Text>
+              <Text style={styles.subtitle}>screen them for criminal records.
+            </Text>
+          </View>
+        </View>
+        {isPermitted ? <View style={{ ...styles.textinputCOntainer }}>
+          <Ionicons name="search-sharp" size={24} color="rgba(0,0,0,0.5)" />
           <TextInput
             style={styles.input}
             onChangeText={(text) => {
@@ -217,25 +310,7 @@ export default function ScanPhoneScreen({ navigation }) {
             placeholder="Quick Find"
             placeholderTextColor={"#000"}
           />
-
-          <TouchableOpacity
-            onPress={() => {
-              if (isFocused) {
-                PermissionsAndroid.check(
-                  PermissionsAndroid.PERMISSIONS.READ_CONTACTS
-                ).then((response) => {
-                  if (response === true) {
-                    setInput();
-                  } else {
-                  }
-                });
-              }
-            }}
-            style={styles.crossButton}
-          >
-            <Feather name="x" size={19} color="#898F96" />
-          </TouchableOpacity>
-        </View>
+        </View> : null}
       </View>
 
       {isFocused && (
@@ -259,7 +334,7 @@ const styles = StyleSheet.create({
 
   homeHeader: {
     width: WIDTH,
-    height: RFValue(75),
+    height: RFValue(90),
     backgroundColor: "#305A9C",
     justifyContent: "space-between",
     alignItems: "center",
@@ -267,14 +342,61 @@ const styles = StyleSheet.create({
     paddingHorizontal: RFValue(20),
     paddingTop:
       Platform.OS === "android"
-        ? Device.STATUS_BAR_HEIGHT - 15
+        ? Device.STATUS_BAR_HEIGHT
         : Device.STATUS_BAR_HEIGHT + 20,
   },
 
   headerTitle: {
+    
     fontSize: RFValue(22),
     color: "#fff",
     fontFamily: "RegularText",
+  },
+  heading: {
+    backgroundColor: "#F5F5F5",
+    width: WIDTH - RFValue(50),
+    height: RFValue(30),
+    flexDirection: "row",
+    borderRadius: 10,
+    alignItems: "center",
+    paddingLeft: RFValue(12),
+  },
+  do: {
+
+    alignSelf: 'center',
+    width: RFValue(16),
+    height: RFValue(16),
+    marginRight: RFValue(5),
+    marginLeft:RFValue(5)
+  },
+  paragraph: {
+    shadowColor: "#000",
+    shadowOffset: { width: 0, height: -2 },
+    shadowOpacity: 0.5,
+    shadowRadius: 2,
+    backgroundColor: "#FCFCFC",
+    elevation: 4,
+    borderWidth: 0,
+    height: RFValue(100),
+    borderRadius: RFValue(10),
+    marginTop: RFValue(10),
+   
+    marginHorizontal: RFValue(25),
+  },
+  title: {
+    marginLeft: RFValue(5),
+    fontSize: RFValue(14),
+    color: "#000",
+    fontFamily: "SemiBold",
+  },
+  subtitle: {
+    marginHorizontal: RFValue(10),
+    fontSize: RFValue(13),
+    color: "#000000",
+    
+    textAlign: "left",
+    // marginLeft: RFValue(40),
+    alignSelf:'center'
   },
   underHeaderContainer: {
     width: WIDTH,
@@ -290,19 +412,69 @@ const styles = StyleSheet.create({
     textDecorationLine: "underline",
     fontFamily: "BoldText",
   },
-  textinputCOntainer: {
-    width: WIDTH - RFValue(24),
-    height: RFValue(50),
+  icon: {
+    height: RFValue(20),
+    width: RFValue(20),
+  },
+  topText: {
+    fontSize: RFValue(15),
+    color: "#000",
+    fontFamily: "RegularText",
+    textAlign: "center",
+    marginBottom:0
+  },
+  topTab: {
+    flexDirection: "row",
+    height: RFValue(40),
+    width: WIDTH,
+    //backgroundColor: "#ebebeb",
     alignSelf: "center",
-    backgroundColor: "#fff",
-    borderWidth: 1,
-    borderColor: "#E5E5E5",
-    borderRadius: 2,
+    borderRadius: 5,
+    alignItems: "center",
+    justifyContent: "space-evenly",
+    // borderColor: "#cecbd5",
+    // borderWidth: 0.5,
+  },
+  topTabbtn: {
+    height: "80%",
+    backgroundColor: "#E8EFFF",
+    borderRadius: RFValue(10),
+    justifyContent: "center",
+    alignItems: "center",
+    paddingHorizontal: RFValue(10),
+  },
+  topTabbtn2: {
+    height: "100%",
+    backgroundColor: "#FFFFFF",
+    borderRadius: RFValue(10),
+    justifyContent: "center",
+    alignItems: "center",
+    paddingHorizontal: RFValue(10),
+  },
+  tabactiveText: {
+    fontFamily: "BoldText",
+    fontWeight: "RegularText",
+    color: "#000000",
+    fontSize: RFValue(12),
+  },
+  inActiveText: {
+    fontFamily: "BoldText",
+    fontWeight: "RegularText",
+    color: "#000000",
+    fontSize: RFValue(12),
+  },
+  textinputCOntainer: {
+    marginTop: RFValue(20),
+    width: WIDTH - RFValue(80),
+    height: RFValue(30),
+    alignSelf: "center",
+    backgroundColor: "#F3F3F3",
     flexDirection: "row",
     alignItems: "center",
     paddingHorizontal: RFValue(10),
     marginBottom: RFValue(10),
     shadowColor: "#000",
+    borderRadius: RFValue(10),
     shadowOffset: {
       width: 0,
       height: 1,
@@ -316,7 +488,7 @@ const styles = StyleSheet.create({
     marginTop: RFValue(30),
   },
   input: {
-    width: WIDTH - RFValue(100),
+    width: WIDTH - RFValue(120),
     height: RFValue(50),
     marginLeft: RFValue(5),
     fontSize: RFValue(14),
@@ -344,18 +516,48 @@ const styles = StyleSheet.create({
     width: WIDTH,
     backgroundColor: "#fff",
     paddingTop: RFValue(12),
-    shadowColor: "#000",
-    shadowOffset: {
-      width: 0,
-      height: 1,
-    },
-    shadowOpacity: 0.22,
-    shadowRadius: 2.22,
-    borderBottomWidth: 1,
-    borderBottomColor: "#CFCFCF",
-    elevation: 3,
+    // shadowColor: "#000",
+    // shadowOffset: {
+    //   width: 0,
+    //   height: 1,
+    // },
+    // shadowOpacity: 0.22,
+    // shadowRadius: 2.22,
+    // // borderBottomWidth: 1,
+    // elevation: 3,
+  },
+  searchByContactContainer: {
+    width: WIDTH - RFValue(90),
+    paddingVertical: RFValue(20),
+    paddingHorizontal: RFValue(12),
+    backgroundColor: "#F3F3F3",
+    borderRadius: 8,
+    alignSelf: "center",
+    marginTop: Dimensions.get("window").height / 20,
+  },
+  iconinvite: {
+    width: RFValue(24),
+    height: RFValue(24),
+    alignSelf: "center",
   },
 
+  boxtitle: {
+    fontSize: RFValue(11),
+    fontFamily: "BoldText",
+    color: "#000",
+    textAlign: "center",
+    marginTop: RFValue(8),
+  },
+  searchbyContactbutton: {
+    width: WIDTH / 2,
+    padding: RFValue(5),
+    backgroundColor: "#FFFFFF",
+    borderRadius: 10,
+    justifyContent: "center",
+    alignItems: "center",
+    alignSelf: "center",
+    marginTop: RFValue(20),
+  },
   searchButton: {
     width: WIDTH - RFValue(30),
     height: RFValue(50),

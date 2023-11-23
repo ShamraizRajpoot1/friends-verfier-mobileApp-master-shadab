@@ -101,11 +101,11 @@ export default function SupportChatScreen({ navigation, route }) {
           />
         </TouchableOpacity>
 
-        <Text
+        <View
           style={[
             styles.headerTitle,
             {
-              width: "65%",
+              width: "70%",
               alignItems: "center",
               justifyContent: "center",
               textAlign: "center",
@@ -121,7 +121,7 @@ export default function SupportChatScreen({ navigation, route }) {
           >
             {ticket}
           </Text>
-        </Text>
+        </View>
         <TouchableOpacity
           activeOpacity={0.5}
           onPress={() => {
@@ -179,7 +179,7 @@ const styles = StyleSheet.create({
 
   homeHeader: {
     width: WIDTH,
-    height: RFValue(75),
+    height: RFValue(90),
     backgroundColor: "#305A9C",
     justifyContent: "space-between",
     alignItems: "center",
@@ -188,14 +188,14 @@ const styles = StyleSheet.create({
     // paddingTop: Device.STATUS_BAR_HEIGHT + 20,
     paddingTop:
       Platform.OS === "android"
-        ? Device.STATUS_BAR_HEIGHT - 15
+        ? Device.STATUS_BAR_HEIGHT 
         : Device.STATUS_BAR_HEIGHT + 20,
 
     // paddingTop:Platform.OS==='android'?0:RFValue(12),
   },
 
   headerTitle: {
-    fontSize: RFValue(22),
+    fontSize: RFValue(16),
     color: "#fff",
     fontFamily: "RegularText",
     // textAlign:"center",

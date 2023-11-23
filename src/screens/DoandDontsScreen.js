@@ -8,6 +8,7 @@ import {
   Pressable,
   Platform,
   Image,
+  TouchableOpacity,
 } from "react-native";
 import React, { useState } from "react";
 import { Entypo, Feather } from "@expo/vector-icons";

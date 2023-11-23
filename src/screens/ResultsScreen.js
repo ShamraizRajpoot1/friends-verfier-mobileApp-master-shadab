@@ -1042,7 +1042,7 @@ const styles = StyleSheet.create({
   },
   homeHeader: {
     width: WIDTH,
-    height: RFValue(75),
+    height: RFValue(90),
     backgroundColor: "#305A9C",
     justifyContent: "space-between",
     alignItems: "center",
@@ -1050,11 +1050,11 @@ const styles = StyleSheet.create({
     paddingHorizontal: RFValue(20),
     paddingTop:
       Platform.OS === "android"
-        ? Device.STATUS_BAR_HEIGHT - 15
+        ? Device.STATUS_BAR_HEIGHT 
         : Device.STATUS_BAR_HEIGHT + 20,
   },
   headerTitle: {
-    fontSize: RFValue(22),
+    fontSize: RFValue(18),
     color: "#fff",
     fontFamily: "RegularText",
   },

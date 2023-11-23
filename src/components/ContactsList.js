@@ -10,6 +10,7 @@ import {
   SectionList,
   Dimensions,
   TouchableOpacity,
+  Image,
 } from "react-native";
 
 import { RFValue } from "react-native-responsive-fontsize";
@@ -84,17 +85,19 @@ const contacts = [
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: "#fff",
+    backgroundColor: "#ffffff",
     flexDirection: "row",
   },
   row: {
-    paddingHorizontal: 20,
-    paddingVertical: RFValue(13),
+    flexDirection:'row',
+    paddingHorizontal: RFValue(25),
+    paddingTop:RFValue(20)
   },
   sectionHeader: {
-    backgroundColor: "#efefef",
+    backgroundColor: "#EFEFEF",
     paddingHorizontal: 20,
     paddingVertical: 6,
+    marginTop: RFValue(20),
   },
 
   title: {
@@ -195,19 +198,8 @@ const ContactsList = ({ navigation, dataArray }) => {
   return (
     <View style={styles.container}>
       <SectionList
-        ItemSeparatorComponent={() => (
-          <View
-            style={{
-              width: WIDTH - RFValue(35),
-              alignSelf: "center",
-              height: 3,
-              backgroundColor: "#F7F7F7",
-              marginTop: RFValue(2),
-              marginBottom: RFValue(2),
-            }}
-          ></View>
-        )}
-        contentContainerStyle={{ paddingBottom: RFValue(300) }}
+       
+        contentContainerStyle={{ paddingBottom: RFValue(300), }}
         sections={getData(dataArray)}
         //   ListHeaderComponent={() => <Button title="Add Contact" />}
         renderItem={({ item }) => (
@@ -217,12 +209,44 @@ const ContactsList = ({ navigation, dataArray }) => {
                 onPress={() => detailsList(item?.phoneNumbers[0]?.number)}
                 style={[styles.row]}
               >
-                <Text
-                  style={styles.contact}
-                  // onPress={()=>navigation.navigate('ResultsScreen')}
-                >
-                  {item?.givenName} {item?.familyName}
-                </Text>
+               {item?.image ? (
+            <Image
+              source={{ uri: item?.image?.uri }}
+              style={{ width: 40, height: 40, borderRadius: 10 }}
+            />
+          ) : (
+            <View
+              style={{
+                width: RFValue(50),
+                height: RFValue(50),
+                borderRadius: RFValue(15),
+                backgroundColor: "#F7F5EF",
+                justifyContent: "center",
+                alignItems: "center",
+              }}
+            >
+              <Text style={{ color: "rgba(0,0,0,0.4)", fontSize: RFValue(16), fontFamily:'BoldText' }}>
+                {item?.givenName[0]}{item?.familyName[0]}
+              </Text>
+            </View>
+          )}
+          <View style={{flexDirection:'row', justifyContent:'space-between', width:'85%', alignItems:'center'}}>
+          <View style={{ marginLeft: 10, justifyContent:'center' }}>
+            <Text style={styles.contact}>
+              {item?.givenName} {item?.familyName}
+            </Text>
+            <Text style={{ color: "#888", fontSize: 12 }}>
+              {item?.phoneNumbers[0]?.number}
+            </Text>
+          </View>
+          <View style={{width:RFValue(65),height:RFValue(30),
+            borderRadius: RFValue(50),
+            alignItems:'center',
+            justifyContent:'center',
+            backgroundColor:'#315A9C'}}>
+            <Text style={{fontSize:RFValue(10),color:'#FFFFFF', fontFamily:'Heavy'}}>Search</Text>
+          </View>
+          </View>
               </TouchableOpacity>
             )}
           </>

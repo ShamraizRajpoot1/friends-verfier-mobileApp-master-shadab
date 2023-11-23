@@ -76,7 +76,7 @@ export default Terms;
 
 const styles = StyleSheet.create({
   back: {
-    marginTop: RFValue(35),
+    marginTop: RFValue(50),
     tintColor: "#000000",
     marginLeft: RFValue(12),
     height: RFValue(25),
