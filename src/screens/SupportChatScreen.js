@@ -21,11 +21,13 @@ import Device from "../../src/constants/device";
 import { axiosDELETECall, axiosPUTCall } from "../utils/axios.js"; // POST function for axios
 import simpleAlertCall from "../utils/alerts";
 import { useSelector } from "react-redux";
+import Report from "../components/modal.js";
 
 const WIDTH = Dimensions.get("window").width;
 export default function SupportChatScreen({ navigation, route }) {
   const { ticket, ticketId, status } = route.params;
   const [showPopup, setShowPopup] = useState(false);
+  const [modal, setModal] = useState(false);
   const userData = useSelector((state) => state?.loginDetails);
 
   const TicketConf = (type) => {
@@ -86,6 +88,9 @@ export default function SupportChatScreen({ navigation, route }) {
       }
     });
   };
+  const toggle = () => {
+    setModal(prev => !prev);
+  };
   return (
     <View style={styles.container}>
       <StatusBar
@@ -125,7 +130,7 @@ export default function SupportChatScreen({ navigation, route }) {
         <TouchableOpacity
           activeOpacity={0.5}
           onPress={() => {
-            setShowPopup(true);
+            setModal(true);
           }}
         >
           <Entypo name="dots-three-vertical" size={24} color="#fff" />
@@ -167,6 +172,12 @@ export default function SupportChatScreen({ navigation, route }) {
           </View>
         </TouchableOpacity>
       )}
+      {modal && (
+                      <Report
+                        onBackdropPress={toggle}
+                        onPress={() => TicketConf(1)}
+                      />
+                    )}
     </View>
   );
 }

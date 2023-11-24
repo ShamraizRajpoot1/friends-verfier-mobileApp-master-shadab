@@ -27,6 +27,7 @@ import Device from "../../../src/constants/device";
 import { useIsFocused } from "@react-navigation/native";
 import GetRecentSearcheAPI from "../TabScreens/GetRecentSearchAPI";
 
+const HIEGHT = Dimensions.get("window").height;
 const options1 = [
   {
     name: "Alabama",
@@ -649,7 +650,7 @@ const styles = StyleSheet.create({
 
   homeHeader: {
     width: WIDTH,
-    height: RFValue(90),
+    height: HIEGHT/8,
     backgroundColor: "#305A9C",
     paddingHorizontal: RFValue(20),
     flexDirection: "row",

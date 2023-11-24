@@ -41,6 +41,7 @@ import { GetStorageItems } from "../utils/AsyncStorage";
 import { useDispatch } from "react-redux";
 import { loginDetails } from "../redux/action"; // Action function
 import navigationService from "../../navigationService";
+import IntroSlider from "../screens/Authentication/IntroSlider.js";
 import GetStartedScreen from "../screens/Authentication/GetStartedScreen.js";
 import SafetyTips from "../screens/SafetyTips.js";
 import SellInfo from "../screens/SellInfo.js";
@@ -54,7 +55,7 @@ function Navigation() {
     if (callBack) {
       setInitialRoute("tabs");
     } else {
-      setInitialRoute("GetStartedScreen");
+      setInitialRoute("IntroSlider");
     }
   });
   const [initialRoute, setInitialRoute] = useState("");
@@ -72,6 +73,7 @@ function Navigation() {
           }}
         >
           <Stack.Screen name="LoginScreen" component={LoginScreen} />
+          <Stack.Screen name="IntroSlider" component={IntroSlider} />
           <Stack.Screen name="GetStartedScreen" component={GetStartedScreen} />
           <Stack.Screen name="ResetPassword" component={ResetPassword} />
           <Stack.Screen name="AccountSelector" component={AccountSelector} />

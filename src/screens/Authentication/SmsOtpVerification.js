@@ -24,7 +24,7 @@ import Device from "../../../src/constants/device";
 import OtpVerification from "../../components/OtpVerification";
 
 const WIDTH = Dimensions.get("window").width;
-
+const HIEGHT = Dimensions.get("window").height;
 export default function SmsOtpVerificationScreen({ navigation, route }) {
   const dispatch = useDispatch();
   const [value, setValue] = React.useState("");
@@ -289,7 +289,7 @@ const styles = StyleSheet.create({
 
   header: {
     width: WIDTH,
-    height: RFValue(90),
+    height: HIEGHT/8,
     backgroundColor: "#315A9C",
     paddingHorizontal: RFValue(20),
     flexDirection: "row",
@@ -432,10 +432,9 @@ const styles = StyleSheet.create({
   email_col: {
     width: "75%",
     alignItems: "flex-start",
-    marginTop: RFValue(15),
   },
   cancel_col: {
-    marginTop: RFValue(15),
+   // marginTop: RFValue(15),
     width: "20%",
     alignItems: "flex-start",
   },

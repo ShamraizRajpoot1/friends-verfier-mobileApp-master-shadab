@@ -39,6 +39,7 @@
     "react": "18.0.0",
     "react-dom": "18.0.0",
     "react-native": "0.69.7",
+    "react-native-app-intro-slider": "^4.0.4",
     "react-native-circular-progress-indicator": "^4.4.2",
     "react-native-confirmation-code-field": "^7.3.1",
     "react-native-contacts": "^7.0.7",
@@ -65,7 +66,8 @@
     "react-native-web": "~0.18.7",
     "react-native-webview": "^11.26.1",
     "react-redux": "^8.0.5",
-    "redux": "^4.2.0"
+    "redux": "^4.2.0",
+    "toggle-switch-react-native": "^3.3.0"
   },
   "devDependencies": {
     "@babel/core": "^7.18.6"

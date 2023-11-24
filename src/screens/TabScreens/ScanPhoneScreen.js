@@ -1,4 +1,3 @@
-
 import {
   View,
   StyleSheet,
@@ -111,7 +110,6 @@ export default function ScanPhoneScreen({ navigation }) {
   };
 
   const AccessComp = () => (
-    
     // <View
     //   style={{
     //     justifyContent: "center",
@@ -120,47 +118,48 @@ export default function ScanPhoneScreen({ navigation }) {
     //     top: 150,
     //   }}
     // >
-      <View style={styles.searchByContactContainer}>
-          <Image
-            style={{ ...styles.iconinvite }}
-            source={require("../../assets/icons/invitesearch.png")}
-          />
+    <View style={styles.searchByContactContainer}>
+      <Image
+        style={{ ...styles.iconinvite }}
+        source={require("../../assets/icons/invitesearch.png")}
+      />
 
-          <Text style={styles.boxtitle}>Search Your Saved Contacts</Text>
+      <Text style={styles.boxtitle}>Search Your Saved Contacts</Text>
 
-          <Text
-            style={{
-              ...styles.topText,
-              marginTop: RFValue(14),
-              fontSize: RFValue(12),
-            }}
-          >
-           Reverse search any saved contact</Text>
-           <Text
-            style={{
-              ...styles.topText,
-              fontSize: RFValue(12),
-            }}
-          >number. Each search is done on a</Text>
- <Text
-            style={{
-              ...styles.topText,
-              fontSize: RFValue(12),
-            }}
-          >per-instance basis.
-          </Text>
+      <Text
+        style={{
+          ...styles.topText,
+          marginTop: RFValue(14),
+          fontSize: RFValue(12),
+        }}
+      >
+        Reverse search any saved contact
+      </Text>
+      <Text
+        style={{
+          ...styles.topText,
+          fontSize: RFValue(12),
+        }}
+      >
+        number. Each search is done on a
+      </Text>
+      <Text
+        style={{
+          ...styles.topText,
+          fontSize: RFValue(12),
+        }}
+      >
+        per-instance basis.
+      </Text>
 
-          <TouchableOpacity
-            onPress={getPermission}
-            // onPress={givePermission}
-            style={styles.searchbyContactbutton}
-          >
-            <Text style={{ ...styles.boxtitle, marginTop: 0 }}>
-              Grant Access
-            </Text>
-          </TouchableOpacity>
-          
-        </View>
+      <TouchableOpacity
+        onPress={getPermission}
+        // onPress={givePermission}
+        style={styles.searchbyContactbutton}
+      >
+        <Text style={{ ...styles.boxtitle, marginTop: 0 }}>Grant Access</Text>
+      </TouchableOpacity>
+    </View>
     //   {/* <Text style={{ textAlign: "center", fontSize: 14 }}>
     //     By using the contact search feature, you can swiftly perform a reverse
     //     phone lookup on someone stored in your contact list. Rest assured, we
@@ -243,85 +242,113 @@ export default function ScanPhoneScreen({ navigation }) {
               );
             }
           }}
-        >
-         
-        </TouchableOpacity>
+        ></TouchableOpacity>
         <View style={styles.topTab}>
-            <TouchableOpacity
-              style={isTab1Active ? styles.topTabbtn : styles.topTabbtn2}
-              onPress={() => {
-                setTab1Active(true);
-                // Additional logic or navigation can be added here
-              }}
+          <TouchableOpacity
+            style={isTab1Active ? styles.topTabbtn : styles.topTabbtn2}
+            onPress={() => {
+              setTab1Active(true);
+              // Additional logic or navigation can be added here
+            }}
+          >
+            <Text
+              style={isTab1Active ? styles.tabactiveText : styles.inActiveText}
             >
-              <Text
-                style={
-                  isTab1Active ? styles.tabactiveText : styles.inActiveText
-                }
-              >
-                Criminal Screening
-              </Text>
-            </TouchableOpacity>
+              Criminal Screening
+            </Text>
+          </TouchableOpacity>
 
-            <TouchableOpacity disabled={!isPermitted}
-              style={!isTab1Active ? styles.topTabbtn : styles.topTabbtn2}
-              onPress={() => {
-                setTab1Active(false);
-                // Additional logic or navigation can be added here
-              }}
+          <TouchableOpacity
+            disabled={!isPermitted}
+            style={!isTab1Active ? styles.topTabbtn : styles.topTabbtn2}
+            onPress={() => {
+              setTab1Active(false);
+              // Additional logic or navigation can be added here
+            }}
+          >
+            <Text
+              style={!isTab1Active ? styles.tabactiveText : styles.inActiveText}
             >
-              <Text
-                style={
-                  !isTab1Active ? styles.tabactiveText : styles.inActiveText
-                }
-              >
-                Sex Offender Screening
+              Sex Offender Screening
+            </Text>
+          </TouchableOpacity>
+        </View>
+       {isTab1Active ? <View>
+          <View style={{ marginTop: RFValue(20) }}>
+            <View style={[styles.paragraph]}>
+              <View style={styles.heading}>
+                <Image
+                  source={require("../../assets/icons/copcar.png")}
+                  style={styles.do}
+                />
+                <Text style={styles.title}>Criminal Screening</Text>
+              </View>
+
+              <Text style={[styles.subtitle, { marginTop: RFValue(5) }]}>
+                Reverse-search the saved phone
               </Text>
-            </TouchableOpacity>
-          </View>
-        <View style={{ marginTop: RFValue(20) }}>
-          <View style={[styles.paragraph]}>
-            <View style={styles.heading}>
-              <Image
-                source={require("../../assets/icons/copcar.png")}
-                style={styles.do}
-              />
-              <Text style={styles.title}>
-                Criminal Screening
+              <Text style={styles.subtitle}>
+                numbers for each of your contacts to
+              </Text>
+              <Text style={styles.subtitle}>
+                screen them for criminal records.
               </Text>
             </View>
-
-            <Text style={[styles.subtitle,{marginTop: RFValue(5) }]}>
-              Reverse-search the saved phone</Text>
-              <Text style={styles.subtitle}>numbers for each of your contacts to</Text>
-              <Text style={styles.subtitle}>screen them for criminal records.
-            </Text>
           </View>
-        </View>
-        {isPermitted ? <View style={{ ...styles.textinputCOntainer }}>
-          <Ionicons name="search-sharp" size={24} color="rgba(0,0,0,0.5)" />
-          <TextInput
-            style={styles.input}
-            onChangeText={(text) => {
-              setInput(text);
-              filterBySearch(text);
-            }}
-            value={input}
-            placeholder="Quick Find"
-            placeholderTextColor={"#000"}
-          />
-        </View> : null}
-      </View>
-
-      {isFocused && (
-        <>
           {isPermitted ? (
-            <ContactsList dataArray={contactsState} navigation={navigation} />
-          ) : (
-            <AccessComp />
+            <View style={{ ...styles.textinputCOntainer }}>
+              <Ionicons name="search-sharp" size={24} color="rgba(0,0,0,0.5)" />
+              <TextInput
+                style={styles.input}
+                onChangeText={(text) => {
+                  setInput(text);
+                  filterBySearch(text);
+                }}
+                value={input}
+                placeholder="Quick Find"
+                placeholderTextColor={"#000"}
+              />
+            </View>
+          ) : null}
+
+          {isFocused && (
+            <>
+              {isPermitted ? (
+                <ContactsList
+                  dataArray={contactsState}
+                  navigation={navigation}
+                />
+              ) : (
+                <AccessComp />
+              )}
+            </>
           )}
-        </>
-      )}
+        </View> :
+        <View>
+        <View style={[styles.paragraph,{height:RFValue(175)}]}>
+              <View style={styles.heading}>
+                <Image
+                  source={require("../../assets/icons/alerticon.png")}
+                  style={styles.do}
+                />
+                <Text style={styles.title}>Sex Offender Screening</Text>
+              </View>
+
+              <Text style={[styles.subtitle, { marginTop: RFValue(5),textAlign:'center' }]}>
+              Scan your entire contacts list for
+potential sex offenders, categorizing
+matches as follows: yellow for name
+matches, orange for name and location
+matches, and red for name, location,
+and date of birth matches. The
+accuracy of each match will vary
+based on the completeness of your
+contact's information.
+              </Text>
+            </View>
+      </View>}
+      </View>
+      
     </View>
   );
 }
@@ -347,7 +374,6 @@ const styles = StyleSheet.create({
   },
 
   headerTitle: {
-    
     fontSize: RFValue(22),
     color: "#fff",
     fontFamily: "RegularText",
@@ -362,12 +388,11 @@ const styles = StyleSheet.create({
     paddingLeft: RFValue(12),
   },
   do: {
-
-    alignSelf: 'center',
+    alignSelf: "center",
     width: RFValue(16),
     height: RFValue(16),
     marginRight: RFValue(5),
-    marginLeft:RFValue(5)
+    marginLeft: RFValue(5),
   },
   paragraph: {
     shadowColor: "#000",
@@ -380,7 +405,7 @@ const styles = StyleSheet.create({
     height: RFValue(100),
     borderRadius: RFValue(10),
     marginTop: RFValue(10),
-   
+
     marginHorizontal: RFValue(25),
   },
   title: {
@@ -393,10 +418,10 @@ const styles = StyleSheet.create({
     marginHorizontal: RFValue(10),
     fontSize: RFValue(13),
     color: "#000000",
-    
+
     textAlign: "left",
     // marginLeft: RFValue(40),
-    alignSelf:'center'
+    alignSelf: "center",
   },
   underHeaderContainer: {
     width: WIDTH,
@@ -421,7 +446,7 @@ const styles = StyleSheet.create({
     color: "#000",
     fontFamily: "RegularText",
     textAlign: "center",
-    marginBottom:0
+    marginBottom: 0,
   },
   topTab: {
     flexDirection: "row",

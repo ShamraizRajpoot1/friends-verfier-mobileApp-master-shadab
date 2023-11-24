@@ -17,6 +17,7 @@ import { Entypo, Feather } from "@expo/vector-icons";
 import { RFValue } from "react-native-responsive-fontsize";
 import Device from "../../src/constants/device";
 import Header from '../components/Header'
+import CustomSwitch from "../components/CustomSwitch";
 const WIDTH = Dimensions.get("window").width;
 export default function NotificationScreen({ navigation }) {
   const [emailAccount, setEmailAccount] = React.useState(false);
@@ -33,7 +34,33 @@ export default function NotificationScreen({ navigation }) {
   const back = ()=>{
     navigation.goBack();
   }
-
+const toggle = () => {
+  setProduct(prev => !prev);
+}
+const toggle2 = () => {
+  setCredits(prev => !prev);
+}
+const toggle3 = () => {
+  setSubscription(prev => !prev);
+}
+const toggle4 = () => {
+  setConatacts(prev => !prev);
+}
+const toggle5 = () => {
+  setEmailAccount(prev => !prev);
+}
+const toggle6 = () => {
+  setEmailCredits(prev => !prev);
+}
+const toggle7 = () => {
+  setEmailSubscription(prev => !prev);
+}
+const toggle8 = () => {
+  setEmailNews(prev => !prev);
+}
+const toggle9 = () => {
+  setPauseAllSms(prev => !prev);
+}
   return (
     <View style={styles.container}>
       <StatusBar
@@ -82,12 +109,12 @@ export default function NotificationScreen({ navigation }) {
           <View style={{ marginTop: RFValue(10) }}>
             <View style={styles.individualListIte}>
               <Text style={styles.listText}>Account Notifications</Text>
-              <Switch
-                useNativeDriver={true}
-                value={product}
-                //   style={{width:RFValue(60),height:RFValue(30)}}
-                onValueChange={(value) => setProduct(value)}
-              />
+              <CustomSwitch
+            onColor={'#4BD964'}
+            value={product}
+            toggleSwitch={toggle}
+          />
+             
             </View>
 
             {/* <View style={{ ...styles.seprator, marginTop: RFValue(10) }} /> */}
@@ -96,12 +123,11 @@ export default function NotificationScreen({ navigation }) {
           <View style={{ marginTop: RFValue(0) }}>
             <View style={styles.individualListIte}>
               <Text style={styles.listText}>Credits</Text>
-              <Switch
-                useNativeDriver={true}
-                value={credits}
-                //   style={{width:RFValue(60),height:RFValue(30)}}
-                onValueChange={(value) => setCredits(value)}
-              />
+              <CustomSwitch
+            onColor={'#4BD964'}
+            value={credits}
+            toggleSwitch={toggle2}
+          />
             </View>
 
             {/* <View style={{ ...styles.seprator, marginTop: RFValue(10) }} /> */}
@@ -137,12 +163,11 @@ export default function NotificationScreen({ navigation }) {
           <View style={{ marginTop: RFValue(0) }}>
             <View style={styles.individualListIte}>
               <Text style={styles.listText}>Subscriptions</Text>
-              <Switch
-                useNativeDriver={true}
-                value={subscription}
-                //   style={{width:RFValue(60),height:RFValue(30)}}
-                onValueChange={(value) => setSubscription(value)}
-              />
+              <CustomSwitch
+            onColor={'#4BD964'}
+            value={subscription}
+            toggleSwitch={toggle3}
+          />
             </View>
             {/* <View style={{ ...styles.seprator, marginTop: RFValue(10) }} /> */}
           </View>
@@ -150,12 +175,11 @@ export default function NotificationScreen({ navigation }) {
           <View style={{ marginTop: RFValue(0) }}>
             <View style={styles.individualListIte}>
               <Text style={styles.listText}>Friend Verifier News</Text>
-              <Switch
-                useNativeDriver={true}
-                value={conatacts}
-                //   style={{width:RFValue(60),height:RFValue(30)}}
-                onValueChange={(value) => setConatacts(value)}
-              />
+              <CustomSwitch
+            onColor={'#4BD964'}
+            value={conatacts}
+            toggleSwitch={toggle4}
+          />
             </View>
             {/* <View style={{ ...styles.seprator, marginTop: RFValue(10) }} /> */}
           </View>
@@ -166,12 +190,11 @@ export default function NotificationScreen({ navigation }) {
             <View style={{ marginTop: RFValue(10) }}>
             <View style={styles.individualListIte}>
               <Text style={styles.listText}>Account Notifications</Text>
-              <Switch
-                useNativeDriver={true}
-                value={emailAccount}
-                //   style={{width:RFValue(60),height:RFValue(30)}}
-                onValueChange={(value) => setEmailAccount(value)}
-              />
+              <CustomSwitch
+            onColor={'#4BD964'}
+            value={emailAccount}
+            toggleSwitch={toggle5}
+          />
             </View>
 
             {/* <View style={{ ...styles.seprator, marginTop: RFValue(10) }} /> */}
@@ -180,12 +203,11 @@ export default function NotificationScreen({ navigation }) {
           <View style={{ marginTop: RFValue(0) }}>
             <View style={styles.individualListIte}>
               <Text style={styles.listText}>Credits</Text>
-              <Switch
-                useNativeDriver={true}
-                value={emailCredits}
-                //   style={{width:RFValue(60),height:RFValue(30)}}
-                onValueChange={(value) => setEmailCredits(value)}
-              />
+              <CustomSwitch
+            onColor={'#4BD964'}
+            value={emailCredits}
+            toggleSwitch={toggle6}
+          />
             </View>
 
             {/* <View style={{ ...styles.seprator, marginTop: RFValue(10) }} /> */}
@@ -193,12 +215,11 @@ export default function NotificationScreen({ navigation }) {
           <View style={{ marginTop: RFValue(0) }}>
             <View style={styles.individualListIte}>
               <Text style={styles.listText}>Subscriptions</Text>
-              <Switch
-                useNativeDriver={true}
-                value={emailSubscription}
-                //   style={{width:RFValue(60),height:RFValue(30)}}
-                onValueChange={(value) => setEmailSubscription(value)}
-              />
+              <CustomSwitch
+            onColor={'#4BD964'}
+            value={emailSubscription}
+            toggleSwitch={toggle7}
+          />
             </View>
             {/* <View style={{ ...styles.seprator, marginTop: RFValue(10) }} /> */}
           </View>
@@ -206,12 +227,11 @@ export default function NotificationScreen({ navigation }) {
           <View style={{ marginTop: RFValue(0) }}>
             <View style={styles.individualListIte}>
               <Text style={styles.listText}>Friend Verifier News</Text>
-              <Switch
-                useNativeDriver={true}
-                value={emailNews}
-                //   style={{width:RFValue(60),height:RFValue(30)}}
-                onValueChange={(value) => setEmailNews(value)}
-              />
+              <CustomSwitch
+            onColor={'#4BD964'}
+            value={emailNews}
+            toggleSwitch={toggle8}
+          />
             </View>
             {/* <View style={{ ...styles.seprator, marginTop: RFValue(10) }} /> */}
           </View>
@@ -222,12 +242,11 @@ export default function NotificationScreen({ navigation }) {
             <View style={{ marginTop: RFValue(20) }}>
               <View style={styles.individualListIte}>
                 <Text style={styles.listText}>Pause All</Text>
-                <Switch
-                  useNativeDriver={true}
-                  value={pasuseallSms}
-                  //   style={{width:RFValue(60),height:RFValue(30)}}
-                  onValueChange={(value) => setPauseAllSms(value)}
-                />
+                <CustomSwitch
+            onColor={'#4BD964'}
+            value={pasuseallSms}
+            toggleSwitch={toggle9}
+          />
               </View>
             </View>
           </View>
