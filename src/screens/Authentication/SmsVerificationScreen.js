@@ -253,10 +253,8 @@ const styles = StyleSheet.create({
   email_col: {
     width: "75%",
     alignItems: "flex-start",
-    marginTop: RFValue(15),
   },
   cancel_col: {
-    marginTop: RFValue(15),
     width: "20%",
     alignItems: "flex-start",
   },

@@ -46,6 +46,7 @@ import GetStartedScreen from "../screens/Authentication/GetStartedScreen.js";
 import SafetyTips from "../screens/SafetyTips.js";
 import SellInfo from "../screens/SellInfo.js";
 import Terms from "../screens/Terms.js";
+import SexOffenderdetail from "../screens/SexOffenderdetail.js";
 const Stack = createNativeStackNavigator();
 
 function Navigation() {
@@ -152,6 +153,10 @@ function Navigation() {
             component={PrivacyPolicyScreen}
           />
           <Stack.Screen
+            name="SexOffenderdetail"
+            component={SexOffenderdetail}
+          />
+          <Stack.Screen
             name="SupportTicketScreen"
             component={SupportTicketScreen}
           />
@@ -202,12 +207,18 @@ function MyTabs() {
         },
 
         style: {
-          backgroundColor: "#fff",
-          position: "absolute",
-          borderTopColor: "#f5f5f5",
-          borderTopWidth: 1.5,
-          height: RFValue(65),
-          zIndex: 9999,
+          backgroundColor: '#FFF', 
+    borderTopWidth: 1,
+    borderColor: '#CCC',
+    paddingVertical: 5,
+    flexDirection: 'row',
+    justifyContent: 'space-around',
+    alignItems: 'center',
+    height: RFValue(65), 
+    position: 'absolute',
+    bottom: 0,
+    left: 0,
+    right: 0,
         },
       }}
     >

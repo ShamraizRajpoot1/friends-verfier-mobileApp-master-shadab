@@ -19,6 +19,7 @@ import Contacts from "react-native-contacts";
 import { useSelector } from "react-redux";
 import { useIsFocused } from "@react-navigation/native";
 import { Image } from "react-native";
+import Modal1 from "../../components/Modal1";
 
 const WIDTH = Dimensions.get("window").width;
 
@@ -29,7 +30,8 @@ export default function ScanPhoneScreen({ navigation }) {
   const [isPermitted, setIsPermitted] = useState(false);
   const [contactsState, setContactsState] = useState([]);
   const [isTab1Active, setTab1Active] = useState(true);
-
+  const [modal, setModal] = useState(false);
+  const [result, setResult] = useState();
   useEffect(() => {
     if (Platform.OS == "ios") {
       requestContactsPermission();
@@ -184,7 +186,13 @@ export default function ScanPhoneScreen({ navigation }) {
     //   </TouchableOpacity> */}
     // {/* </View> */}
   );
-
+  const toggle = () => {
+    setModal((prev) => !prev);
+  };
+  const toggle1 = () => {
+    setResult(true);
+    setModal((prev) => !prev);
+  };
   return (
     <View style={styles.container}>
       <StatusBar
@@ -273,59 +281,65 @@ export default function ScanPhoneScreen({ navigation }) {
             </Text>
           </TouchableOpacity>
         </View>
-       {isTab1Active ? <View>
-          <View style={{ marginTop: RFValue(20) }}>
-            <View style={[styles.paragraph]}>
-              <View style={styles.heading}>
-                <Image
-                  source={require("../../assets/icons/copcar.png")}
-                  style={styles.do}
-                />
-                <Text style={styles.title}>Criminal Screening</Text>
+        {isTab1Active ? (
+          <View>
+            <View style={{ marginTop: RFValue(20) }}>
+              <View style={[styles.paragraph]}>
+                <View style={styles.heading}>
+                  <Image
+                    source={require("../../assets/icons/copcar.png")}
+                    style={styles.do}
+                  />
+                  <Text style={styles.title}>Criminal Screening</Text>
+                </View>
+
+                <Text style={[styles.subtitle, { marginTop: RFValue(5) }]}>
+                  Reverse-search the saved phone
+                </Text>
+                <Text style={styles.subtitle}>
+                  numbers for each of your contacts to
+                </Text>
+                <Text style={styles.subtitle}>
+                  screen them for criminal records.
+                </Text>
               </View>
-
-              <Text style={[styles.subtitle, { marginTop: RFValue(5) }]}>
-                Reverse-search the saved phone
-              </Text>
-              <Text style={styles.subtitle}>
-                numbers for each of your contacts to
-              </Text>
-              <Text style={styles.subtitle}>
-                screen them for criminal records.
-              </Text>
             </View>
-          </View>
-          {isPermitted ? (
-            <View style={{ ...styles.textinputCOntainer }}>
-              <Ionicons name="search-sharp" size={24} color="rgba(0,0,0,0.5)" />
-              <TextInput
-                style={styles.input}
-                onChangeText={(text) => {
-                  setInput(text);
-                  filterBySearch(text);
-                }}
-                value={input}
-                placeholder="Quick Find"
-                placeholderTextColor={"#000"}
-              />
-            </View>
-          ) : null}
-
-          {isFocused && (
-            <>
-              {isPermitted ? (
-                <ContactsList
-                  dataArray={contactsState}
-                  navigation={navigation}
+            {isPermitted ? (
+              <View style={{ ...styles.textinputCOntainer }}>
+                <Ionicons
+                  name="search-sharp"
+                  size={24}
+                  color="rgba(0,0,0,0.5)"
                 />
-              ) : (
-                <AccessComp />
-              )}
-            </>
-          )}
-        </View> :
-        <View>
-        <View style={[styles.paragraph,{height:RFValue(175)}]}>
+                <TextInput
+                  style={styles.input}
+                  onChangeText={(text) => {
+                    setInput(text);
+                    filterBySearch(text);
+                  }}
+                  value={input}
+                  placeholder="Quick Find"
+                  placeholderTextColor={"#000"}
+                />
+              </View>
+            ) : null}
+
+            {isFocused && (
+              <>
+                {isPermitted ? (
+                  <ContactsList
+                    dataArray={contactsState}
+                    navigation={navigation}
+                  />
+                ) : (
+                  <AccessComp />
+                )}
+              </>
+            )}
+          </View>
+        ) : (
+          <View>
+            <View style={[styles.paragraph, { height: RFValue(125) }]}>
               <View style={styles.heading}>
                 <Image
                   source={require("../../assets/icons/alerticon.png")}
@@ -334,31 +348,94 @@ export default function ScanPhoneScreen({ navigation }) {
                 <Text style={styles.title}>Sex Offender Screening</Text>
               </View>
 
-              <Text style={[styles.subtitle, { marginTop: RFValue(5),textAlign:'center' }]}>
-              Scan your entire contacts list for
-potential sex offenders, categorizing
-matches as follows: yellow for name
-matches, orange for name and location
-matches, and red for name, location,
-and date of birth matches. The
-accuracy of each match will vary
-based on the completeness of your
-contact's information.
+              <Text
+                style={[
+                  styles.subtitle,
+                  { marginTop: RFValue(5), textAlign: "center" },
+                ]}
+              >
+                Scan your entire contacts list for{"\n"}
+                potential sex offenders. The accuracy{"\n"}
+                of each match depends on how{"\n"}
+                complete the information is saved in{"\n"}
+                your contacts.{"\n"}
               </Text>
             </View>
-      </View>}
+            <View style={styles.row}>
+              <View style={styles.innerRow}>
+                <View style={[styles.box, { backgroundColor: "#FFEC01" }]} />
+                <Text style={styles.small}>Just Name</Text>
+              </View>
+              <View style={styles.innerRow}>
+                <View style={[styles.box, { backgroundColor: "#FFAC00" }]} />
+                <Text style={styles.small}>Name and Location</Text>
+              </View>
+              <View style={styles.innerRow}>
+                <View style={[styles.box, { backgroundColor: "#FF0116" }]} />
+                <Text style={styles.small}>Name, Location & DOB</Text>
+              </View>
+            </View>
+            {result ? (
+              <TouchableOpacity
+                style={[styles.button, { backgroundColor: "#07B341" }]}
+                onPress={toggle}
+              >
+                <Text style={styles.btnText}>View Results</Text>
+              </TouchableOpacity>
+            ) : (
+              <TouchableOpacity style={styles.button} onPress={toggle}>
+                <Text style={styles.btnText}>Scan Contacts</Text>
+              </TouchableOpacity>
+            )}
+
+            {modal && <Modal1 onBackdropPress={toggle} onPress={toggle1} />}
+          </View>
+        )}
       </View>
-      
     </View>
   );
 }
 
 const styles = StyleSheet.create({
+  row: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    paddingHorizontal: "7%",
+    marginTop: RFValue(8),
+  },
+  box: {
+    width: RFValue(12),
+    height: RFValue(12),
+    backgroundColor: "#000000",
+  },
+  small: {
+    fontSize: RFValue(9),
+    color: "rgba(0,0,0,0.8)",
+    marginLeft: "5%",
+  },
+  innerRow: {
+    flexDirection: "row",
+    alignItems: "center",
+  },
   container: {
     flex: 1,
     backgroundColor: "#fff",
   },
-
+  button: {
+    backgroundColor: "#315A9C",
+    width: "90%",
+    alignSelf: "center",
+    height: RFValue(43),
+    marginTop: WIDTH / 2.5,
+    alignItems: "center",
+    justifyContent: "center",
+    borderRadius: RFValue(10),
+  },
+  btnText: {
+    fontSize: RFValue(12),
+    color: "#FFFFFF",
+    fontFamily: "BoldText",
+  },
   homeHeader: {
     width: WIDTH,
     height: RFValue(90),
@@ -416,7 +493,7 @@ const styles = StyleSheet.create({
   },
   subtitle: {
     marginHorizontal: RFValue(10),
-    fontSize: RFValue(13),
+    fontSize: RFValue(14),
     color: "#000000",
 
     textAlign: "left",
