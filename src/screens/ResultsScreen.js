@@ -665,44 +665,125 @@ export default function ResultsScreen({ navigation, route }) {
         <TouchableOpacity
           onPress={() => (!LoadingData ? setPlan(items?.item) : null)}
         >
-          <View style={{ flexDirection: "row", alignItems: "center" }}>
-            <View style={[styles.itemLeft, { width: 170 }]}>
-              <Text style={styles.name}>
-                {item?.FIRST_NAME} {item?.LAST_NAME}
+          <View
+            style={{
+              width: "35%",
+              height: RFValue(20),
+              alignItems: "center",
+              backgroundColor: "#3B5997",
+              borderTopLeftRadius: RFValue(10),
+              justifyContent: "center",
+            }}
+          >
+            <Text
+              style={[styles.age, { fontSize: RFValue(10), color: "#ffffff" }]}
+            >
+              Viewed on: 10/1/2023
+            </Text>
+          </View>
+          <View
+            style={{
+              flexDirection: "row",
+              justifyContent: "space-between",
+              width: "87%",
+              paddingHorizontal: RFValue(12),
+            }}
+          >
+            <Text style={styles.name}>
+              {item?.FIRST_NAME} {item?.LAST_NAME}
+            </Text>
+            <View style={{ marginRight: RFValue(12) }}>
+              <Text
+                style={[styles.age, { fontSize: RFValue(24), color: "#000" }]}
+              >
+                {items?.item?.age && items?.item?.age}
               </Text>
-              <Text style={styles.age}>
-                {items?.item?.age && items?.item?.age + " Years Old"}
-              </Text>
-              <View style={styles.viewReportContainer}>
-                <TouchableOpacity
-                  onPress={() => {
-                    setSelectedData(items?.item);
-                    if (!LoadingData) {
-                      setPlan(items?.item);
-                    }
-                  }}
+              {items?.item?.age && (
+                <Text
+                  style={[
+                    styles.age,
+                    { fontSize: RFValue(6), marginTop: RFValue(-5) },
+                  ]}
                 >
-                  {LoadingData == items?.item?._id ? (
-                    <ActivityIndicator size="small" color="#fff" />
-                  ) : (
-                    <Text style={styles.viewReportText}>View Report</Text>
-                  )}
-                </TouchableOpacity>
-              </View>
-            </View>
-            <View style={styles.itemRight}>
-              <Octicons
-                style={{ marginRight: RFValue(5) }}
-                name="location"
-                size={20}
-                color="#BEBEBE"
-              />
-              <View style={{ height: 40, width: 110 }}>
-                <Text style={styles.age} numberOfLines={2}>
-                  {item?.CITY}, {item?.STATE}
+                  Years Old
                 </Text>
-                <Text style={styles.age}>{}</Text>
-              </View>
+              )}
+            </View>
+          </View>
+
+          <View style={{ flexDirection: "row", marginHorizontal: RFValue(12) }}>
+            <Octicons
+              style={{ marginRight: RFValue(5) }}
+              name="location"
+              size={20}
+              color="#BEBEBE"
+            />
+            <View style={{ height: 40, width: 110 }}>
+              <Text style={styles.age} numberOfLines={2}>
+                {item?.CITY}, {item?.STATE}
+              </Text>
+              <Text style={styles.age}>{}</Text>
+            </View>
+          </View>
+          <View
+            style={{
+              flexDirection: "row",
+              paddingHorizontal: RFValue(10),
+              marginBottom: RFValue(5),
+            }}
+          >
+            <View
+              style={{
+                width: "40%",
+                flexDirection: "row",
+                alignItems: "center",
+              }}
+            >
+              <Image
+                style={{ width: RFValue(20), height: RFValue(20) }}
+                source={require("../assets/icons/phone1.png")}
+              />
+              <Text style={styles.age}>{" "}2 Mobile Numbers</Text>
+            </View>
+            <View
+              style={{
+                width: "40%",
+                flexDirection: "row",
+                alignItems: "center",
+              }}
+            >
+              <Image
+                style={{ width: RFValue(20), height: RFValue(20) }}
+                source={require("../assets/icons/email1.png")}
+              />
+              <Text style={styles.age}>{" "}5 Email Addresses</Text>
+            </View>
+          </View>
+          <View
+            style={{
+              width: "82.3%",
+              alignItems: "flex-end",
+              borderTopWidth: 1,
+              borderColor: "rgba(0,0,0,0.3)",
+            }}
+          >
+            <View
+              style={[styles.viewReportContainer, { marginRight: RFValue(12) }]}
+            >
+              <TouchableOpacity
+                onPress={() => {
+                  setSelectedData(items?.item);
+                  if (!LoadingData) {
+                    setPlan(items?.item);
+                  }
+                }}
+              >
+                {LoadingData == items?.item?._id ? (
+                  <ActivityIndicator size="small" color="#fff" />
+                ) : (
+                  <Text style={styles.viewReportText}>View Report</Text>
+                )}
+              </TouchableOpacity>
             </View>
           </View>
         </TouchableOpacity>
@@ -789,7 +870,7 @@ export default function ResultsScreen({ navigation, route }) {
         backgroundColor="#305A9C"
       />
       <View style={styles.homeHeader}>
-      <TouchableOpacity onPress={() => navigation.goBack()}>
+        <TouchableOpacity onPress={() => navigation.goBack()}>
           <Image
             source={require("../assets/icons/back.png")}
             style={{ width: RFValue(10), height: RFValue(20) }}
@@ -1050,7 +1131,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: RFValue(20),
     paddingTop:
       Platform.OS === "android"
-        ? Device.STATUS_BAR_HEIGHT 
+        ? Device.STATUS_BAR_HEIGHT
         : Device.STATUS_BAR_HEIGHT + 20,
   },
   headerTitle: {
@@ -1101,7 +1182,8 @@ const styles = StyleSheet.create({
     alignItems: "center",
     marginBottom: RFValue(12),
     width: WIDTH - RFValue(40),
-    padding: RFValue(12),
+    paddingBottom: RFValue(12),
+    //padding: RFValue(12),
     borderRadius: 8,
     backgroundColor: "#fff",
     shadowColor: "#000",
@@ -1114,7 +1196,7 @@ const styles = StyleSheet.create({
     elevation: 3,
   },
   name: {
-    fontSize: RFValue(13),
+    fontSize: RFValue(16),
     color: "#000",
     fontFamily: "SemiBold",
     marginBottom: RFValue(5),
@@ -1127,7 +1209,7 @@ const styles = StyleSheet.create({
   viewReportContainer: {
     width: RFValue(90),
     height: RFValue(22),
-    borderRadius: 20,
+    borderRadius: RFValue(2),
     backgroundColor: "#44CE91",
     justifyContent: "center",
     alignItems: "center",
@@ -1141,6 +1223,5 @@ const styles = StyleSheet.create({
   },
   itemRight: {
     flexDirection: "row",
-    width: WIDTH / 2.7,
   },
 });

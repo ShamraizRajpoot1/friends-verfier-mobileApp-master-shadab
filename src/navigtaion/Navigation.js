@@ -47,6 +47,7 @@ import SafetyTips from "../screens/SafetyTips.js";
 import SellInfo from "../screens/SellInfo.js";
 import Terms from "../screens/Terms.js";
 import SexOffenderdetail from "../screens/SexOffenderdetail.js";
+import UpdateContact from "../screens/UpdateContact.js";
 const Stack = createNativeStackNavigator();
 
 function Navigation() {
@@ -103,6 +104,10 @@ function Navigation() {
           <Stack.Screen
             name="SmsVerificationScreen"
             component={SmsVerificationScreen}
+          />
+          <Stack.Screen
+            name="UpdateContact"
+            component={UpdateContact}
           />
           <Stack.Screen
             name="SmsOtpVerificationScreen"

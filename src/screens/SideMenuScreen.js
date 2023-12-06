@@ -27,6 +27,7 @@ import Device from "../../src/constants/device";
 import DeviceInfo from "react-native-device-info";
 import Header from "../components/Header.js";
 import SafetyTips from "./SafetyTips.js";
+import { TextInput } from "react-native";
 
 export default function SideMenuScreen({ navigation }) {
   const userData = useSelector((state) => state?.loginDetails);
@@ -405,9 +406,25 @@ export default function SideMenuScreen({ navigation }) {
           )}
         </View>
         </View>
-                <View style={{marginTop: RFValue(100)}}>
+        <View style={{ marginTop: RFValue(15), marginLeft: "5%" }}>
+                <View style={styles.heading}>
+                  <Image
+                    source={require("../assets/icons/thumbs.png")}
+                    style={styles.do}
+                  />
+                  <Text style={styles.title}>Promo Code</Text>
+                </View>
+              </View>
+              <View style={{flexDirection:"row",justifyContent:'space-between', marginHorizontal: '8%',}}>
+              <TextInput
+            style={styles.input} 
+            />
+            <TouchableOpacity style={styles.send}><Text style={styles.sendtext}>SEND</Text></TouchableOpacity>
+              </View>
+                <View style={{marginTop: RFValue(60), marginBottom: RFValue(20),}}>
         <Text style={styles.footerText}>
-          Friend Verifier Version {DeviceInfo.getVersion()}
+          Friend Verifier Version 3.0.0
+          {/* {DeviceInfo.getVersion()} */}
         </Text>
         </View>
         </View>
@@ -459,6 +476,50 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: "#fff",
+  },
+  heading: {
+    backgroundColor: "#F5F5F5",
+    width: "95%",
+    height: RFValue(32),
+    flexDirection: "row",
+    borderRadius: 10,
+    alignItems: "center",
+    paddingLeft: RFValue(12),
+  },
+  do: {
+    width: RFValue(14),
+    height: RFValue(14),
+    marginRight: RFValue(5),
+  },
+  title: {
+    fontSize: RFValue(14),
+    color: "#000",
+    fontFamily: "SemiBold",
+    // marginLeft: RFValue(40),
+  },
+  input: {
+    borderWidth: 1,
+    borderColor: "rgba(0,0,0,0.2)",
+    borderRadius: RFValue(8),
+    marginTop: RFValue(10),
+    width: "75%",
+    height: RFValue(35),
+    color:'#000000',
+    fontSize: RFValue(12),
+    paddingHorizontal:RFValue(8)
+  },
+  send:{
+    width:'23%',
+    backgroundColor:'#305A9C',
+    marginTop: RFValue(10),
+    height: RFValue(35),
+    alignItems:'center',
+    justifyContent:'center',
+    borderRadius: RFValue(8),
+  },
+  sendtext:{
+    color:"#FFFFFF",
+    fontSize: RFValue(12),
   },
   seprator: {
     width: RFValue(45),

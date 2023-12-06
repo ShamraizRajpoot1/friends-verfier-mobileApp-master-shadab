@@ -282,12 +282,14 @@ export default function ResultDeatilScreen({ navigation, route }) {
     },
   ];
   const userData = useSelector((state) => state);
-  useEffect(() => {
-    setData(route.params.data);
-  }, []);
+  // useEffect(() => {
+  //   setData(route.params.data);
+  // }, []);
 
   const [Loading, setLoading] = React.useState(false);
   const [isModalVisible, setModalVisible] = useState(false);
+  const [isaddModalVisible, setAddModalVisible] = useState(false);
+  const [isadd1ModalVisible, setAdd1ModalVisible] = useState(false);
   const [overview, setOverView] = React.useState("flex");
   const [address, setAddress] = React.useState("flex");
   const [contact, setContact] = React.useState("flex");
@@ -379,7 +381,11 @@ export default function ResultDeatilScreen({ navigation, route }) {
     let result = feetFromInches + "'" + inchesRemainder;
     return result;
   }
-
+const okmodal = ()=>{
+  
+  setAddModalVisible(false)
+  setAdd1ModalVisible(true)
+}
   return (
     <View style={styles.container}>
       <StatusBar
@@ -388,12 +394,12 @@ export default function ResultDeatilScreen({ navigation, route }) {
         backgroundColor="#305A9C"
       />
       <View style={styles.homeHeader}>
-        <Entypo
-          onPress={() => navigation.goBack()}
-          name="chevron-thin-left"
-          size={24}
-          color="#fff"
-        />
+        <TouchableOpacity onPress={() => navigation.goBack()}>
+          <Image
+            source={require("../../assets/icons/back.png")}
+            style={{ width: RFValue(10), height: RFValue(20) }}
+          />
+        </TouchableOpacity>
 
         <Text style={styles.headerTitle}>
           <Text style={{ ...styles.headerTitle, fontFamily: "SemiBold" }}>
@@ -423,6 +429,40 @@ export default function ResultDeatilScreen({ navigation, route }) {
           showsVerticalScrollIndicator={false}
           contentContainerStyle={{ paddingBottom: RFValue(50) }}
         >
+          <View
+            style={{
+              flexDirection: "row",
+              justifyContent: "center",
+              marginTop: RFValue(15),
+            }}
+          >
+            <TouchableOpacity style={styles.addc} onPress={()=>setAddModalVisible(true)}>
+              <Image
+                style={{
+                  borderRadius: RFValue(12),
+                  width: RFValue(38),
+                  height: RFValue(38),
+                }}
+                source={require("../../assets/icons/addtocontacts.png")}
+              />
+              <Text style={{ fontSize: RFValue(8), textAlign: "center" }}>
+                Add to{"\n"}Contact
+              </Text>
+            </TouchableOpacity>
+            <TouchableOpacity style={styles.addc} onPress={()=>navigation.navigate('UpdateContact')}>
+              <Image
+                style={{
+                  borderRadius: RFValue(12),
+                  width: RFValue(38),
+                  height: RFValue(38),
+                }}
+                source={require("../../assets/icons/contact.jpeg")}
+              />
+              <Text style={{ fontSize: RFValue(8), textAlign: "center" }}>
+                Update a{"\n"}Contact
+              </Text>
+            </TouchableOpacity>
+          </View>
           {(data?.criminalData?.length > 0 &&
             data?.criminalData != "No Data Found!") ||
           (data?.sexOffendedData?.length > 0 &&
@@ -475,39 +515,44 @@ export default function ResultDeatilScreen({ navigation, route }) {
           <View style={{ ...styles.resultDetailContainer, display: overview }}>
             <Text style={styles.nameAgeText}>
               {toTitleCase(data?.requestObj?.FIRST_NAME)}{" "}
-              {toTitleCase(data?.requestObj?.LAST_NAME)}
+              {toTitleCase(data?.requestObj?.LAST_NAME)},{" "}
+              {data?.requestObj?.age}
             </Text>
 
-            <View style={{ marginTop: RFValue(18) }}>
-              <Text style={styles.fullnameText}>Full Name</Text>
+            <View
+              style={{
+                marginTop: RFValue(18),
+                flexDirection: "row",
+                // paddingHorizontal: RFValue(20),
+              }}
+            >
+              <Image
+                source={require("../../assets/icons/nomugshot.png")}
+                style={{ width: "45%", height: RFValue(120) }}
+              />
+              <View style={{ marginTop: RFValue(5), marginLeft: "7%" }}>
+                <Text style={styles.fullnameText}>Aliases</Text>
 
-              <Text style={styles.fullname}>
-                {data?.requestObj?.FIRST_NAME} {data?.requestObj?.MIDDLE_NAME}{" "}
-                {data?.requestObj?.LAST_NAME}
-              </Text>
-            </View>
+                <Text style={styles.fullname}>
+                  {data?.requestObj?.FIRST_NAME} {data?.requestObj?.MIDDLE_NAME}{" "}
+                  {data?.requestObj?.LAST_NAME}
+                </Text>
 
-            <View style={{ marginTop: RFValue(18) }}>
-              <Text style={styles.fullnameText}>Aliases</Text>
-
-              <View style={{ marginTop: RFValue(6) }}>
-                {data?.aliasesData?.length > 0 &&
-                  data?.aliasesData?.map((item, inde) => (
-                    <View style={{ marginTop: RFValue(8) }}>
-                      <Text style={{ ...styles.fullname, marginTop: 0 }}>
-                        {item?.firstName} {item?.midName} {item?.lastName}
-                      </Text>
-                    </View>
-                  ))}
+                <View style={{ marginTop: RFValue(18) }}>
+                  <View style={{ marginTop: RFValue(6) }}>
+                    {data?.aliasesData?.length > 0 &&
+                      data?.aliasesData?.map((item, inde) => (
+                        <View style={{ marginTop: RFValue(8) }}>
+                          <Text style={{ ...styles.fullname, marginTop: 0 }}>
+                            {item?.firstName} {item?.midName} {item?.lastName}
+                          </Text>
+                        </View>
+                      ))}
+                  </View>
+                </View>
               </View>
             </View>
-
             <View style={styles.footerContainer}>
-              <View style={{}}>
-                <Text style={styles.fullnameText}>Age</Text>
-
-                <Text style={styles.fullname}>{data?.requestObj?.age}</Text>
-              </View>
               <View style={{}}>
                 <Text style={styles.fullnameText}>Date of Birth</Text>
 
@@ -551,7 +596,13 @@ export default function ResultDeatilScreen({ navigation, route }) {
               <Text style={styles.fullnameText}>Most Recent Number</Text>
 
               {data?.requestObj?.PHONE ? (
-                <Text style={styles.fullname}>{data?.requestObj?.PHONE}</Text>
+                <View style={styles.copyrow}>
+                  <Text style={styles.fullname}>{data?.requestObj?.PHONE}</Text>
+                  <Image
+                    style={styles.copy}
+                    source={require("../../assets/icons/copy.png")}
+                  />
+                </View>
               ) : (
                 <>
                   {data?.phone && (
@@ -570,7 +621,14 @@ export default function ResultDeatilScreen({ navigation, route }) {
                   <>
                     {data?.requestObj?.PHONE &&
                       item != data?.requestObj?.PHONE && (
-                        <Text style={styles.fullname}>{item}</Text>
+                        <View style={styles.copyrow}>
+                          <Text style={styles.fullname}>{item}</Text>
+
+                          <Image
+                            style={styles.copy}
+                            source={require("../../assets/icons/copy.png")}
+                          />
+                        </View>
                       )}
                   </>
                 ))}
@@ -580,13 +638,29 @@ export default function ResultDeatilScreen({ navigation, route }) {
                 <Text style={styles.fullnameText}>Most Recent Email</Text>
 
                 {data?.requestObj?.EMAIL ? (
-                  <Text style={styles.fullname}>{data?.requestObj?.EMAIL}</Text>
+                  <View style={styles.copyrow}>
+                    <Text style={styles.fullname}>
+                      {data?.requestObj?.EMAIL}
+                    </Text>
+                    <Image
+                      style={styles.copy}
+                      source={require("../../assets/icons/copy.png")}
+                    />
+                  </View>
                 ) : (
                   <>
                     {data?.email && (
-                      <Text style={styles.fullname}>
-                        {data?.email.length > 0 && data?.email[0]}
-                      </Text>
+                      <View style={styles.copyrow}>
+                        <Text style={styles.fullname}>
+                          {data?.email.length > 0 && data?.email[0]}
+                        </Text>
+                        {data?.email.length > 0 && (
+                          <Image
+                            style={styles.copy}
+                            source={require("../../assets/icons/copy.png")}
+                          />
+                        )}
+                      </View>
                     )}
                   </>
                 )}
@@ -599,7 +673,13 @@ export default function ResultDeatilScreen({ navigation, route }) {
                       {!data?.requestObj?.EMAIL ? (
                         <>
                           {index != 0 && (
-                            <Text style={styles.fullname}>{item}</Text>
+                            <View style={styles.copyrow}>
+                              <Text style={styles.fullname}>{item}</Text>
+                              <Image
+                                style={styles.copy}
+                                source={require("../../assets/icons/copy.png")}
+                              />
+                            </View>
                           )}
                         </>
                       ) : (
@@ -646,7 +726,9 @@ export default function ResultDeatilScreen({ navigation, route }) {
           >
             <View style={{ marginTop: RFValue(0) }}>
               <Text style={styles.fullnameText}>Most Recent Address</Text>
-              <Text style={[styles.fullname_pastAddress, { marginTop: 20 }]}>
+              <Text
+                style={[styles.fullname_pastAddress, { marginTop: RFValue(5) }]}
+              >
                 {data?.requestObj?.ADDRESS}
               </Text>
               <Text style={styles.fullname_pastAddress}>
@@ -663,7 +745,7 @@ export default function ResultDeatilScreen({ navigation, route }) {
                 {data?.address?.map((item, index) => (
                   <>
                     <Text
-                      style={[styles.fullname_pastAddress, { marginTop: 20 }]}
+                      style={[styles.fullname_pastAddress, { marginTop: 0 }]}
                     >
                       {item?.address}
                     </Text>
@@ -710,22 +792,21 @@ export default function ResultDeatilScreen({ navigation, route }) {
                 <View style={{ marginTop: RFValue(18) }}>
                   <Text
                     style={{
-                      fontSize: RFValue(15.5),
+                      fontSize: RFValue(13),
                       color: "#343538",
-                      fontFamily: "Medium",
                     }}
                   >
                     {toTitleCase(items?._source?.FIRST_NAME)}{" "}
                     {toTitleCase(items?._source?.LAST_NAME)}
                     {""}
-                    {items?.age && ", " + items?.age}
+                    {items?.age && "  (" + items?.age + ")"}
                     {/* Sally Jessy Raphael (87) */}
                   </Text>
 
                   <TouchableOpacity
                     style={{
-                      width: RFValue(100),
-                      height: RFValue(22),
+                      width: RFValue(80),
+                      height: RFValue(18),
                       marginTop: RFValue(10),
                       justifyContent: "center",
                       alignItems: "center",
@@ -751,9 +832,9 @@ export default function ResultDeatilScreen({ navigation, route }) {
                   >
                     <Text
                       style={{
-                        fontSize: RFValue(10),
+                        fontSize: RFValue(8),
                         color: "#5979AE",
-                        fontFamily: "Medium",
+                        // fontFamily: "Medium",
                       }}
                     >
                       Scan this Person
@@ -811,7 +892,8 @@ export default function ResultDeatilScreen({ navigation, route }) {
                           marginTop: RFValue(10),
                           justifyContent: "center",
                           alignItems: "center",
-                          backgroundColor: "#466BA4",
+                          backgroundColor:
+                            index % 2 === 0 ? "#466BA4" : "#7C7C7C",
                           borderRadius: 5,
                         }}
                       >
@@ -831,56 +913,74 @@ export default function ResultDeatilScreen({ navigation, route }) {
                       <View style={{ marginTop: RFValue(2) }}>
                         {item?._source?.OffenseDate && (
                           <>
-                            <Text
-                              style={{
-                                ...styles.fullname,
-                                marginTop: RFValue(8),
-                              }}
-                            >
-                              Offense Date:
-                            </Text>
-                            <Text style={{ ...styles.detailText }}>
-                              {item?._source?.OffenseDate &&
-                                moment(item?._source?.OffenseDate).format(
-                                  "DD/MM/YYYY"
-                                )}{" "}
-                              {"\n"}
-                            </Text>
+                            <View style={{ flexDirection: "row" }}>
+                              <Text
+                                style={{
+                                  ...styles.fullname,
+                                  marginTop: RFValue(8),
+                                }}
+                              >
+                                Offense Date:
+                              </Text>
+                              <Text
+                                style={{
+                                  ...styles.fullname,
+                                  marginTop: RFValue(8),
+                                }}
+                              >
+                                {item?._source?.OffenseDate &&
+                                  moment(item?._source?.OffenseDate).format(
+                                    "DD/MM/YYYY"
+                                  )}{" "}
+                              </Text>
+                            </View>
                           </>
                         )}
                         {item?._source?.Category && (
                           <>
-                            <Text
+                            <View
                               style={{
-                                ...styles.fullname,
-                                marginTop: RFValue(8),
+                                flexDirection: "row",
+                                alignItems: "center",
                               }}
                             >
-                              Offense Category:
-                            </Text>
-                            <Text style={{ ...styles.detailText }}>
-                              {toTitleCase(item?._source?.Category)}
-                              {"\n"}
-                            </Text>
+                              <Text
+                                style={{
+                                  ...styles.fullname,
+                                  marginTop: RFValue(8),
+                                }}
+                              >
+                                Offense Category:
+                              </Text>
+                              <Text
+                                style={{
+                                  ...styles.fullname,
+                                  marginTop: RFValue(8),
+                                  maxWidth: RFValue(120),
+                                }}
+                              >
+                                {toTitleCase(item?._source?.Category)}
+                              </Text>
+                            </View>
                           </>
                         )}
                         {item?._source?.OffenseDesc1 && (
                           <>
-                            <Text
-                              style={{
-                                ...styles.fullname,
-                                marginTop: RFValue(8),
-                              }}
-                            >
-                              Offense Description:
-                            </Text>
-                            <Text style={{ ...styles.detailText }}>
-                              {toTitleCase(item?._source?.OffenseDesc1)}
-                              {"\n"}
-                            </Text>
+                            <View style={{ flexDirection: "row" }}>
+                              <Text
+                                style={{
+                                  ...styles.fullname,
+                                  marginTop: RFValue(8),
+                                  maxWidth: RFValue(200),
+                                }}
+                              >
+                                {"Statute:"}{" "}
+                                {toTitleCase(item?._source?.OffenseDesc1)}
+                              </Text>
+                            </View>
                           </>
                         )}
-                        {item?._source?.Plea && (
+                        {/* {item?._source?.Plea && (
                           <>
                             <Text
                               style={{
@@ -983,7 +1083,7 @@ export default function ResultDeatilScreen({ navigation, route }) {
                               {"\n"}
                             </Text>
                           </>
-                        )}
+                        )} */}
                       </View>
                     </>
                   ))}
@@ -1011,7 +1111,7 @@ export default function ResultDeatilScreen({ navigation, route }) {
               </View>
             )}
           </View>
-          <TouchableOpacity
+          {/* <TouchableOpacity
             onPress={onPressSexOffender}
             style={styles.overViewContainer}
           >
@@ -1034,7 +1134,7 @@ export default function ResultDeatilScreen({ navigation, route }) {
             ) : (
               <Feather name="chevron-up" size={28} color="black" />
             )}
-          </TouchableOpacity>
+          </TouchableOpacity> */}
           <View
             style={{
               display:
@@ -1510,7 +1610,7 @@ export default function ResultDeatilScreen({ navigation, route }) {
               >
                 <Text
                   style={{
-                    fontSize: RFValue(16),
+                    fontSize: RFValue(14),
                     fontFamily: "SemiBold",
                     color: "#000",
                   }}
@@ -1544,23 +1644,24 @@ export default function ResultDeatilScreen({ navigation, route }) {
                 ...styles.resultDetailContainer,
               }}
             >
-              <Text>
+              <Text style={{ fontSize: RFValue(7) }}>
                 Our service gathers public records, including criminal records
-                from government agencies, affiliates, and third parties.
-                However, as we are not the creators of these databases, we
-                cannot ensure the accuracy of the information or attest to the
-                person's character.
+                from government{"\n"}agencies, affiliates, and third parties.
+                However, as we are not the creators of{"\n"}these databases, we
+                cannot ensure the accuracy of the information or attest to{"\n"}
+                the person's character.
                 {"\n"}
                 {"\n"}
                 Court records, which are publicly accessible through government
-                agencies, may contain criminal details such as felonies,
-                misdemeanors, arrests, or infractions.
+                agencies,{"\n"}may contain criminal details such as felonies,
+                misdemeanors, arrests, or{"\n"}infractions.
                 {"\n"}
                 {"\n"}
                 Nevertheless, these public records can be unreliable,
-                incomplete, or unrelated to the individual in question. It is
-                crucial to independently verify a person's criminal history at
-                the appropriate courthouse and not solely depend on the
+                incomplete, or unrelated{"\n"}to the individual in question. It
+                is crucial to independently verify a person's{"\n"}criminal
+                history at the appropriate courthouse and not solely depend on
+                the{"\n"}
                 information provided here.
               </Text>
             </View>
@@ -1592,7 +1693,55 @@ export default function ResultDeatilScreen({ navigation, route }) {
                 Request Removal
               </Text>
             </TouchableOpacity>
+            <TouchableOpacity
+              onPress={() => setModalVisible(false)}
+              activeOpacity={0.5}
+              style={styles.textinputCOntainer}
+            >
+              <Image
+                source={require("../../assets/icons/cross.png")}
+                style={{...styles.icon,
+                  backgroundColor: "#FFFFFF",
+                 
+                  borderRadius: RFValue(50),
+                }}
+              />
+              <Text style={{ ...styles.emailmeCopy, }}>
+                Close
+              </Text>
+            </TouchableOpacity>
           </View>
+        </View>
+      </Modal>
+      <Modal
+        backdropOpacity={0.9}
+        isVisible={isaddModalVisible}
+        onBackdropPress={() => setAddModalVisible(false)}
+      >
+        <View style={styles.modalaContainer}>
+        <Text style={{fontSize:RFValue(16),fontFamily:'BoldText',marginTop:RFValue(14)}}>Add to Contacts</Text>
+
+          <Text style={{fontSize: RFValue(12),textAlign:'center',color:'#000000'}}>We will create a new saved contact to{"\n"}
+your phone with this information.</Text>
+<View style={styles.touchrow}>
+<TouchableOpacity onPress={okmodal} style={[styles.ok,{borderRightWidth: 1,borderColor: 'rgba(0,0,0,0.5)',}]}><Text style={styles.oktext}>OK</Text></TouchableOpacity>
+<TouchableOpacity onPress={() => setAddModalVisible(false)} style={styles.ok}><Text style={[styles.oktext,{color:'#FF0000'}]}>Cancel</Text></TouchableOpacity>
+</View>
+        </View>
+      </Modal>
+      <Modal
+        backdropOpacity={0.9}
+        isVisible={isadd1ModalVisible}
+        onBackdropPress={() => setAdd1ModalVisible(false)}
+      >
+        <View style={styles.modalaContainer}>
+        <Text style={{fontSize:RFValue(16),fontFamily:'BoldText',marginTop:RFValue(14)}}>Contacts Created!</Text>
+
+          <Image style={{width:RFValue(15),height:RFValue(15),marginTop:RFValue(5),marginBottom:RFValue(15)}} source={require('../../assets/icons/grencheck.png')} />
+<View style={[styles.touchrow,{height:RFValue(36)}]}>
+<TouchableOpacity onPress={() => setAdd1ModalVisible(false)} style={[styles.ok,{width:'100%'}]}><Text style={styles.oktext}>OK</Text></TouchableOpacity>
+
+</View>
         </View>
       </Modal>
     </View>
@@ -1600,6 +1749,23 @@ export default function ResultDeatilScreen({ navigation, route }) {
 }
 
 const styles = StyleSheet.create({
+  touchrow:{
+    width:'100%',
+    borderTopWidth: 1,
+    borderColor: 'rgba(0,0,0,0.5)',
+    flexDirection:'row',
+    height:RFValue(45),
+    marginTop: RFValue(15),
+  },
+  ok:{
+    width:'50%',
+    alignItems:'center',
+    justifyContent:'center',
+  },
+  oktext:{
+    fontSize: RFValue(16),
+    color:'#067AFD'
+  },
   seprator: {
     width: RFValue(45),
     height: 6,
@@ -1611,6 +1777,11 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: "#fff",
+  },
+  copyrow: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
   },
 
   homeHeader: {
@@ -1624,14 +1795,14 @@ const styles = StyleSheet.create({
     // paddingTop: Device.STATUS_BAR_HEIGHT + 20,
     paddingTop:
       Platform.OS === "android"
-        ? Device.STATUS_BAR_HEIGHT 
+        ? Device.STATUS_BAR_HEIGHT
         : Device.STATUS_BAR_HEIGHT + 20,
 
     // paddingTop: Platform.OS === "android" ? 0 : RFValue(12),
   },
 
   headerTitle: {
-    fontSize: RFValue(22),
+    fontSize: RFValue(18),
     color: "#fff",
     fontFamily: "RegularText",
     // textAlign:"center",
@@ -1728,7 +1899,7 @@ const styles = StyleSheet.create({
   },
   alertContainer: {
     width: WIDTH - RFValue(45),
-    height: RFValue(40),
+    height: RFValue(30),
     backgroundColor: "#FBF9C2",
     borderRadius: 10,
     alignSelf: "center",
@@ -1740,7 +1911,7 @@ const styles = StyleSheet.create({
 
   overViewContainer: {
     width: WIDTH - RFValue(45),
-    height: RFValue(40),
+    height: RFValue(30),
     backgroundColor: "#F5F5F5",
     borderRadius: 10,
     alignSelf: "center",
@@ -1774,22 +1945,25 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.22,
     shadowRadius: 2.22,
 
-    elevation: 3,
+    elevation: 1,
     alignSelf: "center",
     borderRadius: 10,
     marginTop: RFValue(12),
   },
   nameAgeText: {
-    fontSize: RFValue(30),
+    fontSize: RFValue(26),
     fontFamily: "Medium",
     color: "#000",
   },
   fullname: {
     color: "#000",
-    fontSize: RFValue(15),
+    fontSize: RFValue(11),
     fontFamily: "Medium",
     marginTop: RFValue(5),
-    fontWeight: "bold",
+  },
+  addc: {
+    marginHorizontal: RFValue(20),
+    alignItems: "center",
   },
   detailText: {
     color: "#000",
@@ -1799,7 +1973,7 @@ const styles = StyleSheet.create({
   },
   fullnameText: {
     color: "#C4C4C5",
-    fontSize: RFValue(13),
+    fontSize: RFValue(11),
     fontFamily: "RegularText",
   },
   // detailText: {
@@ -1809,17 +1983,16 @@ const styles = StyleSheet.create({
   // },
   fullname_pastAddress: {
     color: "#000",
-    fontSize: RFValue(15),
-    fontFamily: "Medium",
-    marginTop: RFValue(5),
-    marginVertical: 5,
+    fontSize: RFValue(13),
+    //marginTop: RFValue(5),
+    //marginVertical: 5,
   },
   footerContainer: {
     flexDirection: "row",
     alignItems: "center",
     justifyContent: "space-between",
     paddingHorizontal: RFValue(0),
-    marginTop: RFValue(30),
+    marginTop: RFValue(20),
     marginBottom: 10,
   },
   modalContainer: {
@@ -1832,9 +2005,18 @@ const styles = StyleSheet.create({
     position: "absolute",
     bottom: RFValue(-25),
   },
+  modalaContainer: {
+    width: WIDTH/1.3,
+    height: "20%",
+    backgroundColor: "#fff",
+    borderRadius: 12,
+    alignSelf: "center",
+    position: "absolute",
+    alignItems:'center'
+  },
   textinputCOntainer: {
     width: WIDTH - RFValue(40),
-    height: RFValue(55),
+    height: RFValue(45),
     alignSelf: "center",
     backgroundColor: "#EEEEEE",
     borderRadius: 16,
@@ -1865,6 +2047,6 @@ const styles = StyleSheet.create({
     fontFamily: "Medium",
   },
   buttonsContainer: {
-    marginTop: RFValue(20),
+    marginTop: RFValue(15),
   },
 });

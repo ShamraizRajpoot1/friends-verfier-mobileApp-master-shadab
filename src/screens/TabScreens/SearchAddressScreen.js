@@ -137,8 +137,8 @@ export default function SearchAddressScreen({ navigation }) {
        latitude: userLocation.latitude,
        longitude: userLocation.longitude,
      }}
-     title={userLocation.name}
-     description={`Age: ${userLocation.age}`}
+     //title={userLocation.name}
+     //description={`Age: ${userLocation.age}`}
      onPress={() => handleMarkerPress(userLocation)}
    >
      {/* Custom marker image */}
