@@ -647,12 +647,12 @@ export default function SubscribeScreen({ navigation, route }) {
                   </>
                 )}
               </TouchableOpacity>
-              <View style={{ marginTop: RFValue(15), marginLeft: "5%" }}>
+              {/* <View style={{ marginTop: RFValue(15), marginLeft: "5%" }}>
                 <View style={styles.heading}>
                   <Image
                     source={require("../assets/icons/thumbs.png")}
                     style={styles.do}
-                  />
+                  /> 
                   <Text style={styles.title}>Referral Code</Text>
                 </View>
               </View>
@@ -661,7 +661,7 @@ export default function SubscribeScreen({ navigation, route }) {
             style={styles.input} 
             />
             <TouchableOpacity style={styles.send}><Text style={styles.sendtext}>SEND</Text></TouchableOpacity>
-              </View>
+              </View> */}
               {!pay_as_you_go && FirstVisit != 1 && (
                 <>
                   <Text

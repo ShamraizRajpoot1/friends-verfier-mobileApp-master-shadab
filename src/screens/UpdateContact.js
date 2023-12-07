@@ -8,6 +8,8 @@ import {
   Dimensions,
   Image,
   Pressable,
+  Platform, 
+  PermissionsAndroid
 } from "react-native";
 import Modal from "react-native-modal";
 import Contacts from "react-native-contacts";
@@ -22,9 +24,44 @@ const UpdateContact = ({ navigation }) => {
   const [input, setInput] = useState("");
   const [isaddModalVisible, setAddModalVisible] = useState(false);
   const [isadd1ModalVisible, setAdd1ModalVisible] = useState(false);
+  const [isPermitted, setIsPermitted] = useState(false);
   useEffect(() => {
-    fetchContacts();
-  }, [input]);
+    checkAndRequestPermission();
+  }, []);
+
+  useEffect(() => {
+    if (isPermitted) {
+      // Permission granted, fetch contacts
+      fetchContacts();
+    }
+  }, [isPermitted]);
+
+  const checkAndRequestPermission = () => {
+    if (Platform.OS === "android") {
+      PermissionsAndroid.request(
+        PermissionsAndroid.PERMISSIONS.READ_CONTACTS,
+        {
+          title: "Contacts",
+          message: "This app would like to view your contacts.",
+        }
+      )
+        .then((res) => {
+          if (res === "granted") {
+            setIsPermitted(true);
+          }
+        })
+        .catch((e) => {
+          console.error(e);
+        });
+    } else {
+      Contacts.requestPermission().then((permission) => {
+        if (permission === "authorized") {
+          setIsPermitted(true);
+        }
+      });
+    }
+  };
+
 
   const fetchContacts = async () => {
     try {
@@ -57,7 +94,10 @@ const UpdateContact = ({ navigation }) => {
 
     setFilteredContacts(sortedList);
   };
-
+const oknavigate =()=>{
+  setAdd1ModalVisible(false)
+  navigation.goBack()
+}
   const renderItem = ({ item }) => (
     <>
       {item?.phoneNumbers[0]?.number && (
@@ -180,7 +220,7 @@ const UpdateContact = ({ navigation }) => {
           isVisible={isaddModalVisible}
           onBackdropPress={() => setAddModalVisible(false)}
         >
-          <View style={styles.modalaContainer}>
+          <View style={[styles.modalaContainer,{height:'25%'}]}>
             <Text
               style={{
                 fontSize: RFValue(16),
@@ -188,7 +228,7 @@ const UpdateContact = ({ navigation }) => {
                 marginTop: RFValue(14),
               }}
             >
-              Add to Contacts
+              Confirm Contact Update
             </Text>
 
             <Text
@@ -198,8 +238,10 @@ const UpdateContact = ({ navigation }) => {
                 color: "#000000",
               }}
             >
-              We will create a new saved contact to{"\n"}
-              your phone with this information.
+             We'll append phone numbers, email{"\n"}
+addresses, addresses, and birthdates{"\n"}
+to this contact without overwriting{"\n"}
+existing information.{"\n"}
             </Text>
             <View style={styles.touchrow}>
               <TouchableOpacity
@@ -222,7 +264,7 @@ const UpdateContact = ({ navigation }) => {
             </View>
           </View>
         </Modal>}
-        {isaddModalVisible &&  <Modal
+         <Modal
           backdropOpacity={0.9}
           isVisible={isadd1ModalVisible}
           onBackdropPress={() => setAdd1ModalVisible(false)}
@@ -235,7 +277,7 @@ const UpdateContact = ({ navigation }) => {
                 marginTop: RFValue(14),
               }}
             >
-              Contacts Created!
+              Contacts Updated!
             </Text>
 
             <Image
@@ -249,14 +291,14 @@ const UpdateContact = ({ navigation }) => {
             />
             <View style={[styles.touchrow, { height: RFValue(36) }]}>
               <TouchableOpacity
-                onPress={() => setAdd1ModalVisible(false)}
+                onPress={oknavigate}
                 style={[styles.ok, { width: "100%" }]}
               >
                 <Text style={styles.oktext}>OK</Text>
               </TouchableOpacity>
             </View>
           </View>
-        </Modal>}
+        </Modal>
       </View>
     </>
   );
