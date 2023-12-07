@@ -667,7 +667,7 @@ export default function ResultsScreen({ navigation, route }) {
         >
           <View
             style={{
-              width: "35%",
+              width: RFValue(120),
               height: RFValue(20),
               alignItems: "center",
               backgroundColor: "#3B5997",
@@ -685,7 +685,7 @@ export default function ResultsScreen({ navigation, route }) {
             style={{
               flexDirection: "row",
               justifyContent: "space-between",
-              width: "87%",
+              width: WIDTH - RFValue(30),
               paddingHorizontal: RFValue(12),
             }}
           >
@@ -718,7 +718,7 @@ export default function ResultsScreen({ navigation, route }) {
               size={20}
               color="#BEBEBE"
             />
-            <View style={{ height: 40, width: 110 }}>
+            <View style={{ height: 40, width: WIDTH- RFValue(100) }}>
               <Text style={styles.age} numberOfLines={2}>
                 {item?.CITY}, {item?.STATE}
               </Text>
@@ -734,7 +734,7 @@ export default function ResultsScreen({ navigation, route }) {
           >
             <View
               style={{
-                width: "40%",
+                marginRight:RFValue(10),
                 flexDirection: "row",
                 alignItems: "center",
               }}
@@ -743,11 +743,11 @@ export default function ResultsScreen({ navigation, route }) {
                 style={{ width: RFValue(20), height: RFValue(20) }}
                 source={require("../assets/icons/phone1.png")}
               />
-              <Text style={styles.age}>{" "}2 Mobile Numbers</Text>
+              <Text style={styles.age}> 2 Mobile Numbers</Text>
             </View>
             <View
               style={{
-                width: "40%",
+                
                 flexDirection: "row",
                 alignItems: "center",
               }}
@@ -756,12 +756,12 @@ export default function ResultsScreen({ navigation, route }) {
                 style={{ width: RFValue(20), height: RFValue(20) }}
                 source={require("../assets/icons/email1.png")}
               />
-              <Text style={styles.age}>{" "}5 Email Addresses</Text>
+              <Text style={styles.age}> 5 Email Addresses</Text>
             </View>
           </View>
           <View
             style={{
-              width: "82.3%",
+              width: WIDTH-RFValue(40),
               alignItems: "flex-end",
               borderTopWidth: 1,
               borderColor: "rgba(0,0,0,0.3)",
@@ -873,7 +873,7 @@ export default function ResultsScreen({ navigation, route }) {
         <TouchableOpacity onPress={() => navigation.goBack()}>
           <Image
             source={require("../assets/icons/back.png")}
-            style={{ width: RFValue(10), height: RFValue(20) }}
+            style={{ width: RFValue(10), height: RFValue(20)}}
           />
         </TouchableOpacity>
         <Text style={{ ...styles.headerTitle, fontFamily: "SemiBold" }}>
@@ -1202,7 +1202,7 @@ const styles = StyleSheet.create({
     marginBottom: RFValue(5),
   },
   age: {
-    color: "#8C929B",
+    color: "#000000",
     fontSize: RFValue(12),
     fontFamily: "RegularText",
   },
