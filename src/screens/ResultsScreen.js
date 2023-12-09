@@ -676,7 +676,7 @@ export default function ResultsScreen({ navigation, route }) {
             }}
           >
             <Text
-              style={[styles.age, { fontSize: RFValue(10), color: "#ffffff" }]}
+              style={[styles.age, { fontSize: RFValue(9), color: "#ffffff" }]}
             >
               Viewed on: 10/1/2023
             </Text>
@@ -715,10 +715,10 @@ export default function ResultsScreen({ navigation, route }) {
             <Octicons
               style={{ marginRight: RFValue(5) }}
               name="location"
-              size={20}
+              size={16}
               color="#BEBEBE"
             />
-            <View style={{ height: 40, width: WIDTH- RFValue(100) }}>
+            <View style={{ height: RFValue(30), width: WIDTH- RFValue(100) }}>
               <Text style={styles.age} numberOfLines={2}>
                 {item?.CITY}, {item?.STATE}
               </Text>
@@ -740,7 +740,7 @@ export default function ResultsScreen({ navigation, route }) {
               }}
             >
               <Image
-                style={{ width: RFValue(20), height: RFValue(20) }}
+                style={{ width: RFValue(12), height: RFValue(16) }}
                 source={require("../assets/icons/phone1.png")}
               />
               <Text style={styles.age}> 2 Mobile Numbers</Text>
@@ -753,7 +753,7 @@ export default function ResultsScreen({ navigation, route }) {
               }}
             >
               <Image
-                style={{ width: RFValue(20), height: RFValue(20) }}
+                style={{ width: RFValue(15), height: RFValue(10) }}
                 source={require("../assets/icons/email1.png")}
               />
               <Text style={styles.age}> 5 Email Addresses</Text>
@@ -763,8 +763,8 @@ export default function ResultsScreen({ navigation, route }) {
             style={{
               width: WIDTH-RFValue(40),
               alignItems: "flex-end",
-              borderTopWidth: 1,
-              borderColor: "rgba(0,0,0,0.3)",
+              borderTopWidth: RFValue(0.5),
+              borderColor: "rgba(0,0,0,0.1)",
             }}
           >
             <View
@@ -882,35 +882,51 @@ export default function ResultsScreen({ navigation, route }) {
         <Feather name="menu" size={24} color="#305A9C" />
       </View>
       {count >= 100 ? (
-        <View style={[styles.dangerContainer]}>
-          <Text style={styles.dangerLine}>
-            {count} Results found for{" "}
-            <Text style={{ ...styles.dangerLine, fontFamily: "BoldText" }}>
-              {obj?.fields[0][Object.keys(obj?.fields[0])[0]]}
-              {obj?.fields?.map((item, index) => {
-                Object.keys(obj?.fields[index]) != "city" &&
-                  obj?.fields[index][Object.keys(obj?.fields[index])[0]] + " ";
-              })}
-            </Text>{" "}
-            in{" "}
-            <Text style={{ ...styles.dangerLine, fontFamily: "BoldText" }}>
-              {city ? city + " " : ""}
-              {selected ? selected : "All States"}
-            </Text>
-          </Text>
-          <TouchableOpacity
-            onPress={() => navigation.navigate("HomeScreen", { refine: true })}
-          >
-            <Text
-              style={{
-                ...styles.dangerLine,
-                textDecorationLine: "underline",
-              }}
-            >
-              Refine Search
-            </Text>
-          </TouchableOpacity>
-        </View>
+         <View style={[styles.dangerContainer1]}>
+           <TouchableOpacity style={{width:RFValue(30),}}
+          
+         >
+         
+         </TouchableOpacity>
+         <Text style={styles.dangerLine}>
+           Add additional criteria to {'\n'}
+           narrow down your results
+         </Text>
+         <TouchableOpacity style={{width:RFValue(24),}}
+          // onPress={() => navigation.navigate("HomeScreen", { refine: true })}
+         >
+          <Image source={require('../assets/icons/filter.png')} style={{width:RFValue(20),height:RFValue(20)}} />
+         </TouchableOpacity>
+       </View>
+        // <View style={[styles.dangerContainer]}>
+        //   <Text style={styles.dangerLine}>
+        //     {count} Results found for{" "}
+        //     <Text style={{ ...styles.dangerLine, fontFamily: "BoldText" }}>
+        //       {obj?.fields[0][Object.keys(obj?.fields[0])[0]]}
+        //       {obj?.fields?.map((item, index) => {
+        //         Object.keys(obj?.fields[index]) != "city" &&
+        //           obj?.fields[index][Object.keys(obj?.fields[index])[0]] + " ";
+        //       })}
+        //     </Text>{" "}
+        //     in{" "}
+        //     <Text style={{ ...styles.dangerLine, fontFamily: "BoldText" }}>
+        //       {city ? city + " " : ""}
+        //       {selected ? selected : "All States"}
+        //     </Text>
+        //   </Text>
+        //   <TouchableOpacity
+        //     onPress={() => navigation.navigate("HomeScreen", { refine: true })}
+        //   >
+        //     <Text
+        //       style={{
+        //         ...styles.dangerLine,
+        //         textDecorationLine: "underline",
+        //       }}
+        //     >
+        //       Refine Search
+        //     </Text>
+        //   </TouchableOpacity>
+        // </View>
       ) : count <= 0 && !showModal ? (
         <>
           {isPhone || Email ? (
@@ -923,90 +939,106 @@ export default function ResultsScreen({ navigation, route }) {
           ) : (
             <>
               {obj?.fields?.length > 0 && (
-                <View style={[styles.dangerContainer]}>
-                  {obj?.fields?.map((item, index) => {
-                    if (item == "phone" || item == "email") {
-                      return (
-                        <Text style={styles.dangerLine}>
-                          {Object.keys(obj?.fields[0]) == "phone" ||
-                          Object.keys(obj?.fields[0]) == "email" ? (
-                            "No results for " +
-                            obj?.fields[0][Object.keys(obj?.fields[0])[0]]
-                          ) : (
-                            <>
-                              {count} Results found for{" "}
-                              <Text
-                                style={{
-                                  ...styles.dangerLine,
-                                  fontFamily: "BoldText",
-                                }}
-                              >
-                                {obj?.fields?.map((item, index) => (
-                                  <>
-                                    {Object.keys(obj?.fields[index]) !=
-                                      "city" &&
-                                      Object.keys(obj?.fields[index]) !=
-                                        "state" &&
-                                      obj?.fields[index][
-                                        Object.keys(obj?.fields[index])[0]
-                                      ] + " "}
-                                  </>
-                                ))}
-                              </Text>{" "}
-                              in{" "}
-                              <Text
-                                style={{
-                                  ...styles.dangerLine,
-                                  fontFamily: "BoldText",
-                                }}
-                              >
-                                {city ? city + ", " : ""}
-                                {selected ? selected : "All States"}
-                              </Text>
-                            </>
-                          )}
-                        </Text>
-                      );
-                    } else {
-                      return (
-                        <>
-                          {count == 0 && index == 0 && (
-                            <>
-                              <Text
-                                style={{
-                                  ...styles.dangerLine,
-                                  fontFamily: "BoldText",
-                                }}
-                              >
-                                No results for{" "}
-                                {obj?.fields?.map((item, indexes) => (
-                                  <>
-                                    {Object.keys(obj?.fields[indexes]) !=
-                                      "city" &&
-                                      Object.keys(obj?.fields[indexes]) !=
-                                        "state" &&
-                                      obj?.fields[indexes][
-                                        Object.keys(obj?.fields[indexes])[0]
-                                      ] + " "}
-                                  </>
-                                ))}
-                              </Text>
-                              <Text
-                                style={{
-                                  ...styles.dangerLine,
-                                  fontFamily: "BoldText",
-                                }}
-                              >
-                                in {city ? city + " " : ""}
-                                {selected ? selected : "All States"}
-                              </Text>
-                            </>
-                          )}
-                        </>
-                      );
-                    }
-                  })}
-                </View>
+                <View style={[styles.dangerContainer1]}>
+                <TouchableOpacity style={{width:RFValue(30),}}
+               
+              >
+              
+              </TouchableOpacity>
+              <Text style={styles.dangerLine}>
+                Add additional criteria to {'\n'}
+                narrow down your results
+              </Text>
+              <TouchableOpacity style={{width:RFValue(24),}}
+               // onPress={() => navigation.navigate("HomeScreen", { refine: true })}
+              >
+               <Image source={require('../assets/icons/filter.png')} style={{width:RFValue(22),height:RFValue(22)}} />
+              </TouchableOpacity>
+            </View>
+                // <View style={[styles.dangerContainer]}>
+                //   {obj?.fields?.map((item, index) => {
+                //     if (item == "phone" || item == "email") {
+                //       return (
+                //         <Text style={styles.dangerLine}>
+                //           {Object.keys(obj?.fields[0]) == "phone" ||
+                //           Object.keys(obj?.fields[0]) == "email" ? (
+                //             "No results for " +
+                //             obj?.fields[0][Object.keys(obj?.fields[0])[0]]
+                //           ) : (
+                //             <>
+                //               {count} Results found for{" "}
+                //               <Text
+                //                 style={{
+                //                   ...styles.dangerLine,
+                //                   fontFamily: "BoldText",
+                //                 }}
+                //               >
+                //                 {obj?.fields?.map((item, index) => (
+                //                   <>
+                //                     {Object.keys(obj?.fields[index]) !=
+                //                       "city" &&
+                //                       Object.keys(obj?.fields[index]) !=
+                //                         "state" &&
+                //                       obj?.fields[index][
+                //                         Object.keys(obj?.fields[index])[0]
+                //                       ] + " "}
+                //                   </>
+                //                 ))}
+                //               </Text>{" "}
+                //               in{" "}
+                //               <Text
+                //                 style={{
+                //                   ...styles.dangerLine,
+                //                   fontFamily: "BoldText",
+                //                 }}
+                //               >
+                //                 {city ? city + ", " : ""}
+                //                 {selected ? selected : "All States"}
+                //               </Text>
+                //             </>
+                //           )}
+                //         </Text>
+                //       );
+                //     } else {
+                //       return (
+                //         <>
+                //           {count == 0 && index == 0 && (
+                //             <>
+                //               <Text
+                //                 style={{
+                //                   ...styles.dangerLine,
+                //                   fontFamily: "BoldText",
+                //                 }}
+                //               >
+                //                 No results for{" "}
+                //                 {obj?.fields?.map((item, indexes) => (
+                //                   <>
+                //                     {Object.keys(obj?.fields[indexes]) !=
+                //                       "city" &&
+                //                       Object.keys(obj?.fields[indexes]) !=
+                //                         "state" &&
+                //                       obj?.fields[indexes][
+                //                         Object.keys(obj?.fields[indexes])[0]
+                //                       ] + " "}
+                //                   </>
+                //                 ))}
+                //               </Text>
+                //               <Text
+                //                 style={{
+                //                   ...styles.dangerLine,
+                //                   fontFamily: "BoldText",
+                //                 }}
+                //               >
+                //                 in {city ? city + " " : ""}
+                //                 {selected ? selected : "All States"}
+                //               </Text>
+                //             </>
+                //           )}
+                //         </>
+                //       );
+                //     }
+                //   })}
+                // </View>
               )}
             </>
           )}
@@ -1060,7 +1092,7 @@ export default function ResultsScreen({ navigation, route }) {
                 height: 60,
                 width: WIDTH - RFValue(40),
 
-                backgroundColor: "#43CE91",
+                backgroundColor: "#6ECB96",
                 alignSelf: "center",
                 borderRadius: 10,
                 alignItems: "center",
@@ -1077,7 +1109,7 @@ export default function ResultsScreen({ navigation, route }) {
         ) : (
           <>
             {DATA?.length > 0 && (
-              <Text style={styles.totalResults}>{count} Results</Text>
+              <Text style={styles.totalResults}>{count}+ Results</Text>
             )}
             <FlatList
               contentContainerStyle={{
@@ -1158,6 +1190,19 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
   },
+  dangerContainer1: {
+    flexDirection:'row',
+    width: WIDTH - RFValue(50),
+    height: RFValue(37),
+    paddingVertical:RFValue(1),
+    paddingHorizontal:RFValue(10),
+    borderRadius: RFValue(5),
+    alignSelf: "center",
+    marginTop: RFValue(15),
+    backgroundColor: "#6ECB96",
+    alignItems: "center",
+    justifyContent: 'space-between',
+  },
   dangerIcon: {
     width: RFValue(20),
     height: RFValue(20),
@@ -1165,14 +1210,15 @@ const styles = StyleSheet.create({
     marginRight: RFValue(5),
   },
   dangerLine: {
-    fontSize: RFValue(12),
-    color: "#fff",
-    fontFamily: "RegularText",
+    fontSize: RFValue(13),
+    color: "#FFFFFF",
+   fontFamily:'RegularText',
+    textAlign:'center'
   },
   totalResults: {
-    color: "#000",
+    color: "rgba(0,0,0,0.7)",
     fontFamily: "Medium",
-    fontSize: RFValue(16),
+    fontSize: RFValue(14),
     marginTop: RFValue(14),
     marginLeft: RFValue(24),
   },
@@ -1182,18 +1228,18 @@ const styles = StyleSheet.create({
     alignItems: "center",
     marginBottom: RFValue(12),
     width: WIDTH - RFValue(40),
-    paddingBottom: RFValue(12),
+    paddingBottom: RFValue(8),
     //padding: RFValue(12),
     borderRadius: 8,
     backgroundColor: "#fff",
     shadowColor: "#000",
     shadowOffset: {
-      width: 0,
+      width: 1,
       height: 1,
     },
     shadowOpacity: 0.22,
     shadowRadius: 2.22,
-    elevation: 3,
+    elevation: 0.8,
   },
   name: {
     fontSize: RFValue(16),
@@ -1203,21 +1249,20 @@ const styles = StyleSheet.create({
   },
   age: {
     color: "#000000",
-    fontSize: RFValue(12),
+    fontSize: RFValue(10),
     fontFamily: "RegularText",
   },
   viewReportContainer: {
-    width: RFValue(90),
-    height: RFValue(22),
-    borderRadius: RFValue(2),
-    backgroundColor: "#44CE91",
+    width: RFValue(85),
+    height: RFValue(16),
+    borderRadius: RFValue(4),
+    backgroundColor: "#6ECB96",
     justifyContent: "center",
     alignItems: "center",
-    marginTop: RFValue(6),
-    paddingBottom: 2,
+    marginTop: RFValue(8),
   },
   viewReportText: {
-    fontSize: RFValue(12),
+    fontSize: RFValue(10),
     color: "#fff",
     fontFamily: "BoldText",
   },
