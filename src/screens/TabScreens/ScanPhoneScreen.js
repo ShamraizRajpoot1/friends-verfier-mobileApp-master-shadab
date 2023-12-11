@@ -159,7 +159,7 @@ export default function ScanPhoneScreen({ navigation }) {
         // onPress={givePermission}
         style={styles.searchbyContactbutton}
       >
-        <Text style={{ ...styles.boxtitle, marginTop: 0 }}>Grant Access</Text>
+        <Text style={{ ...styles.boxtitle, marginTop: 0 }}>Continue</Text>
       </TouchableOpacity>
     </View>
     //   {/* <Text style={{ textAlign: "center", fontSize: 14 }}>

@@ -214,7 +214,7 @@ export default function InviteEmptyScreen({ navigation }) {
             style={styles.searchbyContactbutton}
           >
             <Text style={{ ...styles.boxtitle, marginTop: 0 }}>
-              Grant Access
+              Continue
             </Text>
           </TouchableOpacity>
           {/* <Text>hchhg</Text> */}
