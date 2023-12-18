@@ -345,15 +345,15 @@ function MyTabs() {
               return (
                 <Image
                   style={{ width: RFValue(25), height: RFValue(25) }}
-                  source={require("../assets/icons/sexoffendertabiconBlue.png")}
+                  source={require("../assets/icons/logout.png")}
                 />
               );
             else
               return (
                 <>
                   <Image
-                    style={{ width: RFValue(25), height: RFValue(25) }}
-                    source={require("../assets/icons/sexoffendertabiconGrey.png")}
+                    style={{ width: RFValue(25), height: RFValue(25),  }}
+                    source={require("../assets/icons/logout.png")}
                   />
                 </>
               );

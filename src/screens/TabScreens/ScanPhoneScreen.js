@@ -254,10 +254,11 @@ export default function ScanPhoneScreen({ navigation }) {
         <View style={styles.topTab}>
           <TouchableOpacity
             style={isTab1Active ? styles.topTabbtn : styles.topTabbtn2}
-            onPress={() => {
-              setTab1Active(true);
-              // Additional logic or navigation can be added here
-            }}
+            disabled
+            // onPress={() => {
+            //   setTab1Active(true);
+            //   // Additional logic or navigation can be added here
+            // }}
           >
             <Text
               style={isTab1Active ? styles.tabactiveText : styles.inActiveText}
@@ -266,7 +267,7 @@ export default function ScanPhoneScreen({ navigation }) {
             </Text>
           </TouchableOpacity>
 
-          <TouchableOpacity
+          {/* <TouchableOpacity
             disabled={!isPermitted}
             style={!isTab1Active ? styles.topTabbtn : styles.topTabbtn2}
             onPress={() => {
@@ -279,7 +280,7 @@ export default function ScanPhoneScreen({ navigation }) {
             >
               Sex Offender Screening
             </Text>
-          </TouchableOpacity>
+          </TouchableOpacity> */}
         </View>
         {isTab1Active ? (
           <View>
@@ -533,7 +534,8 @@ const styles = StyleSheet.create({
     alignSelf: "center",
     borderRadius: 5,
     alignItems: "center",
-    justifyContent: "space-evenly",
+    marginLeft: '12%'
+    // justifyContent: "space-evenly",
     // borderColor: "#cecbd5",
     // borderWidth: 0.5,
   },
