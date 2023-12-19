@@ -197,6 +197,11 @@ function LoginScreen({ navigation }) {
         hidden={false}
         backgroundColor="#305A9C"
       />
+       <KeyboardAvoidingView
+      style={{flex: 1}}
+      behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
+      // keyboardVerticalOffset={Platform.OS === 'ios' ? -60 : -500}
+      >
       <ScrollView
         showsVerticalScrollIndicator={false}
         contentContainerStyle={{ backgroundColor: "#fff" }}
@@ -210,10 +215,7 @@ function LoginScreen({ navigation }) {
           />
         </View>
 
-        <KeyboardAvoidingView
-      style={{flex: 1}}
-      behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
-      keyboardVerticalOffset={Platform.OS === 'ios' ? 0 : -500}>
+       
           <View style={styles.inputContainer}>
             <View style={styles.textinputCOntainer}>
               <Image
@@ -254,7 +256,7 @@ function LoginScreen({ navigation }) {
               </TouchableOpacity>
             </View>
           </View>
-        </KeyboardAvoidingView>
+       
 
         <TouchableOpacity
           onPress={loading ? null : submitFun} 
@@ -319,6 +321,7 @@ function LoginScreen({ navigation }) {
           </Text>
         </TouchableOpacity>
       </ScrollView>
+      </KeyboardAvoidingView>
     </View>
   );
 }

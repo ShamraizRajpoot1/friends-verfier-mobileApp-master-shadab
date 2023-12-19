@@ -1,4 +1,4 @@
-package com.devusama.FriendVerifier.newarchitecture;
+package com.devimran.FriendVerifier.newarchitecture;
 
 import android.app.Application;
 import androidx.annotation.NonNull;
@@ -20,9 +20,9 @@ import com.facebook.react.fabric.EmptyReactNativeConfig;
 import com.facebook.react.fabric.FabricJSIModuleProvider;
 import com.facebook.react.fabric.ReactNativeConfig;
 import com.facebook.react.uimanager.ViewManagerRegistry;
-import com.devusama.FriendVerifier.BuildConfig;
-import com.devusama.FriendVerifier.newarchitecture.components.MainComponentsRegistry;
-import com.devusama.FriendVerifier.newarchitecture.modules.MainApplicationTurboModuleManagerDelegate;
+import com.devimran.FriendVerifier.BuildConfig;
+import com.devimran.FriendVerifier.newarchitecture.components.MainComponentsRegistry;
+import com.devimran.FriendVerifier.newarchitecture.modules.MainApplicationTurboModuleManagerDelegate;
 import java.util.ArrayList;
 import java.util.List;
 

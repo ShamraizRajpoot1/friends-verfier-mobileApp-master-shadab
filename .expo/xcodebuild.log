@@ -6726,7 +6726,7 @@ ProcessProductPackaging /Users/shadabhussain/Projects/friends-verfier-mobileApp/
     Entitlements:
     
     {
-    "application-identifier" = "K9TJHD7A8R.com.devusama.FriendVerifier";
+    "application-identifier" = "K9TJHD7A8R.com.devimran.FriendVerifier";
     "aps-environment" = development;
 }
     
@@ -8269,7 +8269,7 @@ PhaseScriptExecution Bundle\ React\ Native\ code\ and\ images /Users/shadabhussa
     export PRECOMP_DESTINATION_DIR\=/Users/shadabhussain/Library/Developer/Xcode/DerivedData/FriendVerifier-fwbxprrysakzaggysrfqvvmiwdam/Build/Intermediates.noindex/FriendVerifier.build/Debug-iphonesimulator/FriendVerifier.build/PrefixHeaders
     export PRESERVE_DEAD_CODE_INITS_AND_TERMS\=NO
     export PRIVATE_HEADERS_FOLDER_PATH\=FriendVerifier.app/PrivateHeaders
-    export PRODUCT_BUNDLE_IDENTIFIER\=com.devusama.FriendVerifier
+    export PRODUCT_BUNDLE_IDENTIFIER\=com.devimran.FriendVerifier
     export PRODUCT_BUNDLE_PACKAGE_TYPE\=APPL
     export PRODUCT_MODULE_NAME\=FriendVerifier
     export PRODUCT_NAME\=FriendVerifier

@@ -2,6 +2,10 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>BGTaskSchedulerPermittedIdentifiers</key>
+	<array>
+		<string>$(PRODUCT_BUNDLE_IDENTIFIER)</string>
+	</array>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleDisplayName</key>
@@ -52,14 +56,14 @@
 	</dict>
 	<key>NSCameraUsageDescription</key>
 	<string>$(PRODUCT_NAME) use camera use for get the profile image</string>
-	<key>NSPhotoLibraryUsageDescription</key>
-	<string>You need to provide photo album access to upload profile image.</string>
-	<key>NSactsUsageDescription</key>
-	<string>Allow $(PRODUCT_NAME) to access your contacts, so use can search these number directly on our app.</string>
 	<key>NSContactsUsageDescription</key>
 	<string>Allow $(PRODUCT_NAME) to access your contacts, so use can search these number directly on our app.</string>
 	<key>NSFaceIDUsageDescription</key>
 	<string>$(PRODUCT_NAME) Authentication with TouchId or FaceID</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>You need to provide photo album access to upload profile image.</string>
+	<key>NSactsUsageDescription</key>
+	<string>Allow $(PRODUCT_NAME) to access your contacts, so use can search these number directly on our app.</string>
 	<key>UIBackgroundModes</key>
 	<array>
 		<string>fetch</string>
@@ -98,9 +102,5 @@
 	<array>
 		<string>com.devusama.friendverifier</string>
 	</array>
-	<key>BGTaskSchedulerPermittedIdentifiers</key>
-<array>
-    <string>$(PRODUCT_BUNDLE_IDENTIFIER)</string>
-</array>
 </dict>
 </plist>

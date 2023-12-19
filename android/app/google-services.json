@@ -9,7 +9,7 @@
       "client_info": {
         "mobilesdk_app_id": "1:1008125253045:android:73e070279d34093a6e35fc",
         "android_client_info": {
-          "package_name": "com.devusama.FriendVerifier"
+          "package_name": "com.devimran.FriendVerifier"
         }
       },
       "oauth_client": [
@@ -17,7 +17,7 @@
           "client_id": "1008125253045-v473jtm94p9e000g9fv8kblgr2a45llf.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
-            "package_name": "com.devusama.FriendVerifier",
+            "package_name": "com.devimran.FriendVerifier",
             "certificate_hash": "4a1458e350841d76cb1cebf79afef163bf98ad72"
           }
         },

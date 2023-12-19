@@ -1,4 +1,4 @@
-package com.devusama.FriendVerifier;
+package com.devimran.FriendVerifier;
 
 import android.os.Build;
 import android.os.Bundle;

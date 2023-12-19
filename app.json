@@ -1,7 +1,7 @@
 {
   "expo": {
     "name": "FriendVerifier",
-    "slug": "FriendVerifier",
+    "slug": "friends-verifier",
     "version": "1.0.8",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -19,21 +19,21 @@
     ],
     "ios": {
       "supportsTablet": true,
-      "bundleIdentifier": "com.devusama.FriendVerifier"
+      "bundleIdentifier": "com.devimran.FriendVerifier"
     },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#FFFFFF"
       },
-      "package": "com.devusama.FriendVerifier"
+      "package": "com.devimran.FriendVerifier"
     },
     "web": {
       "favicon": "./assets/favicon.png"
     },
     "extra": {
       "eas": {
-        "projectId": "d782267d-f9db-4464-b259-59ace7e8c10a"
+        "projectId": "73268ab9-cb7b-44d1-9d46-baade688eaed"
       }
     }
   }

@@ -1,4 +1,4 @@
-package com.devusama.FriendVerifier.newarchitecture.modules;
+package com.devimran.FriendVerifier.newarchitecture.modules;
 
 import com.facebook.jni.HybridData;
 import com.facebook.react.ReactPackage;
