@@ -278,6 +278,7 @@ const styles = StyleSheet.create({
     color: "#000",
     fontFamily: "Heavy",
     marginLeft: RFValue(5),
+    marginTop:2
   },
   alertContainer: {
     width: WIDTH - RFValue(45),

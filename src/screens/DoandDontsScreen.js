@@ -92,12 +92,7 @@ export default function DoandDOntsScreen({ navigation }) {
   };
   return (
     <View style={styles.container}>
-      <ScrollView
-        showsVerticalScrollIndicator={false}
-        contentContainerStyle={{
-          paddingBottom: RFValue(50),
-        }}
-      >
+     
         <StatusBar
           barStyle="light-content"
           hidden={false}
@@ -120,6 +115,12 @@ export default function DoandDOntsScreen({ navigation }) {
             <Feather name="menu" size={24} color="#305A9C" />
           </Pressable>
         </View>
+        <ScrollView
+        showsVerticalScrollIndicator={false}
+        contentContainerStyle={{
+          paddingBottom: RFValue(50),
+        }}
+      >
         <View
           style={{ marginHorizontal: RFValue(25), marginRight: RFValue(40) }}
         >
@@ -425,11 +426,20 @@ const styles = StyleSheet.create({
   },
   paragraph: {
     backgroundColor: "#FFFFFF",
-    elevation: 5,
+    // elevation: 5,
     height: RFValue(90),
     paddingHorizontal: RFValue(12),
     marginTop: RFValue(10),
     borderRadius: 2,
+    shadowColor: "#000",
+shadowOffset: {
+	width: 0,
+	height: 0,
+},
+shadowOpacity: 0.1,
+shadowRadius: 4.65,
+
+elevation: 3,
   },
 
   homeHeader: {

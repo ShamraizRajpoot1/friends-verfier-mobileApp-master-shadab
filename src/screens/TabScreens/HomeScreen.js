@@ -517,7 +517,7 @@ export default function HomeScreen({ navigation, route }) {
                         fontFamily: "RegularText",
                       }}
                       placeholderStyle={{
-                        fontSize: RFValue(14),
+                        fontSize: RFValue(12),
                         color: "#000",
                         fontFamily: "RegularText",
                       }}

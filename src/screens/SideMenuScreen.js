@@ -10,6 +10,7 @@ import {
   TouchableOpacity,
   Image,
   Pressable,
+  Alert,
 } from "react-native";
 import Modal from "react-native-modal";
 import React, { useState, useEffect } from "react";
@@ -51,11 +52,22 @@ export default function SideMenuScreen({ navigation }) {
   }, []);
 
   const logoutFun = () => {
-    navigation.reset({
-      index: 0,
-      routes: [{ name: "LoginScreen" }],
-    });
-    dispatch(logOut({}));
+    Alert.alert(
+      '',
+      'Are you sure you wish to Log out',  
+      [
+         {text: 'No', onPress: () => console.log('Cancel Pressed')},
+         {text: 'Yes', onPress: () => {
+          navigation.reset({
+            index: 0,
+            routes: [{ name: "LoginScreen" }],
+          });
+          dispatch(logOut({}));
+         }},
+      ],
+      { cancelable: false }
+ )
+   
   };
 
   const toggleModal = () => {

@@ -197,11 +197,7 @@ function LoginScreen({ navigation }) {
         hidden={false}
         backgroundColor="#305A9C"
       />
-       <KeyboardAvoidingView
-      style={{flex: 1}}
-      behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
-      // keyboardVerticalOffset={Platform.OS === 'ios' ? -60 : -500}
-      >
+      
       <ScrollView
         showsVerticalScrollIndicator={false}
         contentContainerStyle={{ backgroundColor: "#fff" }}
@@ -231,7 +227,11 @@ function LoginScreen({ navigation }) {
                 keyboardType="email-address"
               />
             </View>
-
+            <KeyboardAvoidingView
+      style={{flex: 1}}
+      behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
+      // keyboardVerticalOffset={Platform.OS === 'ios' ? -60 : -500}
+      >
             <View style={styles.textinputCOntainer}>
               <Image
                 style={styles.icon}
@@ -255,6 +255,7 @@ function LoginScreen({ navigation }) {
                 />
               </TouchableOpacity>
             </View>
+            </KeyboardAvoidingView>
           </View>
        
 
@@ -321,7 +322,7 @@ function LoginScreen({ navigation }) {
           </Text>
         </TouchableOpacity>
       </ScrollView>
-      </KeyboardAvoidingView>
+     
     </View>
   );
 }
@@ -334,7 +335,7 @@ const styles = StyleSheet.create({
   },
   ScreenHeaderContainer: {
     width: WIDTH,
-    height: HIEGHT / 2,
+    height: HIEGHT / 2.2,
     backgroundColor: "#305A9C",
     justifyContent: "center",
     alignItems: "center",

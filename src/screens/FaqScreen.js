@@ -28,12 +28,7 @@ export default function FaqScreen({ navigation }) {
         backgroundColor="#305A9C"
       />
 
-      <ScrollView
-        showsVerticalScrollIndicator={false}
-        contentContainerStyle={{
-          paddingBottom: RFValue(50),
-        }}
-      >
+
         <View style={styles.homeHeader}>
         <TouchableOpacity onPress={() => navigation.goBack()}>
           <Image
@@ -51,6 +46,12 @@ export default function FaqScreen({ navigation }) {
             <Feather name="menu" size={24} color="#305A9C" />
           </Pressable>
         </View>
+        <ScrollView
+        showsVerticalScrollIndicator={false}
+        contentContainerStyle={{
+          paddingBottom: RFValue(50),
+        }}
+      >
         <View style={{ paddingHorizontal: RFValue(25) }}>
           <View style={{ marginTop: RFValue(20) }}>
             <View style={[styles.paragraph]}>
@@ -248,12 +249,21 @@ const styles = StyleSheet.create({
     marginRight: RFValue(5),
   },
   paragraph: {
+    // shadowColor: "#000",
+    // shadowOffset: { width: 0, height: -2 },
+    // shadowOpacity: 0.5,
+    // shadowRadius: 2,
     shadowColor: "#000",
-    shadowOffset: { width: 0, height: -2 },
-    shadowOpacity: 0.5,
-    shadowRadius: 2,
+    shadowOffset: {
+      width: 0,
+      height: 0,
+    },
+    shadowOpacity: 0.2,
+    shadowRadius: 2.62,
+    
+    elevation: 2,
     backgroundColor: "#FFFFFF",
-    elevation: 4,
+    // elevation: 4,
     borderWidth: 0,
     height: RFValue(210),
     borderTopRightRadius: 10,

@@ -1738,10 +1738,10 @@ your phone with this information.</Text>
         <Text style={{fontSize:RFValue(16),fontFamily:'BoldText',marginTop:RFValue(14)}}>Contacts Created!</Text>
 
           <Image style={{width:RFValue(15),height:RFValue(15),marginTop:RFValue(5),marginBottom:RFValue(15)}} source={require('../../assets/icons/grencheck.png')} />
-<View style={[styles.touchrow,{height:RFValue(36)}]}>
-<TouchableOpacity onPress={() => setAdd1ModalVisible(false)} style={[styles.ok,{width:'100%'}]}><Text style={styles.oktext}>OK</Text></TouchableOpacity>
+          <View style={[styles.touchrow,{height:RFValue(36)}]}>
+          <TouchableOpacity onPress={() => setAdd1ModalVisible(false)} style={[styles.ok,{width:'100%'}]}><Text style={styles.oktext}>OK</Text></TouchableOpacity>
 
-</View>
+          </View>
         </View>
       </Modal>
     </View>
@@ -1926,6 +1926,7 @@ const styles = StyleSheet.create({
     color: "#000",
     fontFamily: "Heavy",
     marginLeft: RFValue(5),
+    marginTop:3
   },
   overviewLeft: {
     flexDirection: "row",

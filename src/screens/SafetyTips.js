@@ -18,12 +18,7 @@ const WIDTH = Dimensions.get("window").width;
 const SafetyTips = ({navigation}) => {
   return (
     <View style={styles.container}>
-      <ScrollView
-        showsVerticalScrollIndicator={false}
-        contentContainerStyle={{
-          paddingBottom: RFValue(50),
-        }}
-      >
+     
         <StatusBar
           barStyle="light-content"
           hidden={false}
@@ -46,6 +41,12 @@ const SafetyTips = ({navigation}) => {
             <Feather name="menu" size={24} color="#305A9C" />
           </Pressable>
         </View>
+        <ScrollView
+        showsVerticalScrollIndicator={false}
+        contentContainerStyle={{
+          paddingBottom: RFValue(50),
+        }}
+      >
         <View
           style={{ marginHorizontal: RFValue(25), marginRight: RFValue(40) }}
         >
@@ -298,10 +299,20 @@ const styles = StyleSheet.create({
     paddingHorizontal: RFValue(12),
     marginTop: RFValue(10),
     borderRadius: 2,
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: -2 },
-    shadowOpacity: 0.5,
-    shadowRadius: 2,
+    // shadowColor: '#000',
+    // shadowOffset: { width: 0, height: -2 },
+    // shadowOpacity: 0.5,
+    // shadowRadius: 2,
+    // shadowColor: "#000",
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 0,
+    },
+    shadowOpacity: 0.1,
+    shadowRadius: 4.65,
+    
+    elevation: 3,
   },
 
   homeHeader: {

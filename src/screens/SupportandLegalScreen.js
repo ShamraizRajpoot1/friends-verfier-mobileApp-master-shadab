@@ -10,6 +10,7 @@ import {
   Alert,
   Pressable,
   Platform,
+  Linking,
 } from "react-native";
 import Modal from "react-native-modal";
 import React, { useState } from "react";
@@ -214,7 +215,9 @@ export default function SupportandLegalScreen({ navigation, data }) {
           
 
           <TouchableOpacity
-            onPress={() => navigation.navigate("PrivacyPolicyScreen")}
+            // onPress={() => navigation.navigate("PrivacyPolicyScreen")}
+            onPress={() => Linking.openSettings()}
+
             activeOpacity={0.2}
             style={styles.itemContainer}
           >

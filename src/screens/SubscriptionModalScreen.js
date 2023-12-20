@@ -455,7 +455,7 @@ const styles = StyleSheet.create({
   },
 
   dangerContainer: {
-    width: WIDTH - RFValue(60),
+    width: WIDTH - RFValue(40),
     height: RFValue(35),
     padding: 2,
     borderRadius: 16,
@@ -464,7 +464,7 @@ const styles = StyleSheet.create({
     backgroundColor: "#F5DF00",
     flexDirection: "row",
     alignItems: "center",
-    paddingHorizontal: RFValue(10),
+    paddingHorizontal: RFValue(15),
     justifyContent: "center",
   },
   dangerIcon: {

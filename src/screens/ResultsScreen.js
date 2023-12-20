@@ -298,7 +298,7 @@ export default function ResultsScreen({ navigation, route }) {
         ]
       );
     } else {
-      if (planData?.planType == "Per Background Check") {
+      if (planData?.planType == "Per Background Check" ) {
         Alert.alert(
           "Friend Verifier",
           "To view this record you will be charged $6.99",
