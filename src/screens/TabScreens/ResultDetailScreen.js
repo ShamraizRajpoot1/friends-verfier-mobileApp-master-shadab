@@ -384,7 +384,10 @@ export default function ResultDeatilScreen({ navigation, route }) {
 const okmodal = ()=>{
   
   setAddModalVisible(false)
-  setAdd1ModalVisible(true)
+  setTimeout(() => {
+    setAdd1ModalVisible(true)
+  }, 1000);
+  // setAdd1ModalVisible(true)
 }
   return (
     <View style={styles.container}>
@@ -1646,22 +1649,19 @@ const okmodal = ()=>{
             >
               <Text style={{ fontSize: RFValue(7) }}>
                 Our service gathers public records, including criminal records
-                from government{"\n"}agencies, affiliates, and third parties.
-                However, as we are not the creators of{"\n"}these databases, we
-                cannot ensure the accuracy of the information or attest to{"\n"}
+                from government agencies, affiliates, and third parties.
+                However, as we are not the creators of these databases, we
+                cannot ensure the accuracy of the information or attest to 
                 the person's character.
                 {"\n"}
-                {"\n"}
                 Court records, which are publicly accessible through government
-                agencies,{"\n"}may contain criminal details such as felonies,
-                misdemeanors, arrests, or{"\n"}infractions.
-                {"\n"}
-                {"\n"}
+                agencies, may contain criminal details such as felonies,
+                misdemeanors, arrests, or infractions.
                 Nevertheless, these public records can be unreliable,
-                incomplete, or unrelated{"\n"}to the individual in question. It
-                is crucial to independently verify a person's{"\n"}criminal
+                incomplete, or unrelated to the individual in question. It
+                is crucial to independently verify a person's criminal
                 history at the appropriate courthouse and not solely depend on
-                the{"\n"}
+                the 
                 information provided here.
               </Text>
             </View>

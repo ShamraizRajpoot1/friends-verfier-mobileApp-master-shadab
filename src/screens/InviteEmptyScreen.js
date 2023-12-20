@@ -272,13 +272,13 @@ export default function InviteEmptyScreen({ navigation }) {
               ]}
             >
               By using the contact search feature, you can swiftly perform a
-              reverse phone{"\n"}
-              lookup on someone stored in your contact list.{"\n"}
-              {"\n"}
-              Rest assured, we never store your contacts on our servers. This
-              process is{"\n"}
+              reverse phone
+              lookup on someone stored in your contact list.
+              
+              Rest assured,{"\n"} we never store your contacts on our servers. This
+              process is
               handled on a per-case basis, and you have the freedom to revoke
-              access at any{"\n"}
+              access at any
               time, with all other functionalities remaining unaffected.
             </Text>
           </View>

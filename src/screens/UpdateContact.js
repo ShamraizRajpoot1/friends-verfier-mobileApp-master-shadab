@@ -363,7 +363,7 @@ const styles = StyleSheet.create({
   },
   row: {
     flexDirection: "row",
-    paddingHorizontal: RFValue(25),
+    paddingHorizontal: RFValue(12),
     paddingTop: RFValue(20),
   },
   contact: {

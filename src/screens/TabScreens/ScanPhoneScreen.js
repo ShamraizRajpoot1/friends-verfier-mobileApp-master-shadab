@@ -266,7 +266,7 @@ export default function ScanPhoneScreen({ navigation }) {
             </Text>
           </TouchableOpacity>
 
-          <TouchableOpacity
+          {/* <TouchableOpacity
             disabled={!isPermitted}
             style={!isTab1Active ? styles.topTabbtn : styles.topTabbtn2}
             onPress={() => {
@@ -279,7 +279,7 @@ export default function ScanPhoneScreen({ navigation }) {
             >
               Sex Offender Screening
             </Text>
-          </TouchableOpacity>
+          </TouchableOpacity> */}
         </View>
         {isTab1Active ? (
           <View>
@@ -473,11 +473,11 @@ const styles = StyleSheet.create({
   },
   paragraph: {
     shadowColor: "#000",
-    shadowOffset: { width: 0, height: -2 },
-    shadowOpacity: 0.5,
+    shadowOffset: { width: 0, height: 0 },
+    shadowOpacity: 0.2,
     shadowRadius: 2,
     backgroundColor: "#FCFCFC",
-    elevation: 4,
+    elevation: 2,
     borderWidth: 0,
     height: RFValue(100),
     borderRadius: RFValue(10),
@@ -530,10 +530,11 @@ const styles = StyleSheet.create({
     height: RFValue(40),
     width: WIDTH,
     //backgroundColor: "#ebebeb",
-    alignSelf: "center",
+    // alignSelf: "center",
     borderRadius: 5,
     alignItems: "center",
-    justifyContent: "space-evenly",
+    // justifyContent: "space-evenly",
+    marginLeft:RFValue(20)
     // borderColor: "#cecbd5",
     // borderWidth: 0.5,
   },

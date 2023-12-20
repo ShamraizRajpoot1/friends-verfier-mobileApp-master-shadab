@@ -344,16 +344,16 @@ function MyTabs() {
             if (focused)
               return (
                 <Image
-                  style={{ width: RFValue(25), height: RFValue(25) }}
-                  source={require("../assets/icons/sexoffendertabiconBlue.png")}
+                  style={{ width: RFValue(25), height: RFValue(25) ,opacity:0.8 }}
+                  source={require("../assets/logout.png")}
                 />
               );
             else
               return (
                 <>
                   <Image
-                    style={{ width: RFValue(25), height: RFValue(25) }}
-                    source={require("../assets/icons/sexoffendertabiconGrey.png")}
+                    style={{ width: RFValue(25), height: RFValue(25),opacity:0.5 }}
+                    source={require("../assets/logout.png")}
                   />
                 </>
               );

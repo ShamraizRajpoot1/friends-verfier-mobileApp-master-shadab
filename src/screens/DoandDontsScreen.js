@@ -120,6 +120,9 @@ export default function DoandDOntsScreen({ navigation }) {
         contentContainerStyle={{
           paddingBottom: RFValue(50),
         }}
+        style={{
+          width:"103%"
+        }}
       >
         <View
           style={{ marginHorizontal: RFValue(25), marginRight: RFValue(40) }}
@@ -135,8 +138,8 @@ export default function DoandDOntsScreen({ navigation }) {
             </View>
             <View style={styles.paragraph}>
               <Text style={styles.subtitle}>
-                You may think looking yourself up is laughable, but it {"\n"}is
-                not; it is crucial. You should know what information {"\n"}is in
+                You may think looking yourself up is laughable, but it  is
+                not; it is crucial. You should know what information  is in
                 your public record.
               </Text>
             </View>
@@ -152,10 +155,10 @@ export default function DoandDOntsScreen({ navigation }) {
 
             <View style={styles.paragraph}>
               <Text style={styles.subtitle}>
-                Dating now starts nearly 90% of the time online. {"\n"}Looking
-                up that new match before meeting them in {"\n"}person would be
-                best. Your safety should always be {"\n"}your first priority;
-                it's even more important than Taco {"\n"}Tuesday.
+                Dating now starts nearly 90% of the time online.  Looking
+                up that new match before meeting them in  person would be
+                best. Your safety should always be  your first priority;
+                it's even more important than Taco  Tuesday.
               </Text>
             </View>
           </View>
@@ -170,7 +173,7 @@ export default function DoandDOntsScreen({ navigation }) {
 
             <View style={styles.paragraph}>
               <Text style={styles.subtitle}>
-                Not sure who is behind that phone number that {"\n"}keeps
+                Not sure who is behind that phone number that  keeps
                 calling you? Run a reverse phone search and find out.
               </Text>
             </View>
@@ -186,7 +189,7 @@ export default function DoandDOntsScreen({ navigation }) {
 
             <View style={styles.paragraph}>
               <Text style={styles.subtitle}>
-                Someone random keeps emailing you? Run a reverse{"\n"}email
+                Someone random keeps emailing you? Run a reverse email
                 search and find out who they are.
               </Text>
             </View>
@@ -202,7 +205,7 @@ export default function DoandDOntsScreen({ navigation }) {
 
             <View style={styles.paragraph}>
               <Text style={styles.subtitle}>
-                Before you move in together and commit to a lease,{"\n"}find out
+                Before you move in together and commit to a lease, find out
                 who you'll be living with.
               </Text>
             </View>
@@ -218,8 +221,8 @@ export default function DoandDOntsScreen({ navigation }) {
 
             <View style={styles.paragraph}>
               <Text style={styles.subtitle}>
-                About to move, or if you've just moved, or maybe{"\n"}someone
-                new just moved next door, find out more{"\n"}information about
+                About to move, or if you've just moved, or maybe someone
+                new just moved next door, find out more information about
                 your new neighborhood.
               </Text>
             </View>
@@ -235,8 +238,8 @@ export default function DoandDOntsScreen({ navigation }) {
 
             <View style={styles.paragraph}>
               <Text style={styles.subtitle}>
-                Before you make that purchase or place that bid,{"\n"}make sure
-                that person on the online auction site is{"\n"}who they says
+                Before you make that purchase or place that bid, make sure
+                that person on the online auction site is who they says
                 they are.
               </Text>
             </View>
@@ -252,10 +255,10 @@ export default function DoandDOntsScreen({ navigation }) {
 
             <View style={styles.paragraph}>
               <Text style={styles.subtitle}>
-                Life takes us all in different directions; searching {"\n"}
-                through our billions of public records is a great way {"\n"}to
-                reconnect with people, whether it's friends from{"\n"}
-                ages ago, distant relatives, or a long-lost significant{"\n"}
+                Life takes us all in different directions; searching  
+                through our billions of public records is a great way  to
+                reconnect with people, whether it's friends from 
+                ages ago, distant relatives, or a long-lost significant 
                 other!
               </Text>
             </View>
@@ -277,9 +280,9 @@ export default function DoandDOntsScreen({ navigation }) {
 
             <View style={[styles.paragraph]}>
               <Text style={styles.subtitle}>
-                The Fair Credit Reporting Act (FCRA) regulates how {"\n"}public
-                databases are used. Friend Verifier, the public {"\n"}databases
-                that power our platform, <Text style={{fontFamily:'BoldText'}}>can not be used</Text> in {"\n"}business, and
+                The Fair Credit Reporting Act (FCRA) regulates how  public
+                databases are used. Friend Verifier, the public  databases
+                that power our platform, <Text style={{fontFamily:'BoldText'}}>can not be used</Text> in  business, and
                 the following use cases.
               </Text>
             </View>
@@ -370,7 +373,7 @@ export default function DoandDOntsScreen({ navigation }) {
                 ]}
               />
               <Text style={styles.title}>
-                Or anything to do with Credit, {"\n"}Insurance, or Mortgages
+                Or anything to do with Credit,  Insurance, or Mortgages
               </Text>
             </View>
           </View>
@@ -387,13 +390,13 @@ export default function DoandDOntsScreen({ navigation }) {
             <View style={[styles.paragraph]}>
               <Text style={[styles.subtitle,{fontSize: RFValue(6.8),}]}>
                 Friend Verifier provides affordale access to public record data,
-                but it's crucial{"\n"}to respect legal regulations like the Fair
-                Credit Reporting Act (FCRA).{"\n"}
-                {"\n"}Here are examples of acceptable and prohibited uses of
-                data from Friend{"\n"}Verifier. Using it in ways marked as
-                "Prohibited" not only violates our Terms & {"\n"}Conditions but
+                but it's crucial to respect legal regulations like the Fair
+                Credit Reporting Act (FCRA).
+                 Here are examples of acceptable and prohibited uses of
+                data from Friend Verifier. Using it in ways marked as
+                "Prohibited" not only violates our Terms &  Conditions but
                 also breaks the law, potentially leading to legal consequences.
-                {"\n"}We take this seriously and may terminate account or report
+                 We take this seriously and may terminate account or report
                 violators to law enforcement when necessary
               </Text>
             </View>

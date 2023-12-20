@@ -61,24 +61,24 @@ export default function FaqScreen({ navigation }) {
                   style={styles.do}
                 />
                 <Text style={styles.title}>
-                  Didn't Friend Verifier Exist a{"\n"}
+                  Didn't Friend Verifier Exist a 
                   While Ago?
                 </Text>
               </View>
 
               <Text style={styles.subtitle}>
-                Yep! The initial iteration of Friend Verifier, introduced{"\n"}
-                in 2012, enabled Facebook users to scan their{"\n"}
-                friends and friend requests for registered sex{"\n"}
-                offenders. It went viral, and journalists around the{"\n"}
-                country reported that they had found sex offenders{"\n"}
-                on Facebook using Friend Verifier.{"\n"}
-                {"\n"}
-                However, these journalists repeatedly questioned{"\n"}
-                Facebook about the presence of registered sex{"\n"}
-                offenders on their platform, which was a clear{"\n"}
-                breach of their terms of service. Subsequently, in the{"\n"}
-                summer of 2015, Facebook terminated our access.{"\n"}
+                Yep! The initial iteration of Friend Verifier, introduced 
+                in 2012, enabled Facebook users to scan their 
+                friends and friend requests for registered sex 
+                offenders. It went viral, and journalists around the 
+                country reported that they had found sex offenders 
+                on Facebook using Friend Verifier. 
+                 {"\n"}{"\n"}
+                However, these journalists repeatedly questioned 
+                Facebook about the presence of registered sex 
+                offenders on their platform, which was a clear 
+                breach of their terms of service. Subsequently, in the 
+                summer of 2015, Facebook terminated our access. 
               </Text>
             </View>
           </View>
@@ -91,21 +91,21 @@ export default function FaqScreen({ navigation }) {
                   style={styles.do}
                 />
                 <Text style={styles.title}>
-                  Why Did Friend Verifier Come{"\n"}
+                  Why Did Friend Verifier Come 
                   Back?
                 </Text>
               </View>
 
               <Text style={styles.subtitle}>
-                During and following the pandemic, we witnessed an{"\n"}
-                upsurge in criminal activities, particularly targeting{"\n"}
-                individuals through dating apps. Upon examining the{"\n"}
-                existing Data-Centric Personal Safety platforms, we{"\n"}
-                identified shortcomings in both innovation and{"\n"}
-                affordability.{"\n"}
-                {"\n"}
-                Our commitment is to provide you with cutting-edge{"\n"}
-                solutions to enhance your safety and that of your{"\n"}
+                During and following the pandemic, we witnessed an 
+                upsurge in criminal activities, particularly targeting 
+                individuals through dating apps. Upon examining the 
+                existing Data-Centric Personal Safety platforms, we 
+                identified shortcomings in both innovation and 
+                affordability. 
+                {"\n"}{"\n"}
+                Our commitment is to provide you with cutting-edge 
+                solutions to enhance your safety and that of your 
                 loved ones, all without straining your budget.
               </Text>
             </View>
@@ -118,23 +118,23 @@ export default function FaqScreen({ navigation }) {
                   style={styles.do}
                 />
                 <Text style={styles.title}>
-                  How Much Does Friend Verifier{"\n"}
+                  How Much Does Friend Verifier 
                   Cost?
                 </Text>
               </View>
 
               <Text style={styles.subtitle}>
-                We give our users two options: Pay-As-You-Go or{"\n"}
-                obtaining a subscription. If you choose to{"\n"}
-                Pay-As-You-Go, each report will cost $4.99, that's{"\n"}
-                less than a frappuccino.{"\n"}
-                {"\n"}
-                If you opt for a subscription, we offer three tiers:{"\n"}
-                Basic, Goid, and Platinum. If you were to select the{"\n"}
-                Platinum subscription, billed annually, it includes{"\n"}
-                1,200 background checks for the year, at a cost of{"\n"}
-                just 15 cents per background check. For further{"\n"}
-                details on our subscription options and associated{"\n"}
+                We give our users two options: Pay-As-You-Go or 
+                obtaining a subscription. If you choose to 
+                Pay-As-You-Go, each report will cost $4.99, that's 
+                less than a frappuccino. 
+                {"\n"}{"\n"}
+                If you opt for a subscription, we offer three tiers: 
+                Basic, Goid, and Platinum. If you were to select the 
+                Platinum subscription, billed annually, it includes 
+                1,200 background checks for the year, at a cost of 
+                just 15 cents per background check. For further 
+                details on our subscription options and associated 
                 costs, please visit our subscriptions page.
               </Text>
             </View>
@@ -147,19 +147,19 @@ export default function FaqScreen({ navigation }) {
                   style={styles.do}
                 />
                 <Text style={styles.title}>
-                  What can I access on Friend{"\n"}
+                  What can I access on Friend 
                   Verifier?
                 </Text>
               </View>
 
               <Text style={styles.subtitle}>
-                Our reports include names and aliases, relatives and{"\n"}
-                associates, address histories, phone numbers, email{"\n"}
-                addresses, criminal records and convictions, and{"\n"}
-                more.{"\n"}
-                {"\n"}
-                Unlike our competitors, there are no upcharges or{"\n"}
-                additional fees; we provide all the information we{"\n"}
+                Our reports include names and aliases, relatives and 
+                associates, address histories, phone numbers, email 
+                addresses, criminal records and convictions, and 
+                more. 
+                {"\n"}{"\n"}
+                Unlike our competitors, there are no upcharges or 
+                additional fees; we provide all the information we 
                 have in each report.
               </Text>
             </View>
@@ -172,19 +172,19 @@ export default function FaqScreen({ navigation }) {
                   style={styles.do}
                 />
                 <Text style={styles.title}>
-                  Will I Still be Charged if There is{"\n"}
+                  Will I Still be Charged if There is 
                   No Match?
                 </Text>
               </View>
 
               <Text style={styles.subtitle}>
-                No, If you perform a search and there is no match,{"\n"}
-                you are not charged. You are only charged when you{"\n"}
-                choose to view a report. If you have a subscription,{"\n"}
-                one credit is deducted from your tally when you{"\n"}
-                choose to view a report.{"\n"}
-                {"\n"}
-                You are paying for the report whether there is a{"\n"}
+                No, If you perform a search and there is no match, 
+                you are not charged. You are only charged when you 
+                choose to view a report. If you have a subscription, 
+                one credit is deducted from your tally when you 
+                choose to view a report. 
+                {"\n"}{"\n"}
+                You are paying for the report whether there is a 
                 criminal record or not.
               </Text>
             </View>
