@@ -87,6 +87,8 @@ const styles = StyleSheet.create({
   container: {
     backgroundColor: "#ffffff",
     flexDirection: "row",
+    marginBottom:450
+  
   },
   row: {
     flexDirection:'row',
@@ -97,7 +99,7 @@ const styles = StyleSheet.create({
     backgroundColor: "#EFEFEF",
     paddingHorizontal: 20,
     paddingVertical: 6,
-    marginTop: RFValue(20),
+    // marginTop: RFValue(20),
   },
 
   title: {
@@ -258,6 +260,7 @@ const ContactsList = ({ navigation, dataArray }) => {
         )}
         keyExtractor={(item, index) => index}
       />
+
     </View>
   );
 

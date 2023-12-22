@@ -252,7 +252,7 @@ export default function ScanPhoneScreen({ navigation }) {
           }}
         ></TouchableOpacity>
         <View style={styles.topTab}>
-          <TouchableOpacity
+          {/* <TouchableOpacity
             style={isTab1Active ? styles.topTabbtn : styles.topTabbtn2}
             onPress={() => {
               setTab1Active(true);
@@ -264,7 +264,7 @@ export default function ScanPhoneScreen({ navigation }) {
             >
               Criminal Screening
             </Text>
-          </TouchableOpacity>
+          </TouchableOpacity> */}
 
           {/* <TouchableOpacity
             disabled={!isPermitted}
@@ -283,7 +283,7 @@ export default function ScanPhoneScreen({ navigation }) {
         </View>
         {isTab1Active ? (
           <View>
-            <View style={{ marginTop: RFValue(20) }}>
+            <View style={{ marginTop: RFValue(5) }}>
               <View style={[styles.paragraph]}>
                 <View style={styles.heading}>
                   <Image
@@ -527,7 +527,7 @@ const styles = StyleSheet.create({
   },
   topTab: {
     flexDirection: "row",
-    height: RFValue(40),
+    height: RFValue(0),
     width: WIDTH,
     //backgroundColor: "#ebebeb",
     // alignSelf: "center",

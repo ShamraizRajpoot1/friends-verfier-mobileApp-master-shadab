@@ -243,10 +243,11 @@ const styles = StyleSheet.create({
   },
   do: {
     alignSelf: "flex-start",
-    marginTop: RFValue(5),
-    width: RFValue(12),
-    height: RFValue(12),
+    marginTop: RFValue(12),
+    width: RFValue(15),
+    height: RFValue(15),
     marginRight: RFValue(5),
+    marginLeft:-5
   },
   paragraph: {
     // shadowColor: "#000",
@@ -272,7 +273,7 @@ const styles = StyleSheet.create({
     borderRadius: 2,
   },
   title: {
-    fontSize: RFValue(14),
+    fontSize: RFValue(12),
     color: "#000",
     fontFamily: "SemiBold",
   },

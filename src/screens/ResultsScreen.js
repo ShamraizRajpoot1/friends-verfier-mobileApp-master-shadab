@@ -99,6 +99,7 @@ export default function ResultsScreen({ navigation, route }) {
   }, [searchFunCall]);
 
   const handlePurchase = async (sku) => {
+    console.log('sku',sku);
     setShowModal(true);
     setScreenValue(3);
     if (Platform.OS == "android") {
@@ -133,6 +134,8 @@ export default function ResultsScreen({ navigation, route }) {
       var NData = await RNIap.getProducts({
         skus: [sku.productId],
       });
+      console.log('obj',NData);
+
       var data = await RNIap.requestPurchase(
         { sku: NData[0]?.productId },
         false
@@ -687,6 +690,7 @@ export default function ResultsScreen({ navigation, route }) {
               justifyContent: "space-between",
               width: WIDTH - RFValue(30),
               paddingHorizontal: RFValue(12),
+              marginTop:12
             }}
           >
             <Text style={styles.name}>
@@ -822,7 +826,7 @@ export default function ResultsScreen({ navigation, route }) {
     }
     return (
       <View activeOpacity={0.5} style={styles.itemContainer}>
-        <View>
+        <View style={{marginLeft:30}}>
           {Email ? (
             <Text style={{ fontSize: 24, color: "black" }}>{item?.EMAIL}</Text>
           ) : (

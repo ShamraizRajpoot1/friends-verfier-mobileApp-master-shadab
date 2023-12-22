@@ -18,6 +18,7 @@ import Device from "../../src/constants/device";
 const WIDTH = Dimensions.get("window").width;
 
 export default function SearchScreen({ screen }) {
+  console.log('screen',screen);
   const progressRef = useRef(0);
   const loadingimage = [
     require("../assets/icons/1.png"),
