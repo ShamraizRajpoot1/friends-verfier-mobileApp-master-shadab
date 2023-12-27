@@ -525,6 +525,7 @@ export default function HomeScreen({ navigation, route }) {
                         setSelected(value);
                       }}
                     >
+                   
                       {Object.values(options).map((val, index) => (
                         <SelectPicker.Item
                           label={val?.name}
@@ -532,6 +533,7 @@ export default function HomeScreen({ navigation, route }) {
                           key={index}
                         />
                       ))}
+           
                     </SelectPicker>
                     <TouchableOpacity
                       onPress={(val) => {
@@ -717,7 +719,6 @@ const styles = StyleSheet.create({
 
   stateInput: {
     width: WIDTH - RFValue(62),
-
     fontSize: RFValue(14),
     fontFamily: "RegularText",
     color: "#000",

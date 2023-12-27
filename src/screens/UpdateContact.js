@@ -66,7 +66,8 @@ const UpdateContact = ({ navigation }) => {
   const fetchContacts = async () => {
     try {
       const contactsData = await Contacts.getAll();
-      setContacts(contactsData);
+      
+      setContacts(contactsData.sort(function (a, b) { if (a.givenName < b.givenName) { return -1; } if (a.givenName > b.givenName) { return 1; } return 0; }));
       filterContacts(input, contactsData);
     } catch (error) {
       console.error("Error fetching contacts:", error);

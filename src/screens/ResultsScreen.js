@@ -826,18 +826,18 @@ export default function ResultsScreen({ navigation, route }) {
     }
     return (
       <View activeOpacity={0.5} style={styles.itemContainer}>
-        <View style={{marginLeft:30}}>
+        <View style={{marginLeft:10}}>
           {Email ? (
-            <Text style={{ fontSize: 24, color: "black" }}>{item?.EMAIL}</Text>
+            <Text style={{ fontSize: 24, color: "black", fontWeight:'500' }}>{item?.EMAIL}</Text>
           ) : (
             <Text style={{ fontSize: 24, color: "black" }}>
               {formatPhoneNumber(item?.PHONE)}
             </Text>
           )}
           <View style={{ marginVertical: 20 }}>
-            <Text style={styles.fullnameText}>Full Name</Text>
+            <Text style={[styles.fullnameText,{color:'gray'}]}>Full Name</Text>
             <View style={{ marginVertical: 10 }}>
-              <Text style={[styles.fullnameText, { fontWeight: "bold" }]}>
+              <Text style={[styles.fullnameText, { fontWeight: "500" }]}>
                 {items?.item?._source?.FIRST_NAME
                   ? getFirstLatter(items?.item?._source?.FIRST_NAME)
                   : "-"}
@@ -848,9 +848,9 @@ export default function ResultsScreen({ navigation, route }) {
           </View>
 
           <View style={{ marginVertical: 20 }}>
-            <Text style={styles.fullnameText}>Location</Text>
+            <Text style={[styles.fullnameText,{color:"gray"}]}>Location</Text>
             <View style={{ marginVertical: 10 }}>
-              <Text style={[styles.fullnameText, { fontWeight: "bold" }]}>
+              <Text style={[styles.fullnameText, { fontWeight: "500" }]}>
                 {toTitleCase(items?.item?._source?.CITY)}
                 {toTitleCase(items?.item?._source?.STATE)
                   ? ", " + getStateName(items?.item?._source?.STATE)
@@ -1066,9 +1066,9 @@ export default function ResultsScreen({ navigation, route }) {
                 },
               ]}
             >
-              <RFIcon style={{ marginRight: 10 }} />
+              <RFIcon style={{ marginRight: 4, marginTop:2 }} />
               <Text style={{ fontWeight: "bold", fontSize: 16 }}>
-                Record Founds
+                Record Found
               </Text>
             </View>
             <ItemForPhone item={DATA[0]} />

@@ -186,6 +186,7 @@ export default function FaqScreen({ navigation }) {
                 {"\n"}{"\n"}
                 You are paying for the report whether there is a 
                 criminal record or not.
+                
               </Text>
             </View>
           </View>
@@ -266,11 +267,12 @@ const styles = StyleSheet.create({
     backgroundColor: "#FFFFFF",
     // elevation: 4,
     borderWidth: 0,
-    height: RFValue(210),
+    // height: RFValue(210),
     borderTopRightRadius: 10,
     borderTopLeftRadius: 10,
     marginTop: RFValue(10),
     borderRadius: 2,
+    paddingBottom:RFValue(15)
   },
   title: {
     fontSize: RFValue(12),

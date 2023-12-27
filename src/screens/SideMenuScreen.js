@@ -435,7 +435,7 @@ export default function SideMenuScreen({ navigation }) {
               </View>
                 <View style={{marginTop: RFValue(60), marginBottom: RFValue(20),}}>
         <Text style={styles.footerText}>
-          Friend Verifier Version 3.0.0
+          Friend Verifier Version 2.0.1
           {/* {DeviceInfo.getVersion()} */}
         </Text>
         </View>

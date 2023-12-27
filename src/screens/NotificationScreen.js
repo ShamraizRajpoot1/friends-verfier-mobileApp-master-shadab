@@ -122,7 +122,7 @@ const toggle9 = () => {
 
           <View style={{ marginTop: RFValue(0) }}>
             <View style={styles.individualListIte}>
-              <Text style={styles.listText}>Credits</Text>
+              <Text style={styles.listText}>Low Credit Warnings</Text>
               <CustomSwitch
             onColor={'#4BD964'}
             value={credits}
@@ -202,7 +202,7 @@ const toggle9 = () => {
 
           <View style={{ marginTop: RFValue(0) }}>
             <View style={styles.individualListIte}>
-              <Text style={styles.listText}>Credits</Text>
+              <Text style={styles.listText}>Low Credit Warnings</Text>
               <CustomSwitch
             onColor={'#4BD964'}
             value={emailCredits}

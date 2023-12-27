@@ -386,7 +386,7 @@ const okmodal = ()=>{
   setAddModalVisible(false)
   setTimeout(() => {
     setAdd1ModalVisible(true)
-  }, 1000);
+  }, 10);
   // setAdd1ModalVisible(true)
 }
   return (
@@ -449,7 +449,7 @@ const okmodal = ()=>{
                 source={require("../../assets/icons/addtocontacts.png")}
               />
               <Text style={{ fontSize: RFValue(8), textAlign: "center" }}>
-                Add to{"\n"}Contact
+                Add to{"\n"}Contacts
               </Text>
             </TouchableOpacity>
             <TouchableOpacity style={styles.addc} onPress={()=>navigation.navigate('UpdateContact')}>
@@ -1713,7 +1713,7 @@ const okmodal = ()=>{
           </View>
         </View>
       </Modal>
-      <Modal
+     {isaddModalVisible && <Modal
         backdropOpacity={0.9}
         isVisible={isaddModalVisible}
         onBackdropPress={() => setAddModalVisible(false)}
@@ -1728,8 +1728,8 @@ your phone with this information.</Text>
 <TouchableOpacity onPress={() => setAddModalVisible(false)} style={styles.ok}><Text style={[styles.oktext,{color:'#FF0000'}]}>Cancel</Text></TouchableOpacity>
 </View>
         </View>
-      </Modal>
-      <Modal
+      </Modal>}
+      {isadd1ModalVisible && <Modal
         backdropOpacity={0.9}
         isVisible={isadd1ModalVisible}
         onBackdropPress={() => setAdd1ModalVisible(false)}
@@ -1743,7 +1743,7 @@ your phone with this information.</Text>
 
           </View>
         </View>
-      </Modal>
+      </Modal>}
     </View>
   );
 }

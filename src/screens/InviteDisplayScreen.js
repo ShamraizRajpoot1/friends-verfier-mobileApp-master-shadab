@@ -14,7 +14,7 @@ import {
 import React, { useState, useEffect } from "react";
 import { Entypo, Feather } from "@expo/vector-icons";
 import { RFValue } from "react-native-responsive-fontsize";
-// import Contacts from "react-native-contacts";
+import Contacts from "react-native-contacts";
 import { Platform, Linking } from "react-native";
 import Device from "../../src/constants/device";
 
@@ -96,25 +96,25 @@ export default function InviteDisplayScreen({ navigation, ContactsDatas }) {
   const [input, setInput] = useState("");
 
   const newContact = contactsState;
-  // console.log("Contacts",Contacts)
+  console.log("Contacts",Contacts)
 
   useEffect(() => {
-    // phoneContact();
+    phoneContact();
   }, []);
 
   const phoneContact = () => {
-    // Contacts.getAll()
-    //   .then((response) => {
-    //     // console.log(response)
-    //     // setContactsState(response);
-    //     getData(response);
-    //     setFilteredList(response);
-    //   })
-    //   .catch((e) => {
-    //     console.log(e);
-    //     alert("Permission to access contacts was denied");
-    //     console.warn("Permission to access contacts was denied");
-    //   });
+    Contacts.getAll()
+      .then((response) => {
+        // console.log(response)
+        // setContactsState(response);
+        getData(response);
+        setFilteredList(response);
+      })
+      .catch((e) => {
+        console.log(e);
+        alert("Permission to access contacts was denied");
+        console.warn("Permission to access contacts was denied");
+      });
   };
 
   // getting Contact Data
@@ -146,7 +146,7 @@ export default function InviteDisplayScreen({ navigation, ContactsDatas }) {
     function capitalize(string) {
       return string.charAt(0).toUpperCase() + string.slice(1).toLowerCase();
     }
-
+console.log('log',newData);
     setGetContact(newData);
 
     return;
@@ -419,7 +419,7 @@ const styles = StyleSheet.create({
   },
 
   headerTitle: {
-    fontSize: RFValue(18),
+    fontSize: RFValue(22),
     color: "#fff",
     fontFamily: "RegularText",
     // textAlign:"center",
