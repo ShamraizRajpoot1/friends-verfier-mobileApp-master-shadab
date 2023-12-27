@@ -826,9 +826,9 @@ export default function ResultsScreen({ navigation, route }) {
     }
     return (
       <View activeOpacity={0.5} style={styles.itemContainer}>
-        <View style={{marginLeft:10}}>
+        <View style={{marginLeft:10,marginTop:13}}>
           {Email ? (
-            <Text style={{ fontSize: 24, color: "black", fontWeight:'500' }}>{item?.EMAIL}</Text>
+            <Text style={{ fontSize: 28, color: "black", fontWeight:'500' }}>{item?.EMAIL}</Text>
           ) : (
             <Text style={{ fontSize: 24, color: "black" }}>
               {formatPhoneNumber(item?.PHONE)}
@@ -1060,14 +1060,17 @@ export default function ResultsScreen({ navigation, route }) {
                 {
                   backgroundColor: "#F5F5F5",
                   marginTop: 30,
-                  height: 40,
+                  height: 30,
                   padding: 0,
                   paddingHorizontal: 10,
+                  alignItems:'center',
+               
                 },
               ]}
             >
-              <RFIcon style={{ marginRight: 4, marginTop:2 }} />
-              <Text style={{ fontWeight: "bold", fontSize: 16 }}>
+             
+              <RFIcon style={{ marginRight: 4, alignSelf:'center',marginTop:7 }} />
+              <Text style={{ fontWeight: "bold", fontSize: 16,alignSelf:"center",alignItems:'center',marginTop:5 }}>
                 Record Found
               </Text>
             </View>

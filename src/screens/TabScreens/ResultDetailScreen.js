@@ -439,7 +439,7 @@ const okmodal = ()=>{
               marginTop: RFValue(15),
             }}
           >
-            <TouchableOpacity style={styles.addc} onPress={()=>setAddModalVisible(true)}>
+            <TouchableOpacity style={styles.addc} onPress={()=>{}}>
               <Image
                 style={{
                   borderRadius: RFValue(12),
@@ -1714,9 +1714,10 @@ const okmodal = ()=>{
         </View>
       </Modal>
      {isaddModalVisible && <Modal
-        backdropOpacity={0.9}
+        backdropOpacity={0.4}
         isVisible={isaddModalVisible}
         onBackdropPress={() => setAddModalVisible(false)}
+        animationIn={false}
       >
         <View style={styles.modalaContainer}>
         <Text style={{fontSize:RFValue(16),fontFamily:'BoldText',marginTop:RFValue(14)}}>Add to Contacts</Text>
@@ -1724,14 +1725,15 @@ const okmodal = ()=>{
           <Text style={{fontSize: RFValue(12),textAlign:'center',color:'#000000'}}>We will create a new saved contact to{"\n"}
 your phone with this information.</Text>
 <View style={styles.touchrow}>
-<TouchableOpacity onPress={okmodal} style={[styles.ok,{borderRightWidth: 1,borderColor: 'rgba(0,0,0,0.5)',}]}><Text style={styles.oktext}>OK</Text></TouchableOpacity>
-<TouchableOpacity onPress={() => setAddModalVisible(false)} style={styles.ok}><Text style={[styles.oktext,{color:'#FF0000'}]}>Cancel</Text></TouchableOpacity>
+<TouchableOpacity onPress={okmodal} style={[styles.ok,{borderRightWidth: 0.4,borderColor: 'gray',}]}><Text style={styles.oktext}>OK</Text></TouchableOpacity>
+<TouchableOpacity onPress={() => setAddModalVisible(false)} style={styles.ok}><Text style={styles.oktext}>Cancel</Text></TouchableOpacity>
 </View>
         </View>
       </Modal>}
       {isadd1ModalVisible && <Modal
-        backdropOpacity={0.9}
+        backdropOpacity={0.4}
         isVisible={isadd1ModalVisible}
+        animationIn={false}
         onBackdropPress={() => setAdd1ModalVisible(false)}
       >
         <View style={styles.modalaContainer}>
@@ -1751,11 +1753,11 @@ your phone with this information.</Text>
 const styles = StyleSheet.create({
   touchrow:{
     width:'100%',
-    borderTopWidth: 1,
-    borderColor: 'rgba(0,0,0,0.5)',
+    borderTopWidth: 0.3,
+    borderColor: 'gray',
     flexDirection:'row',
     height:RFValue(45),
-    marginTop: RFValue(15),
+    marginTop: RFValue(20),
   },
   ok:{
     width:'50%',
@@ -2008,12 +2010,13 @@ const styles = StyleSheet.create({
   },
   modalaContainer: {
     width: WIDTH/1.3,
-    height: "20%",
+    height: "17.5%",
     backgroundColor: "#fff",
     borderRadius: 12,
     alignSelf: "center",
     position: "absolute",
-    alignItems:'center'
+    alignItems:'center',
+    opacity:0.98
   },
   textinputCOntainer: {
     width: WIDTH - RFValue(40),
