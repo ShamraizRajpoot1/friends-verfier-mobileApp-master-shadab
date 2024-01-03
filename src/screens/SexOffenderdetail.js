@@ -25,7 +25,7 @@ const SexOffenderdetail = ({ navigation }) => {
     <View style={styles.container}>
       <View style={styles.homeHeader}>
         <View style={{ width: "15%" }}>
-          <TouchableOpacity onPress={() => navigation.goBack()}>
+        <TouchableOpacity style={{width:RFValue(20)}} onPress={() => navigation.goBack()}>
             <Image
               source={require("../assets/icons/back.png")}
               style={{ width: RFValue(10), height: RFValue(20) }}

@@ -9,8 +9,8 @@ const Header = (props) => {
     <View style={styles.homeHeader}>
     <View style={{width: '10%'}}>
       {props.Image && (
-        <TouchableOpacity
-          style={{marginLeft: 4}}
+        <TouchableOpacity 
+          style={{marginLeft: 4, width:RFValue(20)}}
           onPress={props.onPress}>
           <Image style={styles.back} source={require('../assets/icons/back.png')} />
         </TouchableOpacity>

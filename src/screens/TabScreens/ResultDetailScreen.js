@@ -397,7 +397,7 @@ const okmodal = ()=>{
         backgroundColor="#305A9C"
       />
       <View style={styles.homeHeader}>
-        <TouchableOpacity onPress={() => navigation.goBack()}>
+      <TouchableOpacity style={{width:RFValue(20)}} onPress={() => navigation.goBack()}>
           <Image
             source={require("../../assets/icons/back.png")}
             style={{ width: RFValue(10), height: RFValue(20) }}
@@ -763,90 +763,7 @@ const okmodal = ()=>{
               </View>
             </View>
           </View>
-          <TouchableOpacity
-            onPress={onPressAssociate}
-            style={styles.overViewContainer}
-          >
-            <View style={styles.overviewLeft}>
-              <Image
-                style={{ width: RFValue(20), height: RFValue(20) }}
-                source={require("../../assets/icons/associate.png")}
-              />
-              <Text
-                style={{
-                  ...styles.criminalRecordDetectedtext,
-                  fontFamily: "BoldText",
-                }}
-              >
-                Potential Associates
-              </Text>
-            </View>
-            {associate === "flex" ? (
-              <Feather name="chevron-down" size={28} color="black" />
-            ) : (
-              <Feather name="chevron-up" size={28} color="black" />
-            )}
-          </TouchableOpacity>
-          {data?.potientialAssociate?.length > 0 && (
-            <View
-              style={{ ...styles.resultDetailContainer, display: associate }}
-            >
-              {data?.potientialAssociate?.map((items, index) => (
-                <View style={{ marginTop: RFValue(18) }}>
-                  <Text
-                    style={{
-                      fontSize: RFValue(13),
-                      color: "#343538",
-                    }}
-                  >
-                    {toTitleCase(items?._source?.FIRST_NAME)}{" "}
-                    {toTitleCase(items?._source?.LAST_NAME)}
-                    {""}
-                    {items?.age && "  (" + items?.age + ")"}
-                    {/* Sally Jessy Raphael (87) */}
-                  </Text>
-
-                  <TouchableOpacity
-                    style={{
-                      width: RFValue(80),
-                      height: RFValue(18),
-                      marginTop: RFValue(10),
-                      justifyContent: "center",
-                      alignItems: "center",
-                      borderWidth: 1,
-                      borderColor: "#5979AE",
-                      borderRadius: 5,
-                    }}
-                    onPress={() => {
-                      var item = items?._source;
-                      item.age = items?.age;
-                      item.formattedDob = items?.formattedDob;
-                      var d0b = items?._index.includes("dob");
-                      if (d0b) {
-                        item.index = "dob";
-                      } else {
-                        item.index = "email";
-                      }
-                      navigation.push("ResultsScreen", {
-                        research: true,
-                        obj: items,
-                      });
-                    }}
-                  >
-                    <Text
-                      style={{
-                        fontSize: RFValue(8),
-                        color: "#5979AE",
-                        // fontFamily: "Medium",
-                      }}
-                    >
-                      Scan this Person
-                    </Text>
-                  </TouchableOpacity>
-                </View>
-              ))}
-            </View>
-          )}
+          
           <TouchableOpacity
             onPress={onPressCrminal}
             style={styles.overViewContainer}
@@ -1623,7 +1540,90 @@ const okmodal = ()=>{
               </View>
             )}
           </View>
+          <TouchableOpacity
+            onPress={onPressAssociate}
+            style={styles.overViewContainer}
+          >
+            <View style={styles.overviewLeft}>
+              <Image
+                style={{ width: RFValue(20), height: RFValue(20) }}
+                source={require("../../assets/icons/associate.png")}
+              />
+              <Text
+                style={{
+                  ...styles.criminalRecordDetectedtext,
+                  fontFamily: "BoldText",
+                }}
+              >
+                Potential Associates
+              </Text>
+            </View>
+            {associate === "flex" ? (
+              <Feather name="chevron-down" size={28} color="black" />
+            ) : (
+              <Feather name="chevron-up" size={28} color="black" />
+            )}
+          </TouchableOpacity>
+          {data?.potientialAssociate?.length > 0 && (
+            <View
+              style={{ ...styles.resultDetailContainer, display: associate }}
+            >
+              {data?.potientialAssociate?.map((items, index) => (
+                <View style={{ marginTop: RFValue(18) }}>
+                  <Text
+                    style={{
+                      fontSize: RFValue(13),
+                      color: "#343538",
+                    }}
+                  >
+                    {toTitleCase(items?._source?.FIRST_NAME)}{" "}
+                    {toTitleCase(items?._source?.LAST_NAME)}
+                    {""}
+                    {items?.age && "  (" + items?.age + ")"}
+                    {/* Sally Jessy Raphael (87) */}
+                  </Text>
 
+                  <TouchableOpacity
+                    style={{
+                      width: RFValue(80),
+                      height: RFValue(18),
+                      marginTop: RFValue(10),
+                      justifyContent: "center",
+                      alignItems: "center",
+                      borderWidth: 1,
+                      borderColor: "#5979AE",
+                      borderRadius: 5,
+                    }}
+                    onPress={() => {
+                      var item = items?._source;
+                      item.age = items?.age;
+                      item.formattedDob = items?.formattedDob;
+                      var d0b = items?._index.includes("dob");
+                      if (d0b) {
+                        item.index = "dob";
+                      } else {
+                        item.index = "email";
+                      }
+                      navigation.push("ResultsScreen", {
+                        research: true,
+                        obj: items,
+                      });
+                    }}
+                  >
+                    <Text
+                      style={{
+                        fontSize: RFValue(8),
+                        color: "#5979AE",
+                        // fontFamily: "Medium",
+                      }}
+                    >
+                      Scan this Person
+                    </Text>
+                  </TouchableOpacity>
+                </View>
+              ))}
+            </View>
+          )}
           <TouchableOpacity style={{ ...styles.overViewContainer }}>
             <View style={styles.overviewLeft}>
               <Ionicons

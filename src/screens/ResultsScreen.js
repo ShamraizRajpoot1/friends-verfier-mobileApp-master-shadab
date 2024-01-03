@@ -874,7 +874,7 @@ export default function ResultsScreen({ navigation, route }) {
         backgroundColor="#305A9C"
       />
       <View style={styles.homeHeader}>
-        <TouchableOpacity onPress={() => navigation.goBack()}>
+      <TouchableOpacity style={{width:RFValue(20)}} onPress={() => navigation.goBack()}>
           <Image
             source={require("../assets/icons/back.png")}
             style={{ width: RFValue(10), height: RFValue(20)}}
